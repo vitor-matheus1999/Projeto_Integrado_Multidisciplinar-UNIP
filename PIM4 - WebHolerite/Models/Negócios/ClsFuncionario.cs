@@ -14,7 +14,9 @@ namespace PIM4___WebHolerite.Models.Negócios
         private string cpfFuncionario;
         private double horasNaoTrabalhadas;
         private double horasExtras;
-        private string contato;
+        private string tipoContato;
+        private string descricaoContato;
+        private string senhaSistemaDesktop;
 
         public Funcionario() { }
 
@@ -27,6 +29,12 @@ namespace PIM4___WebHolerite.Models.Negócios
             this.cpfFuncionario = cpfFuncionario;
             this.horasNaoTrabalhadas = horasNaoTrabalhadas;
             this.horasExtras = horasExtras;
+        }
+
+        public Funcionario(string emailEmpresarial, string senhaSistemaDesktop)
+        {
+            this.descricaoContato = emailEmpresarial;
+            this.senhaSistemaDesktop = senhaSistemaDesktop;
         }
 
         public int GetIdFuncionario { get { return this.idFuncionario; } }
@@ -43,6 +51,11 @@ namespace PIM4___WebHolerite.Models.Negócios
         public double SetHorasNaoTrabalhadas { set { this.horasNaoTrabalhadas = value; } }
         public double GetHorasExtras { get { return this.horasExtras; } }
         public double SetHorasExtras { set { this.horasExtras = value; } }
+        public string GetTipoContato { get { return this.tipoContato; } }
+        public string SetTipoContato { set { this.tipoContato = value; } }
+        public string GetDescricaoContato { get { return this.descricaoContato; } }
+        public string SetDescricaoContato { set { this.descricaoContato = value; } }
+        public string GetSenhaSistemaDesktop { get { return this.senhaSistemaDesktop; } }
+        public string SetSenhaSistemaDesktop { set { this.senhaSistemaDesktop = value; } }
     }
-}
 }

@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using PIM4___WebHolerite.Models.Negócios;
+using System.Windows.Forms;
+
 
 namespace PIM4___WebHolerite.Models.Banco_de_Dados
 {
@@ -12,11 +14,11 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
         ClsConexaoSql conn = new ClsConexaoSql();
         SqlCommand sqlCmd = new SqlCommand();
 
+        Funcionario funcionario = new Funcionario();
+
         public List<Funcionario> GetInformacaoFuncionario()
         {
-            Funcionario funcionario = new Funcionario();
-
-            List<Funcionario> listaIdSetorFuncionario = new List<Funcionario>();
+            List<Funcionario> listaFuncionarios = new List<Funcionario>();
 
             sqlCmd.CommandText = "SELECT id_Funcionario, id_Setor,nome_Funcionario,sexo,cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras FROM TBfuncionario";
             sqlCmd.Connection = conn.conectar();
@@ -33,7 +35,7 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                     funcionario.SetHorasNaoTrabalhadas = dataReader.GetDouble(dataReader.GetOrdinal("horas_Nao_Trabalhadas"));
                     funcionario.SetHorasExtras = dataReader.GetDouble(dataReader.GetOrdinal("horas_Extras"));
 
-                    listaIdSetorFuncionario.Add(new Funcionario(idFuncionario: funcionario.GetIdFuncionario, idSetor: funcionario.GetIdSetor, nomeFuncionario: funcionario.GetNomeFuncionario, sexo: funcionario.GetSexo, cpfFuncionario: funcionario.GetCpfFuncionario, horasNaoTrabalhadas: funcionario.GetHorasNaoTrabalhadas, horasExtras: funcionario.GetHorasExtras));
+                    listaFuncionarios.Add(new Funcionario(idFuncionario: funcionario.GetIdFuncionario, idSetor: funcionario.GetIdSetor, nomeFuncionario: funcionario.GetNomeFuncionario, sexo: funcionario.GetSexo, cpfFuncionario: funcionario.GetCpfFuncionario, horasNaoTrabalhadas: funcionario.GetHorasNaoTrabalhadas, horasExtras: funcionario.GetHorasExtras));
                 }
                 dataReader.Close();
             }
@@ -47,7 +49,7 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
 
 
-            return listaIdSetorFuncionario;
+            return listaFuncionarios;
         }
 
         public void CadastrarDadosFuncionario(int idSetor, string nomeFuncionario, string sexo, string cpfFuncionario, double horasNaoTrabalhadas, double horasExtras)
@@ -76,5 +78,46 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
         }
 
+        public bool ChecarLoginSenha(string login, string senha)
+        {
+            List<Funcionario> loginSenha = new List<Funcionario>();
+
+            try
+            {
+                sqlCmd.Connection = conn.conectar();
+                sqlCmd.CommandText = "SELECT contatoFunc.descricao, senhaFuncRh.senha  FROM TBsenhaFuncionarioRH AS senhaFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaFuncRh.id_funcionario = contatoFunc.id_Funcionario WHERE tipo_Contato_Funcionario LIKE '%Empresarial'";
+
+                sqlCmd.Parameters.AddWithValue("@login",login);
+                sqlCmd.Parameters.AddWithValue("@senha",senha);
+                SqlDataReader dataReader = sqlCmd.ExecuteReader();
+               
+
+                while (dataReader.Read())
+                {
+
+                    funcionario.SetDescricaoContato = dataReader.GetString(dataReader.GetOrdinal("descricao"));
+                    funcionario.SetSenhaSistemaDesktop = dataReader.GetString(dataReader.GetOrdinal("senha"));
+
+                    loginSenha.Add(new Funcionario(emailEmpresarial: funcionario.GetDescricaoContato, senhaSistemaDesktop: funcionario.GetSenhaSistemaDesktop));
+                }
+
+                foreach( Funcionario funcionarioLoginSenha in loginSenha)
+                {
+                    if (login.Contains(funcionarioLoginSenha.GetDescricaoContato) && senha.Contains(funcionarioLoginSenha.GetSenhaSistemaDesktop))
+                    {
+                        return true;
+                    }
+                }
+
+                dataReader.Close();
+            }
+            catch (SqlException erro){ MessageBox.Show(erro.Message); }
+            finally 
+            {
+                
+                conn.desconectar(); 
+            }
+            return false;
+        }
     }
 }

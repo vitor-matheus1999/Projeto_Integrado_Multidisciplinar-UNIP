@@ -9,3 +9,27 @@ C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.csproj.CoreCompileInputs.cache
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.exe
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.pdb
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\PIM4 - WebHolerite.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.Optimization.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.Mvc.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.WebPages.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.Razor.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\PIM4 - WebHolerite.pdb
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\PIM4 - WebHolerite.dll.config
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.Optimization.xml
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.Mvc.xml
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.WebPages.xml
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.Razor.xml
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\pt-br\System.Web.Optimization.resources.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\pt-br\System.Web.Mvc.resources.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\pt-br\System.Web.WebPages.resources.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\pt-br\System.Web.WebPages.Razor.resources.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\pt-br\System.Web.Razor.resources.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\pt-br\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.csproj.CopyComplete
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.FormsHomeDeskHolerite.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\FontAwesome.Sharp.dll

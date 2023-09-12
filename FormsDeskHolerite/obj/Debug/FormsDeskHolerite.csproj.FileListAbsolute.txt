@@ -33,3 +33,9 @@ C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.csproj.CopyComplete
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.FormsHomeDeskHolerite.resources
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormCadastrar.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasBuscar.FormBuscar.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros.FormCadastrarFuncionario.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros.FormCadastrarEmpresa.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros.FormCadastrarSalario.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros.FormCadastrarSetor.resources

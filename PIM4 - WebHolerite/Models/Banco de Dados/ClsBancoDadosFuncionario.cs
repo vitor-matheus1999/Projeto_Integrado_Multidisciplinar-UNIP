@@ -85,7 +85,7 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             try
             {
                 sqlCmd.Connection = conn.conectar();
-                sqlCmd.CommandText = "SELECT contatoFunc.descricao, senhaFuncRh.senha  FROM TBsenhaFuncionarioRH AS senhaFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaFuncRh.id_funcionario = contatoFunc.id_Funcionario WHERE tipo_Contato_Funcionario LIKE '%Empresarial'";
+                sqlCmd.CommandText = "SELECT contatoFunc.descricao, senhaFuncRh.senha  FROM TBsenhaFuncionario AS senhaFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaFuncRh.id_funcionario = contatoFunc.id_Funcionario WHERE tipo_Contato_Funcionario LIKE '%Empresarial'";
 
                 sqlCmd.Parameters.AddWithValue("@login",login);
                 sqlCmd.Parameters.AddWithValue("@senha",senha);

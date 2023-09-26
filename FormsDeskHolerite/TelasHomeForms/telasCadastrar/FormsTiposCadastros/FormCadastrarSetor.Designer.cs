@@ -38,14 +38,22 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cargaHorariaComboBox = new System.Windows.Forms.ComboBox();
             this.salarioSetorComboBox = new System.Windows.Forms.ComboBox();
-            this.empresaPerteceSetorComboBox = new System.Windows.Forms.ComboBox();
+            this.empresaPertencenteSetorComboBox = new System.Windows.Forms.ComboBox();
             this.periodoTrabalhoComboBox = new System.Windows.Forms.ComboBox();
             this.nivelHirarquicoComboBox = new System.Windows.Forms.ComboBox();
             this.salvarInfoSetorButton = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.nomeSetorTextBox = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.escalaTrabalhoDiasCheckBox = new System.Windows.Forms.CheckBox();
+            this.escalaTrabalhoHorasCheckBox = new System.Windows.Forms.CheckBox();
+            this.escalaTrabalhoComboBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.nomeSetorTextBox = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label12
@@ -60,7 +68,7 @@
             // 
             // funcaoSetorTextBox
             // 
-            this.funcaoSetorTextBox.Location = new System.Drawing.Point(13, 147);
+            this.funcaoSetorTextBox.Location = new System.Drawing.Point(13, 254);
             this.funcaoSetorTextBox.Multiline = true;
             this.funcaoSetorTextBox.Name = "funcaoSetorTextBox";
             this.funcaoSetorTextBox.Size = new System.Drawing.Size(485, 87);
@@ -111,7 +119,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(12, 131);
+            this.label2.Location = new System.Drawing.Point(12, 238);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 86;
@@ -139,20 +147,23 @@
             // salarioSetorComboBox
             // 
             this.salarioSetorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.salarioSetorComboBox.Enabled = false;
             this.salarioSetorComboBox.FormattingEnabled = true;
             this.salarioSetorComboBox.Location = new System.Drawing.Point(355, 36);
             this.salarioSetorComboBox.Name = "salarioSetorComboBox";
             this.salarioSetorComboBox.Size = new System.Drawing.Size(148, 21);
             this.salarioSetorComboBox.TabIndex = 101;
+            this.salarioSetorComboBox.EnabledChanged += new System.EventHandler(this.salarioSetorComboBox_EnabledChanged);
             // 
-            // empresaPerteceSetorComboBox
+            // empresaPertencenteSetorComboBox
             // 
-            this.empresaPerteceSetorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.empresaPerteceSetorComboBox.FormattingEnabled = true;
-            this.empresaPerteceSetorComboBox.Location = new System.Drawing.Point(13, 36);
-            this.empresaPerteceSetorComboBox.Name = "empresaPerteceSetorComboBox";
-            this.empresaPerteceSetorComboBox.Size = new System.Drawing.Size(148, 21);
-            this.empresaPerteceSetorComboBox.TabIndex = 102;
+            this.empresaPertencenteSetorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.empresaPertencenteSetorComboBox.FormattingEnabled = true;
+            this.empresaPertencenteSetorComboBox.Location = new System.Drawing.Point(13, 36);
+            this.empresaPertencenteSetorComboBox.Name = "empresaPertencenteSetorComboBox";
+            this.empresaPertencenteSetorComboBox.Size = new System.Drawing.Size(148, 21);
+            this.empresaPertencenteSetorComboBox.TabIndex = 102;
+            this.empresaPertencenteSetorComboBox.SelectedIndexChanged += new System.EventHandler(this.empresaPertencenteSetorComboBox_SelectedIndexChanged);
             // 
             // periodoTrabalhoComboBox
             // 
@@ -182,7 +193,7 @@
             this.salvarInfoSetorButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(149)))), ((int)(((byte)(110)))));
             this.salvarInfoSetorButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.salvarInfoSetorButton.IconSize = 30;
-            this.salvarInfoSetorButton.Location = new System.Drawing.Point(491, 358);
+            this.salvarInfoSetorButton.Location = new System.Drawing.Point(103, 24);
             this.salvarInfoSetorButton.Name = "salvarInfoSetorButton";
             this.salvarInfoSetorButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.salvarInfoSetorButton.Size = new System.Drawing.Size(137, 34);
@@ -190,15 +201,18 @@
             this.salvarInfoSetorButton.Text = "Salvar";
             this.salvarInfoSetorButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.salvarInfoSetorButton.UseVisualStyleBackColor = false;
+            this.salvarInfoSetorButton.Click += new System.EventHandler(this.salvarInfoSetorButton_Click);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label27);
+            this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.nomeSetorTextBox);
             this.panel1.Controls.Add(this.nivelHirarquicoComboBox);
             this.panel1.Controls.Add(this.periodoTrabalhoComboBox);
-            this.panel1.Controls.Add(this.empresaPerteceSetorComboBox);
+            this.panel1.Controls.Add(this.empresaPertencenteSetorComboBox);
             this.panel1.Controls.Add(this.salarioSetorComboBox);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.funcaoSetorTextBox);
@@ -210,8 +224,73 @@
             this.panel1.Controls.Add(this.cargaHorariaComboBox);
             this.panel1.Location = new System.Drawing.Point(38, 98);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(525, 250);
+            this.panel1.Size = new System.Drawing.Size(525, 357);
             this.panel1.TabIndex = 105;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(10, 125);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(145, 20);
+            this.label27.TabIndex = 113;
+            this.label27.Text = "Escala de Trabalho";
+            // 
+            // panel6
+            // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.escalaTrabalhoDiasCheckBox);
+            this.panel6.Controls.Add(this.escalaTrabalhoHorasCheckBox);
+            this.panel6.Controls.Add(this.escalaTrabalhoComboBox);
+            this.panel6.Location = new System.Drawing.Point(13, 139);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(194, 76);
+            this.panel6.TabIndex = 112;
+            // 
+            // escalaTrabalhoDiasCheckBox
+            // 
+            this.escalaTrabalhoDiasCheckBox.AutoSize = true;
+            this.escalaTrabalhoDiasCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.escalaTrabalhoDiasCheckBox.Location = new System.Drawing.Point(92, 22);
+            this.escalaTrabalhoDiasCheckBox.Name = "escalaTrabalhoDiasCheckBox";
+            this.escalaTrabalhoDiasCheckBox.Size = new System.Drawing.Size(66, 17);
+            this.escalaTrabalhoDiasCheckBox.TabIndex = 109;
+            this.escalaTrabalhoDiasCheckBox.Text = "Por Dias";
+            this.escalaTrabalhoDiasCheckBox.UseVisualStyleBackColor = true;
+            this.escalaTrabalhoDiasCheckBox.Click += new System.EventHandler(this.escalaTrabalhoDiasCheckBox_Click);
+            // 
+            // escalaTrabalhoHorasCheckBox
+            // 
+            this.escalaTrabalhoHorasCheckBox.AutoSize = true;
+            this.escalaTrabalhoHorasCheckBox.ForeColor = System.Drawing.Color.Black;
+            this.escalaTrabalhoHorasCheckBox.Location = new System.Drawing.Point(13, 22);
+            this.escalaTrabalhoHorasCheckBox.Name = "escalaTrabalhoHorasCheckBox";
+            this.escalaTrabalhoHorasCheckBox.Size = new System.Drawing.Size(73, 17);
+            this.escalaTrabalhoHorasCheckBox.TabIndex = 110;
+            this.escalaTrabalhoHorasCheckBox.Text = "Por Horas";
+            this.escalaTrabalhoHorasCheckBox.UseVisualStyleBackColor = true;
+            this.escalaTrabalhoHorasCheckBox.Click += new System.EventHandler(this.escalaTrabalhoHorasCheckBox_Click);
+            // 
+            // escalaTrabalhoComboBox
+            // 
+            this.escalaTrabalhoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.escalaTrabalhoComboBox.FormattingEnabled = true;
+            this.escalaTrabalhoComboBox.Location = new System.Drawing.Point(13, 45);
+            this.escalaTrabalhoComboBox.Name = "escalaTrabalhoComboBox";
+            this.escalaTrabalhoComboBox.Size = new System.Drawing.Size(165, 21);
+            this.escalaTrabalhoComboBox.TabIndex = 107;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(187, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 106;
+            this.label3.Text = "Nome Setor";
             // 
             // nomeSetorTextBox
             // 
@@ -220,28 +299,32 @@
             this.nomeSetorTextBox.Size = new System.Drawing.Size(147, 20);
             this.nomeSetorTextBox.TabIndex = 105;
             // 
-            // label3
+            // panel2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(187, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 106;
-            this.label3.Text = "Nome Setor";
+            this.panel2.Controls.Add(this.salvarInfoSetorButton);
+            this.panel2.Location = new System.Drawing.Point(384, 461);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(253, 70);
+            this.panel2.TabIndex = 106;
             // 
             // FormCadastrarSetor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(185)))), ((int)(((byte)(215)))));
-            this.ClientSize = new System.Drawing.Size(640, 404);
+            this.ClientSize = new System.Drawing.Size(640, 531);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.salvarInfoSetorButton);
             this.Controls.Add(this.label11);
             this.Name = "FormCadastrarSetor";
             this.Text = "FormCadastrarSetor";
+            this.Load += new System.EventHandler(this.FormCadastrarSetor_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,11 +343,17 @@
         private System.Windows.Forms.ComboBox cargaHorariaComboBox;
         private FontAwesome.Sharp.IconButton salvarInfoSetorButton;
         private System.Windows.Forms.ComboBox salarioSetorComboBox;
-        private System.Windows.Forms.ComboBox empresaPerteceSetorComboBox;
+        private System.Windows.Forms.ComboBox empresaPertencenteSetorComboBox;
         private System.Windows.Forms.ComboBox periodoTrabalhoComboBox;
         private System.Windows.Forms.ComboBox nivelHirarquicoComboBox;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox nomeSetorTextBox;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.CheckBox escalaTrabalhoDiasCheckBox;
+        private System.Windows.Forms.CheckBox escalaTrabalhoHorasCheckBox;
+        private System.Windows.Forms.ComboBox escalaTrabalhoComboBox;
+        private System.Windows.Forms.Panel panel2;
     }
 }

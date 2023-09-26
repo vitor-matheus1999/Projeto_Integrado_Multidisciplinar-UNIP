@@ -125,14 +125,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Banco de Dados\ClsBancoDadosAdministradores.cs" />
     <Compile Include="Models\Banco de Dados\ClsBancoDadosEmpresa.cs" />
     <Compile Include="Models\Banco de Dados\ClsBancoDadosFuncionario.cs" />
     <Compile Include="Models\Banco de Dados\ClsBancoDadosSalario.cs" />
     <Compile Include="Models\Banco de Dados\ClsBancoDadosSetor.cs" />
     <Compile Include="Models\Banco de Dados\ClsBancoDadosSocios.cs" />
     <Compile Include="Models\Banco de Dados\ClsConexaoSQL.cs" />
-    <Compile Include="Models\Negócios\ClsAdministrador.cs" />
     <Compile Include="Models\Negócios\ClsEmpresa.cs" />
     <Compile Include="Models\Negócios\ClsFuncionario.cs" />
     <Compile Include="Models\Negócios\ClsSalario.cs" />

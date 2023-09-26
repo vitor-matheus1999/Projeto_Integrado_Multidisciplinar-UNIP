@@ -41,37 +41,53 @@
             this.cidadeTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.cepTextBox = new System.Windows.Forms.TextBox();
-            this.dataNascimentoDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.dataAberturaEmpresaDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.bairroTextBox = new System.Windows.Forms.TextBox();
             this.salvarInfoEmpresaButton = new FontAwesome.Sharp.IconButton();
             this.numResidenciaTextBox = new System.Windows.Forms.TextBox();
-            this.cpfTextBox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cnaeTextBox = new System.Windows.Forms.TextBox();
+            this.cnpjTextBox = new System.Windows.Forms.TextBox();
             this.enderecoTextBox = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.nomeTextBox = new System.Windows.Forms.TextBox();
+            this.atividadesEconomicasTextBox = new System.Windows.Forms.TextBox();
+            this.nomeEmpresarialFantasiaTextBox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.tipoContatoFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.tipoContatoComboBox = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.contatoFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.addContatoEmpresaButton = new FormsDeskHolerite.Design.ClsCircularBoxIcon();
             this.label15 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
-            this.tipoContatoFlowLayoutPanel.SuspendLayout();
-            this.contatoFlowLayoutPanel.SuspendLayout();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.tipoContatoEmpresaComboBoxCinco = new System.Windows.Forms.ComboBox();
+            this.contatoEmpresaTextBoxCinco = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.tipoContatoEmpresaComboBoxQuatro = new System.Windows.Forms.ComboBox();
+            this.contatoEmpresaTextBoxQuatro = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.tipoContatoEmpresaComboBoxTres = new System.Windows.Forms.ComboBox();
+            this.contatoEmpresaTextBoxTres = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.tipoContatoEmpresaComboBoxDois = new System.Windows.Forms.ComboBox();
+            this.contatoEmpresaTextBoxDois = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tipoContatoEmpresaComboBox = new System.Windows.Forms.ComboBox();
+            this.contatoEmpresaTextBox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.naturezaJuridicaTextBox = new System.Windows.Forms.TextBox();
+            this.addContatoEmpresaButton = new FormsDeskHolerite.Design.ClsCircularBoxIcon();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -148,7 +164,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(328, 67);
+            this.label9.Location = new System.Drawing.Point(4, 122);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(96, 13);
             this.label9.TabIndex = 67;
@@ -156,16 +172,16 @@
             // 
             // situacaoCadastralComboBox
             // 
-            this.situacaoCadastralComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.situacaoCadastralComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.situacaoCadastralComboBox.FormattingEnabled = true;
             this.situacaoCadastralComboBox.Items.AddRange(new object[] {
             "Ativa",
             "Inativa"});
-            this.situacaoCadastralComboBox.Location = new System.Drawing.Point(331, 85);
+            this.situacaoCadastralComboBox.Location = new System.Drawing.Point(7, 140);
             this.situacaoCadastralComboBox.Name = "situacaoCadastralComboBox";
             this.situacaoCadastralComboBox.Size = new System.Drawing.Size(148, 21);
             this.situacaoCadastralComboBox.TabIndex = 59;
+            this.situacaoCadastralComboBox.Text = "Insira a Situação Cadastral";
             // 
             // label10
             // 
@@ -201,17 +217,17 @@
             this.cepTextBox.Size = new System.Drawing.Size(148, 20);
             this.cepTextBox.TabIndex = 57;
             // 
-            // dataNascimentoDateTimePicker
+            // dataAberturaEmpresaDateTimePicker
             // 
-            this.dataNascimentoDateTimePicker.AllowDrop = true;
-            this.dataNascimentoDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dataNascimentoDateTimePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dataNascimentoDateTimePicker.Location = new System.Drawing.Point(168, 85);
-            this.dataNascimentoDateTimePicker.Name = "dataNascimentoDateTimePicker";
-            this.dataNascimentoDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dataNascimentoDateTimePicker.Size = new System.Drawing.Size(148, 20);
-            this.dataNascimentoDateTimePicker.TabIndex = 71;
-            this.dataNascimentoDateTimePicker.Value = new System.DateTime(2023, 9, 9, 0, 0, 0, 0);
+            this.dataAberturaEmpresaDateTimePicker.AllowDrop = true;
+            this.dataAberturaEmpresaDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dataAberturaEmpresaDateTimePicker.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dataAberturaEmpresaDateTimePicker.Location = new System.Drawing.Point(168, 85);
+            this.dataAberturaEmpresaDateTimePicker.Name = "dataAberturaEmpresaDateTimePicker";
+            this.dataAberturaEmpresaDateTimePicker.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dataAberturaEmpresaDateTimePicker.Size = new System.Drawing.Size(148, 20);
+            this.dataAberturaEmpresaDateTimePicker.TabIndex = 71;
+            this.dataAberturaEmpresaDateTimePicker.Value = new System.DateTime(2023, 9, 9, 0, 0, 0, 0);
             // 
             // bairroTextBox
             // 
@@ -222,7 +238,7 @@
             // 
             // salvarInfoEmpresaButton
             // 
-            this.salvarInfoEmpresaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.salvarInfoEmpresaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(212)))), ((int)(((byte)(194)))));
             this.salvarInfoEmpresaButton.FlatAppearance.BorderSize = 0;
             this.salvarInfoEmpresaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.salvarInfoEmpresaButton.ForeColor = System.Drawing.Color.Black;
@@ -230,7 +246,7 @@
             this.salvarInfoEmpresaButton.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(149)))), ((int)(((byte)(110)))));
             this.salvarInfoEmpresaButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.salvarInfoEmpresaButton.IconSize = 30;
-            this.salvarInfoEmpresaButton.Location = new System.Drawing.Point(401, 66);
+            this.salvarInfoEmpresaButton.Location = new System.Drawing.Point(449, 28);
             this.salvarInfoEmpresaButton.Name = "salvarInfoEmpresaButton";
             this.salvarInfoEmpresaButton.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
             this.salvarInfoEmpresaButton.Size = new System.Drawing.Size(137, 34);
@@ -238,6 +254,7 @@
             this.salvarInfoEmpresaButton.Text = "Salvar";
             this.salvarInfoEmpresaButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.salvarInfoEmpresaButton.UseVisualStyleBackColor = false;
+            this.salvarInfoEmpresaButton.Click += new System.EventHandler(this.salvarInfoEmpresaButton_Click);
             // 
             // numResidenciaTextBox
             // 
@@ -246,19 +263,19 @@
             this.numResidenciaTextBox.Size = new System.Drawing.Size(148, 20);
             this.numResidenciaTextBox.TabIndex = 55;
             // 
-            // cpfTextBox
+            // cnaeTextBox
             // 
-            this.cpfTextBox.Location = new System.Drawing.Point(167, 34);
-            this.cpfTextBox.Name = "cpfTextBox";
-            this.cpfTextBox.Size = new System.Drawing.Size(148, 20);
-            this.cpfTextBox.TabIndex = 54;
+            this.cnaeTextBox.Location = new System.Drawing.Point(167, 34);
+            this.cnaeTextBox.Name = "cnaeTextBox";
+            this.cnaeTextBox.Size = new System.Drawing.Size(148, 20);
+            this.cnaeTextBox.TabIndex = 54;
             // 
-            // textBox1
+            // cnpjTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 20);
-            this.textBox1.TabIndex = 74;
+            this.cnpjTextBox.Location = new System.Drawing.Point(7, 83);
+            this.cnpjTextBox.Name = "cnpjTextBox";
+            this.cnpjTextBox.Size = new System.Drawing.Size(143, 20);
+            this.cnpjTextBox.TabIndex = 74;
             // 
             // enderecoTextBox
             // 
@@ -267,25 +284,25 @@
             this.enderecoTextBox.Size = new System.Drawing.Size(148, 20);
             this.enderecoTextBox.TabIndex = 53;
             // 
-            // textBox2
+            // atividadesEconomicasTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(331, 34);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(148, 20);
-            this.textBox2.TabIndex = 75;
+            this.atividadesEconomicasTextBox.Location = new System.Drawing.Point(333, 85);
+            this.atividadesEconomicasTextBox.Name = "atividadesEconomicasTextBox";
+            this.atividadesEconomicasTextBox.Size = new System.Drawing.Size(148, 20);
+            this.atividadesEconomicasTextBox.TabIndex = 75;
             // 
-            // nomeTextBox
+            // nomeEmpresarialFantasiaTextBox
             // 
-            this.nomeTextBox.Location = new System.Drawing.Point(7, 34);
-            this.nomeTextBox.Name = "nomeTextBox";
-            this.nomeTextBox.Size = new System.Drawing.Size(148, 20);
-            this.nomeTextBox.TabIndex = 52;
+            this.nomeEmpresarialFantasiaTextBox.Location = new System.Drawing.Point(7, 34);
+            this.nomeEmpresarialFantasiaTextBox.Name = "nomeEmpresarialFantasiaTextBox";
+            this.nomeEmpresarialFantasiaTextBox.Size = new System.Drawing.Size(148, 20);
+            this.nomeEmpresarialFantasiaTextBox.TabIndex = 52;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(329, 18);
+            this.label12.Location = new System.Drawing.Point(331, 69);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 13);
             this.label12.TabIndex = 76;
@@ -296,134 +313,51 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label11.Location = new System.Drawing.Point(10, 45);
+            this.label11.Location = new System.Drawing.Point(12, 83);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(350, 31);
             this.label11.TabIndex = 73;
             this.label11.Text = "Insira os dados da Empresa";
-            // 
-            // panel1
-            // 
-            this.panel1.AutoScroll = true;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.contatoFlowLayoutPanel);
-            this.panel1.Controls.Add(this.tipoContatoFlowLayoutPanel);
-            this.panel1.ForeColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(18, 519);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(368, 116);
-            this.panel1.TabIndex = 84;
-            // 
-            // tipoContatoFlowLayoutPanel
-            // 
-            this.tipoContatoFlowLayoutPanel.Controls.Add(this.label13);
-            this.tipoContatoFlowLayoutPanel.Controls.Add(this.tipoContatoComboBox);
-            this.tipoContatoFlowLayoutPanel.Location = new System.Drawing.Point(6, 1);
-            this.tipoContatoFlowLayoutPanel.Name = "tipoContatoFlowLayoutPanel";
-            this.tipoContatoFlowLayoutPanel.Size = new System.Drawing.Size(158, 227);
-            this.tipoContatoFlowLayoutPanel.TabIndex = 82;
-            // 
-            // tipoContatoComboBox
-            // 
-            this.tipoContatoComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tipoContatoComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.tipoContatoComboBox.FormattingEnabled = true;
-            this.tipoContatoComboBox.Location = new System.Drawing.Point(3, 16);
-            this.tipoContatoComboBox.Name = "tipoContatoComboBox";
-            this.tipoContatoComboBox.Size = new System.Drawing.Size(147, 21);
-            this.tipoContatoComboBox.TabIndex = 77;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(86, 13);
-            this.label13.TabIndex = 79;
-            this.label13.Text = "Tipo de Contato:";
-            // 
-            // contatoFlowLayoutPanel
-            // 
-            this.contatoFlowLayoutPanel.Controls.Add(this.label14);
-            this.contatoFlowLayoutPanel.Controls.Add(this.textBox3);
-            this.contatoFlowLayoutPanel.Location = new System.Drawing.Point(166, 1);
-            this.contatoFlowLayoutPanel.Name = "contatoFlowLayoutPanel";
-            this.contatoFlowLayoutPanel.Size = new System.Drawing.Size(147, 227);
-            this.contatoFlowLayoutPanel.TabIndex = 83;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(3, 16);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 20);
-            this.textBox3.TabIndex = 78;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(3, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 13);
-            this.label14.TabIndex = 80;
-            this.label14.Text = "Contato";
-            // 
-            // addContatoEmpresaButton
-            // 
-            this.addContatoEmpresaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.addContatoEmpresaButton.FlatAppearance.BorderSize = 0;
-            this.addContatoEmpresaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addContatoEmpresaButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.addContatoEmpresaButton.IconColor = System.Drawing.Color.DimGray;
-            this.addContatoEmpresaButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.addContatoEmpresaButton.IconSize = 20;
-            this.addContatoEmpresaButton.Location = new System.Drawing.Point(106, 490);
-            this.addContatoEmpresaButton.Name = "addContatoEmpresaButton";
-            this.addContatoEmpresaButton.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
-            this.addContatoEmpresaButton.Size = new System.Drawing.Size(23, 22);
-            this.addContatoEmpresaButton.TabIndex = 81;
-            this.addContatoEmpresaButton.UseVisualStyleBackColor = false;
-            this.addContatoEmpresaButton.Click += new System.EventHandler(this.clsCircularBoxIcon1_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Black;
-            this.label15.Location = new System.Drawing.Point(14, 490);
+            this.label15.Location = new System.Drawing.Point(18, 563);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(87, 25);
             this.label15.TabIndex = 85;
             this.label15.Text = "Contato";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.naturezaJuridicaTextBox);
             this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.nomeTextBox);
-            this.panel2.Controls.Add(this.textBox2);
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.cpfTextBox);
-            this.panel2.Controls.Add(this.dataNascimentoDateTimePicker);
+            this.panel2.Controls.Add(this.nomeEmpresarialFantasiaTextBox);
+            this.panel2.Controls.Add(this.atividadesEconomicasTextBox);
+            this.panel2.Controls.Add(this.cnpjTextBox);
+            this.panel2.Controls.Add(this.cnaeTextBox);
+            this.panel2.Controls.Add(this.dataAberturaEmpresaDateTimePicker);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.situacaoCadastralComboBox);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label5);
-            this.panel2.Location = new System.Drawing.Point(19, 137);
+            this.panel2.Location = new System.Drawing.Point(21, 175);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(541, 134);
+            this.panel2.Size = new System.Drawing.Size(522, 180);
             this.panel2.TabIndex = 86;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.salvarInfoEmpresaButton);
-            this.panel3.Location = new System.Drawing.Point(50, 661);
+            this.panel3.Location = new System.Drawing.Point(-6, 719);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(547, 100);
+            this.panel3.Size = new System.Drawing.Size(606, 77);
             this.panel3.TabIndex = 87;
             // 
             // panel4
@@ -439,9 +373,9 @@
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.cidadeTextBox);
             this.panel4.Controls.Add(this.label10);
-            this.panel4.Location = new System.Drawing.Point(18, 320);
+            this.panel4.Location = new System.Drawing.Point(22, 402);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(540, 137);
+            this.panel4.Size = new System.Drawing.Size(521, 137);
             this.panel4.TabIndex = 88;
             // 
             // label16
@@ -449,7 +383,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.Black;
-            this.label16.Location = new System.Drawing.Point(14, 292);
+            this.label16.Location = new System.Drawing.Point(18, 374);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 25);
             this.label16.TabIndex = 89;
@@ -460,11 +394,330 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(14, 109);
+            this.label17.Location = new System.Drawing.Point(16, 147);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(221, 25);
             this.label17.TabIndex = 90;
             this.label17.Text = "Informações Jurídicas";
+            // 
+            // panel5
+            // 
+            this.panel5.AutoScroll = true;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.panel6);
+            this.panel5.ForeColor = System.Drawing.Color.Black;
+            this.panel5.Location = new System.Drawing.Point(23, 591);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(368, 122);
+            this.panel5.TabIndex = 88;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label25);
+            this.panel6.Controls.Add(this.label26);
+            this.panel6.Controls.Add(this.tipoContatoEmpresaComboBoxCinco);
+            this.panel6.Controls.Add(this.contatoEmpresaTextBoxCinco);
+            this.panel6.Controls.Add(this.label23);
+            this.panel6.Controls.Add(this.label24);
+            this.panel6.Controls.Add(this.tipoContatoEmpresaComboBoxQuatro);
+            this.panel6.Controls.Add(this.contatoEmpresaTextBoxQuatro);
+            this.panel6.Controls.Add(this.label21);
+            this.panel6.Controls.Add(this.label22);
+            this.panel6.Controls.Add(this.tipoContatoEmpresaComboBoxTres);
+            this.panel6.Controls.Add(this.contatoEmpresaTextBoxTres);
+            this.panel6.Controls.Add(this.label19);
+            this.panel6.Controls.Add(this.label20);
+            this.panel6.Controls.Add(this.tipoContatoEmpresaComboBoxDois);
+            this.panel6.Controls.Add(this.contatoEmpresaTextBoxDois);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Controls.Add(this.label13);
+            this.panel6.Controls.Add(this.tipoContatoEmpresaComboBox);
+            this.panel6.Controls.Add(this.contatoEmpresaTextBox);
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(298, 259);
+            this.panel6.TabIndex = 0;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Enabled = false;
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(167, 216);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(44, 13);
+            this.label25.TabIndex = 100;
+            this.label25.Text = "Contato";
+            this.label25.Visible = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Enabled = false;
+            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.Location = new System.Drawing.Point(3, 219);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(86, 13);
+            this.label26.TabIndex = 99;
+            this.label26.Text = "Tipo de Contato:";
+            this.label26.Visible = false;
+            // 
+            // tipoContatoEmpresaComboBoxCinco
+            // 
+            this.tipoContatoEmpresaComboBoxCinco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoContatoEmpresaComboBoxCinco.Enabled = false;
+            this.tipoContatoEmpresaComboBoxCinco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tipoContatoEmpresaComboBoxCinco.FormattingEnabled = true;
+            this.tipoContatoEmpresaComboBoxCinco.Items.AddRange(new object[] {
+            "E-mail Pessoal",
+            "E-mail Empresarial",
+            "Telefone Celular",
+            "Telefone Residêncial",
+            "Rede Social"});
+            this.tipoContatoEmpresaComboBoxCinco.Location = new System.Drawing.Point(3, 235);
+            this.tipoContatoEmpresaComboBoxCinco.Name = "tipoContatoEmpresaComboBoxCinco";
+            this.tipoContatoEmpresaComboBoxCinco.Size = new System.Drawing.Size(154, 21);
+            this.tipoContatoEmpresaComboBoxCinco.TabIndex = 97;
+            this.tipoContatoEmpresaComboBoxCinco.Visible = false;
+            // 
+            // contatoEmpresaTextBoxCinco
+            // 
+            this.contatoEmpresaTextBoxCinco.Enabled = false;
+            this.contatoEmpresaTextBoxCinco.Location = new System.Drawing.Point(170, 236);
+            this.contatoEmpresaTextBoxCinco.Name = "contatoEmpresaTextBoxCinco";
+            this.contatoEmpresaTextBoxCinco.Size = new System.Drawing.Size(119, 20);
+            this.contatoEmpresaTextBoxCinco.TabIndex = 98;
+            this.contatoEmpresaTextBoxCinco.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Enabled = false;
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(167, 167);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(44, 13);
+            this.label23.TabIndex = 96;
+            this.label23.Text = "Contato";
+            this.label23.Visible = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Enabled = false;
+            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.Location = new System.Drawing.Point(3, 167);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(86, 13);
+            this.label24.TabIndex = 95;
+            this.label24.Text = "Tipo de Contato:";
+            this.label24.Visible = false;
+            // 
+            // tipoContatoEmpresaComboBoxQuatro
+            // 
+            this.tipoContatoEmpresaComboBoxQuatro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoContatoEmpresaComboBoxQuatro.Enabled = false;
+            this.tipoContatoEmpresaComboBoxQuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tipoContatoEmpresaComboBoxQuatro.FormattingEnabled = true;
+            this.tipoContatoEmpresaComboBoxQuatro.Items.AddRange(new object[] {
+            "E-mail Pessoal",
+            "E-mail Empresarial",
+            "Telefone Celular",
+            "Telefone Residêncial",
+            "Rede Social"});
+            this.tipoContatoEmpresaComboBoxQuatro.Location = new System.Drawing.Point(3, 183);
+            this.tipoContatoEmpresaComboBoxQuatro.Name = "tipoContatoEmpresaComboBoxQuatro";
+            this.tipoContatoEmpresaComboBoxQuatro.Size = new System.Drawing.Size(154, 21);
+            this.tipoContatoEmpresaComboBoxQuatro.TabIndex = 93;
+            this.tipoContatoEmpresaComboBoxQuatro.Visible = false;
+            // 
+            // contatoEmpresaTextBoxQuatro
+            // 
+            this.contatoEmpresaTextBoxQuatro.Enabled = false;
+            this.contatoEmpresaTextBoxQuatro.Location = new System.Drawing.Point(170, 184);
+            this.contatoEmpresaTextBoxQuatro.Name = "contatoEmpresaTextBoxQuatro";
+            this.contatoEmpresaTextBoxQuatro.Size = new System.Drawing.Size(119, 20);
+            this.contatoEmpresaTextBoxQuatro.TabIndex = 94;
+            this.contatoEmpresaTextBoxQuatro.Visible = false;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Enabled = false;
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(167, 118);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(44, 13);
+            this.label21.TabIndex = 92;
+            this.label21.Text = "Contato";
+            this.label21.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Enabled = false;
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(3, 117);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(86, 13);
+            this.label22.TabIndex = 91;
+            this.label22.Text = "Tipo de Contato:";
+            this.label22.Visible = false;
+            // 
+            // tipoContatoEmpresaComboBoxTres
+            // 
+            this.tipoContatoEmpresaComboBoxTres.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoContatoEmpresaComboBoxTres.Enabled = false;
+            this.tipoContatoEmpresaComboBoxTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tipoContatoEmpresaComboBoxTres.FormattingEnabled = true;
+            this.tipoContatoEmpresaComboBoxTres.Items.AddRange(new object[] {
+            "E-mail Pessoal",
+            "E-mail Empresarial",
+            "Telefone Celular",
+            "Telefone Residêncial",
+            "Rede Social"});
+            this.tipoContatoEmpresaComboBoxTres.Location = new System.Drawing.Point(3, 133);
+            this.tipoContatoEmpresaComboBoxTres.Name = "tipoContatoEmpresaComboBoxTres";
+            this.tipoContatoEmpresaComboBoxTres.Size = new System.Drawing.Size(154, 21);
+            this.tipoContatoEmpresaComboBoxTres.TabIndex = 89;
+            this.tipoContatoEmpresaComboBoxTres.Visible = false;
+            // 
+            // contatoEmpresaTextBoxTres
+            // 
+            this.contatoEmpresaTextBoxTres.Enabled = false;
+            this.contatoEmpresaTextBoxTres.Location = new System.Drawing.Point(170, 134);
+            this.contatoEmpresaTextBoxTres.Name = "contatoEmpresaTextBoxTres";
+            this.contatoEmpresaTextBoxTres.Size = new System.Drawing.Size(119, 20);
+            this.contatoEmpresaTextBoxTres.TabIndex = 90;
+            this.contatoEmpresaTextBoxTres.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Enabled = false;
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(167, 64);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.TabIndex = 88;
+            this.label19.Text = "Contato";
+            this.label19.Visible = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Enabled = false;
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(3, 64);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(86, 13);
+            this.label20.TabIndex = 87;
+            this.label20.Text = "Tipo de Contato:";
+            this.label20.Visible = false;
+            // 
+            // tipoContatoEmpresaComboBoxDois
+            // 
+            this.tipoContatoEmpresaComboBoxDois.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoContatoEmpresaComboBoxDois.Enabled = false;
+            this.tipoContatoEmpresaComboBoxDois.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tipoContatoEmpresaComboBoxDois.FormattingEnabled = true;
+            this.tipoContatoEmpresaComboBoxDois.Items.AddRange(new object[] {
+            "E-mail Pessoal",
+            "E-mail Empresarial",
+            "Telefone Celular",
+            "Telefone Residêncial",
+            "Rede Social"});
+            this.tipoContatoEmpresaComboBoxDois.Location = new System.Drawing.Point(3, 80);
+            this.tipoContatoEmpresaComboBoxDois.Name = "tipoContatoEmpresaComboBoxDois";
+            this.tipoContatoEmpresaComboBoxDois.Size = new System.Drawing.Size(154, 21);
+            this.tipoContatoEmpresaComboBoxDois.TabIndex = 85;
+            this.tipoContatoEmpresaComboBoxDois.Visible = false;
+            // 
+            // contatoEmpresaTextBoxDois
+            // 
+            this.contatoEmpresaTextBoxDois.Enabled = false;
+            this.contatoEmpresaTextBoxDois.Location = new System.Drawing.Point(170, 81);
+            this.contatoEmpresaTextBoxDois.Name = "contatoEmpresaTextBoxDois";
+            this.contatoEmpresaTextBoxDois.Size = new System.Drawing.Size(119, 20);
+            this.contatoEmpresaTextBoxDois.TabIndex = 86;
+            this.contatoEmpresaTextBoxDois.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Black;
+            this.label14.Location = new System.Drawing.Point(167, 9);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(44, 13);
+            this.label14.TabIndex = 84;
+            this.label14.Text = "Contato";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(3, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(86, 13);
+            this.label13.TabIndex = 83;
+            this.label13.Text = "Tipo de Contato:";
+            // 
+            // tipoContatoEmpresaComboBox
+            // 
+            this.tipoContatoEmpresaComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tipoContatoEmpresaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.tipoContatoEmpresaComboBox.FormattingEnabled = true;
+            this.tipoContatoEmpresaComboBox.Items.AddRange(new object[] {
+            "E-mail Pessoal",
+            "E-mail Empresarial",
+            "Telefone Celular",
+            "Telefone Residêncial",
+            "Rede Social"});
+            this.tipoContatoEmpresaComboBox.Location = new System.Drawing.Point(3, 25);
+            this.tipoContatoEmpresaComboBox.Name = "tipoContatoEmpresaComboBox";
+            this.tipoContatoEmpresaComboBox.Size = new System.Drawing.Size(154, 21);
+            this.tipoContatoEmpresaComboBox.TabIndex = 81;
+            // 
+            // contatoEmpresaTextBox
+            // 
+            this.contatoEmpresaTextBox.Location = new System.Drawing.Point(170, 26);
+            this.contatoEmpresaTextBox.Name = "contatoEmpresaTextBox";
+            this.contatoEmpresaTextBox.Size = new System.Drawing.Size(119, 20);
+            this.contatoEmpresaTextBox.TabIndex = 82;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(331, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(91, 13);
+            this.label18.TabIndex = 78;
+            this.label18.Text = "Natureza Jurídica";
+            // 
+            // naturezaJuridicaTextBox
+            // 
+            this.naturezaJuridicaTextBox.Location = new System.Drawing.Point(333, 34);
+            this.naturezaJuridicaTextBox.Name = "naturezaJuridicaTextBox";
+            this.naturezaJuridicaTextBox.Size = new System.Drawing.Size(148, 20);
+            this.naturezaJuridicaTextBox.TabIndex = 77;
+            // 
+            // addContatoEmpresaButton
+            // 
+            this.addContatoEmpresaButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.addContatoEmpresaButton.FlatAppearance.BorderSize = 0;
+            this.addContatoEmpresaButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addContatoEmpresaButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.addContatoEmpresaButton.IconColor = System.Drawing.Color.DimGray;
+            this.addContatoEmpresaButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.addContatoEmpresaButton.IconSize = 20;
+            this.addContatoEmpresaButton.Location = new System.Drawing.Point(110, 563);
+            this.addContatoEmpresaButton.Name = "addContatoEmpresaButton";
+            this.addContatoEmpresaButton.Padding = new System.Windows.Forms.Padding(2, 3, 0, 0);
+            this.addContatoEmpresaButton.Size = new System.Drawing.Size(23, 22);
+            this.addContatoEmpresaButton.TabIndex = 81;
+            this.addContatoEmpresaButton.UseVisualStyleBackColor = false;
+            this.addContatoEmpresaButton.Click += new System.EventHandler(this.clsCircularBoxIcon1_Click);
             // 
             // FormCadastrarEmpresa
             // 
@@ -472,7 +725,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(185)))), ((int)(((byte)(215)))));
-            this.ClientSize = new System.Drawing.Size(600, 763);
+            this.ClientSize = new System.Drawing.Size(600, 804);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.panel4);
@@ -481,19 +735,16 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.addContatoEmpresaButton);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.panel1);
             this.Name = "FormCadastrarEmpresa";
             this.Text = "FormCadastrarEmpresa";
-            this.panel1.ResumeLayout(false);
-            this.tipoContatoFlowLayoutPanel.ResumeLayout(false);
-            this.tipoContatoFlowLayoutPanel.PerformLayout();
-            this.contatoFlowLayoutPanel.ResumeLayout(false);
-            this.contatoFlowLayoutPanel.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -514,24 +765,17 @@
         private System.Windows.Forms.TextBox cidadeTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox cepTextBox;
-        private System.Windows.Forms.DateTimePicker dataNascimentoDateTimePicker;
+        private System.Windows.Forms.DateTimePicker dataAberturaEmpresaDateTimePicker;
         private System.Windows.Forms.TextBox bairroTextBox;
         private FontAwesome.Sharp.IconButton salvarInfoEmpresaButton;
         private System.Windows.Forms.TextBox numResidenciaTextBox;
-        private System.Windows.Forms.TextBox cpfTextBox;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox cnaeTextBox;
+        private System.Windows.Forms.TextBox cnpjTextBox;
         private System.Windows.Forms.TextBox enderecoTextBox;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox nomeTextBox;
+        private System.Windows.Forms.TextBox atividadesEconomicasTextBox;
+        private System.Windows.Forms.TextBox nomeEmpresarialFantasiaTextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel contatoFlowLayoutPanel;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.FlowLayoutPanel tipoContatoFlowLayoutPanel;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox tipoContatoComboBox;
         private Design.ClsCircularBoxIcon addContatoEmpresaButton;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel2;
@@ -539,5 +783,29 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.ComboBox tipoContatoEmpresaComboBoxCinco;
+        private System.Windows.Forms.TextBox contatoEmpresaTextBoxCinco;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox tipoContatoEmpresaComboBoxQuatro;
+        private System.Windows.Forms.TextBox contatoEmpresaTextBoxQuatro;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox tipoContatoEmpresaComboBoxTres;
+        private System.Windows.Forms.TextBox contatoEmpresaTextBoxTres;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox tipoContatoEmpresaComboBoxDois;
+        private System.Windows.Forms.TextBox contatoEmpresaTextBoxDois;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox tipoContatoEmpresaComboBox;
+        private System.Windows.Forms.TextBox contatoEmpresaTextBox;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox naturezaJuridicaTextBox;
     }
 }

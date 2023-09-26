@@ -128,6 +128,7 @@
             this.textBoxSenha.TabIndex = 9;
             this.textBoxSenha.Text = " Insira sua senha";
             this.textBoxSenha.Click += new System.EventHandler(this.textBoxSenha_Click);
+            this.textBoxSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSenha_KeyDown);
             // 
             // textBoxLogin
             // 
@@ -140,6 +141,7 @@
             this.textBoxLogin.TabIndex = 8;
             this.textBoxLogin.Text = "Insira seu e-mail empresarial";
             this.textBoxLogin.Click += new System.EventHandler(this.textBoxLogin_Click);
+            this.textBoxLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxLogin_KeyDown);
             // 
             // logarButton
             // 

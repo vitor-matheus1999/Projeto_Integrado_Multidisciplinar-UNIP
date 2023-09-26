@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.homeCadastrarPanel = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cadSocioAdmButton = new FontAwesome.Sharp.IconButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.cadFuncButton = new FontAwesome.Sharp.IconButton();
@@ -43,21 +46,18 @@
             this.cadSalarioButton = new FontAwesome.Sharp.IconButton();
             this.guiaHomePanel = new System.Windows.Forms.Panel();
             this.novoCadastroButton = new FontAwesome.Sharp.IconButton();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cadSocioAdmButton = new FontAwesome.Sharp.IconButton();
             this.clsCircularBoxIcon2 = new FormsDeskHolerite.Design.ClsCircularBoxIcon();
             this.clsCirclePanel4 = new FormsDeskHolerite.Design.ClsCirclePanel();
             this.clsCirclePanel2 = new FormsDeskHolerite.Design.ClsCirclePanel();
             this.clsCirclePanel3 = new FormsDeskHolerite.Design.ClsCirclePanel();
             this.clsCircularBoxIcon1 = new FormsDeskHolerite.Design.ClsCircularBoxIcon();
             this.homeCadastrarPanel.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.guiaHomePanel.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // homeCadastrarPanel
@@ -81,6 +81,45 @@
             this.homeCadastrarPanel.TabIndex = 5;
             this.homeCadastrarPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.homeCadastrarPanel_Paint);
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(190)))), ((int)(((byte)(232)))));
+            this.panel5.Controls.Add(this.label5);
+            this.panel5.Controls.Add(this.cadSocioAdmButton);
+            this.panel5.Location = new System.Drawing.Point(261, 182);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(102, 173);
+            this.panel5.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.ForeColor = System.Drawing.Color.Black;
+            this.label5.Location = new System.Drawing.Point(10, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(89, 52);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Criar cadastro \r\npara Sócios e Administradores";
+            // 
+            // cadSocioAdmButton
+            // 
+            this.cadSocioAdmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(102)))), ((int)(((byte)(125)))));
+            this.cadSocioAdmButton.FlatAppearance.BorderSize = 0;
+            this.cadSocioAdmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cadSocioAdmButton.ForeColor = System.Drawing.Color.Transparent;
+            this.cadSocioAdmButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.cadSocioAdmButton.IconColor = System.Drawing.Color.White;
+            this.cadSocioAdmButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cadSocioAdmButton.IconSize = 20;
+            this.cadSocioAdmButton.Location = new System.Drawing.Point(13, 137);
+            this.cadSocioAdmButton.Name = "cadSocioAdmButton";
+            this.cadSocioAdmButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.cadSocioAdmButton.Size = new System.Drawing.Size(77, 26);
+            this.cadSocioAdmButton.TabIndex = 3;
+            this.cadSocioAdmButton.Text = "Criar";
+            this.cadSocioAdmButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.cadSocioAdmButton.UseVisualStyleBackColor = false;
+            this.cadSocioAdmButton.Click += new System.EventHandler(this.cadSocioAdmButton_Click);
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(190)))), ((int)(((byte)(232)))));
@@ -94,6 +133,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(15, 42);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(75, 39);
@@ -133,6 +173,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(15, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 26);
@@ -172,6 +213,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(14, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(75, 26);
@@ -211,6 +253,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(13, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 26);
@@ -267,44 +310,6 @@
             this.novoCadastroButton.UseVisualStyleBackColor = false;
             this.novoCadastroButton.Visible = false;
             this.novoCadastroButton.Click += new System.EventHandler(this.novoCadastroButton_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(190)))), ((int)(((byte)(232)))));
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.cadSocioAdmButton);
-            this.panel5.Location = new System.Drawing.Point(261, 182);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(102, 173);
-            this.panel5.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(10, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 52);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Criar cadastro \r\npara Sócios e Administradores";
-            // 
-            // cadSocioAdmButton
-            // 
-            this.cadSocioAdmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(102)))), ((int)(((byte)(125)))));
-            this.cadSocioAdmButton.FlatAppearance.BorderSize = 0;
-            this.cadSocioAdmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cadSocioAdmButton.ForeColor = System.Drawing.Color.Transparent;
-            this.cadSocioAdmButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.cadSocioAdmButton.IconColor = System.Drawing.Color.White;
-            this.cadSocioAdmButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.cadSocioAdmButton.IconSize = 20;
-            this.cadSocioAdmButton.Location = new System.Drawing.Point(13, 137);
-            this.cadSocioAdmButton.Name = "cadSocioAdmButton";
-            this.cadSocioAdmButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.cadSocioAdmButton.Size = new System.Drawing.Size(77, 26);
-            this.cadSocioAdmButton.TabIndex = 3;
-            this.cadSocioAdmButton.Text = "Criar";
-            this.cadSocioAdmButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.cadSocioAdmButton.UseVisualStyleBackColor = false;
-            this.cadSocioAdmButton.Click += new System.EventHandler(this.cadSocioAdmButton_Click);
             // 
             // clsCircularBoxIcon2
             // 
@@ -378,9 +383,11 @@
             this.ClientSize = new System.Drawing.Size(640, 394);
             this.Controls.Add(this.guiaHomePanel);
             this.Controls.Add(this.homeCadastrarPanel);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FormCadastrar";
             this.Text = "FormCadastrar";
             this.homeCadastrarPanel.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -390,7 +397,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.guiaHomePanel.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

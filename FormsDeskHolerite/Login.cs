@@ -1,5 +1,6 @@
 ﻿using FormsDeskHolerite.TelasHomeForms;
 using PIM4___WebHolerite.Models.Banco_de_Dados;
+using PIM4___WebHolerite.Models.Negócios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace FormsDeskHolerite
 {
     public partial class Login : Form
     {
+        ClsBancoDadosFuncionario bdFuncionario = new ClsBancoDadosFuncionario();
         public Login()
         {
             InitializeComponent();
@@ -51,9 +53,7 @@ namespace FormsDeskHolerite
         }
         private void logarButton_Click(object sender, EventArgs e)
         {
-            BancoDadosFuncionario bdFuncionario = new BancoDadosFuncionario();
-
-            if(bdFuncionario.ChecarLoginSenha(textBoxLogin.Text, textBoxSenha.Text) == true)
+            if(bdFuncionario.GetLoginSenha(textBoxLogin.Text, textBoxSenha.Text) == true)
             {
                 var homeDeskHolerite = new FormsHomeDeskHolerite();
                 homeDeskHolerite.Show();
@@ -64,7 +64,6 @@ namespace FormsDeskHolerite
                 MessageBox.Show("Senha incorreta");
             }
         }
-
         protected override void WndProc(ref Message m)
         {
             const int WM_NCCALCSIZE = 0x0083;
@@ -74,13 +73,10 @@ namespace FormsDeskHolerite
             }
             base.WndProc(ref m);
         }
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
-
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int IParam);
-   
         private void loginPanel_MouseDown(object sender, MouseEventArgs e)
         {
 
@@ -91,10 +87,41 @@ namespace FormsDeskHolerite
             }
 
         }
-
         private void closeButtonLogin_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        private void textBoxLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (bdFuncionario.GetLoginSenha(textBoxLogin.Text, textBoxSenha.Text) == true)
+                {
+                    var homeDeskHolerite = new FormsHomeDeskHolerite();
+                    homeDeskHolerite.Show();
+                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Senha incorreta");
+                }
+            }
+        }
+        private void textBoxSenha_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (bdFuncionario.GetLoginSenha(textBoxLogin.Text, textBoxSenha.Text) == true)
+                {
+                    var homeDeskHolerite = new FormsHomeDeskHolerite();
+                    homeDeskHolerite.Show();
+                    this.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Senha incorreta");
+                }
+            }
         }
     }
 }

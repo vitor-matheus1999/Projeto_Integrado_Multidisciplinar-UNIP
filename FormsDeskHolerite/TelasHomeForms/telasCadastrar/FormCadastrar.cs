@@ -24,56 +24,55 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar
         public FormCadastrar()
         {
             InitializeComponent();
+
         }
 
         private void cadSalarioButton_Click(object sender, EventArgs e)
         {
-            var formSalario = new FormCadastrarSalario();
+            ShowChildForm.openChildForm(new FormCadastrarSalario(), homeCadastrarPanel);
             guiaHomePanel.Visible = true;
             novoCadastroButton.Visible = true;
-            ShowChildForm.openChildForm(new FormCadastrarSalario(), homeCadastrarPanel);
         }
 
         private void cadEmpresaButton_Click(object sender, EventArgs e)
         {
-            var formEmpresa = new FormCadastrarEmpresa();
+            ShowChildForm.openChildForm(new FormCadastrarEmpresa(), homeCadastrarPanel);
             guiaHomePanel.Visible = true;
             novoCadastroButton.Visible = true;
-            ShowChildForm.openChildForm(new FormCadastrarEmpresa(), homeCadastrarPanel);
         }
 
         private void cadSetorButton_Click(object sender, EventArgs e)
         {
-            var formSetor = new FormCadastrarSetor();
+
+            ShowChildForm.openChildForm(new FormCadastrarSetor(), homeCadastrarPanel);
             guiaHomePanel.Visible = true;
             novoCadastroButton.Visible = true;
-            ShowChildForm.openChildForm(new FormCadastrarSetor(), homeCadastrarPanel);
         }
 
         private void cadFuncButton_Click(object sender, EventArgs e)
         {
-            var formFuncionario = new FormCadastrarFuncionario();
+            ShowChildForm.openChildForm(new FormCadastrarFuncionario(), homeCadastrarPanel);
             guiaHomePanel.Visible = true;
             novoCadastroButton.Visible = true;
-            ShowChildForm.openChildForm(new FormCadastrarFuncionario(), homeCadastrarPanel);
         }
 
         private void novoCadastroButton_Click(object sender, EventArgs e)
-        {
-            var formCadFunc = new FormCadastrarFuncionario();         
+        {       
             ShowChildForm.openChildForm(new  FormCadastrar(), homeCadastrarPanel);
             guiaHomePanel.Visible = false;
             novoCadastroButton.Visible = false;            
         }
+        private void cadSocioAdmButton_Click(object sender, EventArgs e)
+        {
+            ShowChildForm.openChildForm(new FormCadastrarSocioAdministrador(), homeCadastrarPanel);
+            guiaHomePanel.Visible = true;
+            novoCadastroButton.Visible = true;
+        }
 
         private void homeCadastrarPanel_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
-        private void cadSocioAdmButton_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

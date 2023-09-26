@@ -39,3 +39,4 @@ C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros.FormCadastrarEmpresa.resources
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros.FormCadastrarSalario.resources
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros.FormCadastrarSetor.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros.FormCadastrarSocioAdministrador.resources

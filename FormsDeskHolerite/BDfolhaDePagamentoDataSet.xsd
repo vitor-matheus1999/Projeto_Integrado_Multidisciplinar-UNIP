@@ -28,13 +28,13 @@
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="BDfolhaDePagamentoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="BDfolhaDePagamentoDataSet" msprop:Generator_DataSetName="BDfolhaDePagamentoDataSet">
+  <xs:element name="BDfolhaDePagamentoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="BDfolhaDePagamentoDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDfolhaDePagamentoDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="TBsetor" msprop:Generator_RowEvHandlerName="TBsetorRowChangeEventHandler" msprop:Generator_RowDeletedName="TBsetorRowDeleted" msprop:Generator_RowDeletingName="TBsetorRowDeleting" msprop:Generator_RowEvArgName="TBsetorRowChangeEvent" msprop:Generator_TablePropName="TBsetor" msprop:Generator_RowChangedName="TBsetorRowChanged" msprop:Generator_RowChangingName="TBsetorRowChanging" msprop:Generator_TableClassName="TBsetorDataTable" msprop:Generator_RowClassName="TBsetorRow" msprop:Generator_TableVarName="tableTBsetor" msprop:Generator_UserTableName="TBsetor">
+        <xs:element name="TBsetor" msprop:Generator_RowClassName="TBsetorRow" msprop:Generator_RowEvHandlerName="TBsetorRowChangeEventHandler" msprop:Generator_RowDeletedName="TBsetorRowDeleted" msprop:Generator_RowDeletingName="TBsetorRowDeleting" msprop:Generator_RowEvArgName="TBsetorRowChangeEvent" msprop:Generator_TablePropName="TBsetor" msprop:Generator_RowChangedName="TBsetorRowChanged" msprop:Generator_UserTableName="TBsetor" msprop:Generator_RowChangingName="TBsetorRowChanging" msprop:Generator_TableClassName="TBsetorDataTable" msprop:Generator_TableVarName="tableTBsetor">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="funcao_setor" msprop:Generator_ColumnPropNameInRow="funcao_setor" msprop:Generator_ColumnPropNameInTable="funcao_setorColumn" msprop:Generator_ColumnVarNameInTable="columnfuncao_setor" msprop:Generator_UserColumnName="funcao_setor">
+              <xs:element name="funcao_setor" msprop:Generator_UserColumnName="funcao_setor" msprop:Generator_ColumnPropNameInTable="funcao_setorColumn" msprop:Generator_ColumnPropNameInRow="funcao_setor" msprop:Generator_ColumnVarNameInTable="columnfuncao_setor">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="60" />

@@ -159,7 +159,7 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
             if (admPanelCheckBox.Checked)
             {
 
-                if(empresaAdmComboBox.SelectedIndex == 0 || ((DataRowView)funcionarioAdmcomboBox.SelectedItem).Row.Field<int>("id_Funcionario").Equals(null))
+                if(empresaAdmComboBox.SelectedIndex == 0 || funcionarioAdmcomboBox.SelectedIndex == 0)
                 {
                     MessageBox.Show("Campos de cadastro nulos.");
                     return;

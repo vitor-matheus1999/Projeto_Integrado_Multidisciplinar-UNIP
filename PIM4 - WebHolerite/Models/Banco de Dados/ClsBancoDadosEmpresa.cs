@@ -62,7 +62,7 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
             return idEmpresa;
         }
-        public void SetDadosEmpresa(string nomeEmpresarialFantasia, string CNAE, string CNPJ, string situacaoCadastral, string naturezaJuridica, string dataAbertura, string atividadesEconomicas)
+        public bool SetDadosEmpresa(string nomeEmpresarialFantasia, string CNAE, string CNPJ, string situacaoCadastral, string naturezaJuridica, string dataAbertura, string atividadesEconomicas)
         {
             try
             {
@@ -83,13 +83,15 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             catch (SqlException erro)
             {
                 MessageBox.Show(erro.Message);
+                return false;
             }
             finally
             {
                 conn.desconectar();
             }
+            return true;
         }
-        public void SetDadosEmpresa(int idEmpresa, string rua, string numeroEmpresa, string bairro, string cep, string cidade)
+        public bool SetDadosEmpresa(int idEmpresa, string rua, string numeroEmpresa, string bairro, string cep, string cidade)
         {
             try
             {
@@ -110,13 +112,15 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             catch (SqlException erro)
             {
                 MessageBox.Show(erro.Message);
+                return false;
             }
             finally
             {
                 conn.desconectar();
             }
+            return true;
         }     
-        public void SetDadosEmpresa(int idEmpresa, string tipoContatoEmpresa, string descricaoContatoEmpresa) 
+        public bool SetDadosEmpresa(int idEmpresa, string tipoContatoEmpresa, string descricaoContatoEmpresa) 
         {
             try
             {
@@ -134,11 +138,13 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             catch (SqlException erro)
             {
                 MessageBox.Show(erro.Message);
+                return false;
             }
             finally
             {
                 conn.desconectar();
             }
+            return true;
         }
     }
 }

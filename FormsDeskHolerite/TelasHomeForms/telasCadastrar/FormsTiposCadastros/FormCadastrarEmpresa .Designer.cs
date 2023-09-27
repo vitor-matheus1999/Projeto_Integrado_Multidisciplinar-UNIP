@@ -54,6 +54,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.naturezaJuridicaTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -80,8 +82,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tipoContatoEmpresaComboBox = new System.Windows.Forms.ComboBox();
             this.contatoEmpresaTextBox = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.naturezaJuridicaTextBox = new System.Windows.Forms.TextBox();
             this.addContatoEmpresaButton = new FormsDeskHolerite.Design.ClsCircularBoxIcon();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -172,16 +172,17 @@
             // 
             // situacaoCadastralComboBox
             // 
+            this.situacaoCadastralComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.situacaoCadastralComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.situacaoCadastralComboBox.FormattingEnabled = true;
             this.situacaoCadastralComboBox.Items.AddRange(new object[] {
+            "Escolha a Situação Cadastral",
             "Ativa",
             "Inativa"});
             this.situacaoCadastralComboBox.Location = new System.Drawing.Point(7, 140);
             this.situacaoCadastralComboBox.Name = "situacaoCadastralComboBox";
             this.situacaoCadastralComboBox.Size = new System.Drawing.Size(148, 21);
             this.situacaoCadastralComboBox.TabIndex = 59;
-            this.situacaoCadastralComboBox.Text = "Insira a Situação Cadastral";
             // 
             // label10
             // 
@@ -352,6 +353,23 @@
             this.panel2.Size = new System.Drawing.Size(522, 180);
             this.panel2.TabIndex = 86;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(331, 18);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(91, 13);
+            this.label18.TabIndex = 78;
+            this.label18.Text = "Natureza Jurídica";
+            // 
+            // naturezaJuridicaTextBox
+            // 
+            this.naturezaJuridicaTextBox.Location = new System.Drawing.Point(333, 34);
+            this.naturezaJuridicaTextBox.Name = "naturezaJuridicaTextBox";
+            this.naturezaJuridicaTextBox.Size = new System.Drawing.Size(148, 20);
+            this.naturezaJuridicaTextBox.TabIndex = 77;
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.salvarInfoEmpresaButton);
@@ -469,6 +487,7 @@
             this.tipoContatoEmpresaComboBoxCinco.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tipoContatoEmpresaComboBoxCinco.FormattingEnabled = true;
             this.tipoContatoEmpresaComboBoxCinco.Items.AddRange(new object[] {
+            "Selecione o Tipo de Contato",
             "E-mail Pessoal",
             "E-mail Empresarial",
             "Telefone Celular",
@@ -520,6 +539,7 @@
             this.tipoContatoEmpresaComboBoxQuatro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tipoContatoEmpresaComboBoxQuatro.FormattingEnabled = true;
             this.tipoContatoEmpresaComboBoxQuatro.Items.AddRange(new object[] {
+            "Selecione o Tipo de Contato",
             "E-mail Pessoal",
             "E-mail Empresarial",
             "Telefone Celular",
@@ -571,6 +591,7 @@
             this.tipoContatoEmpresaComboBoxTres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tipoContatoEmpresaComboBoxTres.FormattingEnabled = true;
             this.tipoContatoEmpresaComboBoxTres.Items.AddRange(new object[] {
+            "Selecione o Tipo de Contato",
             "E-mail Pessoal",
             "E-mail Empresarial",
             "Telefone Celular",
@@ -622,6 +643,7 @@
             this.tipoContatoEmpresaComboBoxDois.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tipoContatoEmpresaComboBoxDois.FormattingEnabled = true;
             this.tipoContatoEmpresaComboBoxDois.Items.AddRange(new object[] {
+            "Selecione o Tipo de Contato",
             "E-mail Pessoal",
             "E-mail Empresarial",
             "Telefone Celular",
@@ -668,6 +690,7 @@
             this.tipoContatoEmpresaComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.tipoContatoEmpresaComboBox.FormattingEnabled = true;
             this.tipoContatoEmpresaComboBox.Items.AddRange(new object[] {
+            "Selecione o Tipo de Contato",
             "E-mail Pessoal",
             "E-mail Empresarial",
             "Telefone Celular",
@@ -684,23 +707,6 @@
             this.contatoEmpresaTextBox.Name = "contatoEmpresaTextBox";
             this.contatoEmpresaTextBox.Size = new System.Drawing.Size(119, 20);
             this.contatoEmpresaTextBox.TabIndex = 82;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.Color.Black;
-            this.label18.Location = new System.Drawing.Point(331, 18);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(91, 13);
-            this.label18.TabIndex = 78;
-            this.label18.Text = "Natureza Jurídica";
-            // 
-            // naturezaJuridicaTextBox
-            // 
-            this.naturezaJuridicaTextBox.Location = new System.Drawing.Point(333, 34);
-            this.naturezaJuridicaTextBox.Name = "naturezaJuridicaTextBox";
-            this.naturezaJuridicaTextBox.Size = new System.Drawing.Size(148, 20);
-            this.naturezaJuridicaTextBox.TabIndex = 77;
             // 
             // addContatoEmpresaButton
             // 

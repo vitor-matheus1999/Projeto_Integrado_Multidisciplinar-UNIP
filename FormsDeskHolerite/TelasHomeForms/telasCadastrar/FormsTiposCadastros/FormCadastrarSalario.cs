@@ -85,6 +85,11 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
             float descontoINSS = 0;
 
             #region Tratamento Campos Salário
+            if(salarioBrutoTextBox.Text == null || empresaDistribuidoraSalaraioComboBox.SelectedIndex == 0 || descontoValeAlimentacaoComboBox.SelectedIndex == 0 || descontoValeTransporteComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Por Favor preencha os campos em branco");
+                return;
+            }
             if (descontoINSSTextBox.Text.Contains(","))
             {
                 descontoINSSTextBox.Text.Replace(',', '.');
@@ -141,7 +146,7 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
                 empresaDistribuidoraSalaraioComboBox.SelectedIndex = 0;
                 descontoINSSTextBox.Text = "0";
                 salarioEstagiarioCheckBox.Checked = false;
-                MessageBox.Show("Dados Salvos.");
+                MessageBox.Show("Dados Salvos com Sucesso.");
             }
 
             

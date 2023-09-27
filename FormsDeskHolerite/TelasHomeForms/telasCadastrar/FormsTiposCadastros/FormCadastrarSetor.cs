@@ -18,6 +18,11 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
         public FormCadastrarSetor()
         {
             InitializeComponent();
+            empresaPertencenteSetorComboBox.TabIndex = 0;
+            salarioSetorComboBox.TabIndex = 0;
+            nivelHirarquicoComboBox.TabIndex = 0;
+            periodoTrabalhoComboBox.TabIndex = 0;
+            cargaHorariaComboBox.TabIndex = 0;
         }
         private void FormCadastrarSetor_Load(object sender, EventArgs e)
         {
@@ -61,7 +66,6 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
         private void salarioSetorComboBox_EnabledChanged(object sender, EventArgs e)
         {
             bdSetor.GetSalariosComboBox(salarioSetorComboBox, Convert.ToInt32(empresaPertencenteSetorComboBox.SelectedValue));
-            salarioSetorComboBox.Text = "Selecione o Salário";
         }
         private void empresaPertencenteSetorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -119,9 +123,28 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
         }
         private void salvarInfoSetorButton_Click(object sender, EventArgs e)
         {
+            if (empresaPertencenteSetorComboBox.SelectedIndex == 0 || nomeSetorTextBox.Text == null || salarioSetorComboBox.SelectedIndex == 0 || nivelHirarquicoComboBox.SelectedIndex == 0 || periodoTrabalhoComboBox.SelectedIndex == 0 || cargaHorariaComboBox.SelectedIndex == 0 || escalaTrabalhoHorasCheckBox.Checked == false && escalaTrabalhoDiasCheckBox.Checked == false || escalaTrabalhoComboBox.SelectedIndex == 0 || funcaoSetorTextBox.Text == null)
+            {
+                MessageBox.Show("Por favor preencha os campos em branco");
+                return;
+            }
 
-            bdSetor.SetDadosSetor(Int32.Parse(empresaPertencenteSetorComboBox.SelectedValue.ToString()), Int32.Parse(salarioSetorComboBox.SelectedValue.ToString()), nomeSetorTextBox.Text, nivelHirarquicoComboBox.Text, funcaoSetorTextBox.Text, periodoTrabalhoComboBox.Text, escalaTrabalhoComboBox.Text, cargaHorariaComboBox.Text);
-            MessageBox.Show("Dados salvos com Sucesso");
+            var setSetor = bdSetor.SetDadosSetor(Int32.Parse(empresaPertencenteSetorComboBox.SelectedValue.ToString()), Int32.Parse(salarioSetorComboBox.SelectedValue.ToString()), nomeSetorTextBox.Text, nivelHirarquicoComboBox.Text, funcaoSetorTextBox.Text, periodoTrabalhoComboBox.Text, escalaTrabalhoComboBox.Text, cargaHorariaComboBox.Text);
+
+            if(setSetor == true)
+            {
+                empresaPertencenteSetorComboBox.SelectedIndex = 0;
+                nomeSetorTextBox.Clear();
+                salarioSetorComboBox.SelectedIndex = 0;
+                nivelHirarquicoComboBox.SelectedIndex = 0;
+                periodoTrabalhoComboBox.SelectedIndex = 0;
+                cargaHorariaComboBox.SelectedIndex = 0;
+                escalaTrabalhoHorasCheckBox.Checked = false;
+                escalaTrabalhoDiasCheckBox.Checked = false;
+                escalaTrabalhoComboBox.SelectedIndex = 0;
+                funcaoSetorTextBox.Clear();
+                MessageBox.Show("Dados salvos com Sucesso");
+            }
         }
     }
 }

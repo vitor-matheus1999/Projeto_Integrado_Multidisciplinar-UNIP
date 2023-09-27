@@ -25,71 +25,8 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
         public FormCadastrarEmpresa()
         {
             InitializeComponent();
-            #region Tabela Contato Empresa Um
-            DataTable tabela = new DataTable();
-            DataRow itemLinha = tabela.NewRow();
-            tabela.Columns.Add("Tipo-Contato");
-            tabela.Rows.Add("Escolha o tipo de Contato");
-            tabela.Rows.Add("E-mail Empresarial");
-            tabela.Rows.Add("E-mail Pessoal");
-            tabela.Rows.Add("Telefone Celular");
-            tabela.Rows.Add("Telefone Residêncial");
-            tabela.Rows.Add("Rede Social");
-            tipoContatoEmpresaComboBox.DataSource = tabela;
-            tipoContatoEmpresaComboBox.DisplayMember = "Tipo-Contato";
-            #endregion
-            #region Tabela Contato Empresa Dois
-            DataTable tabelaDois = new DataTable();
-            DataRow itemLinhaDois = tabelaDois.NewRow();
-            tabelaDois.Columns.Add("Tipo-Contato");
-            tabelaDois.Rows.Add("Escolha o tipo de Contato");
-            tabelaDois.Rows.Add("E-mail Empresarial");
-            tabelaDois.Rows.Add("E-mail Pessoal");
-            tabelaDois.Rows.Add("Telefone Celular");
-            tabelaDois.Rows.Add("Telefone Residêncial");
-            tabelaDois.Rows.Add("Rede Social");
-            tipoContatoEmpresaComboBoxDois.DataSource = tabelaDois;
-            tipoContatoEmpresaComboBoxDois.DisplayMember = "Tipo-Contato";
-            #endregion
-            #region Tabela Contato Empresa Tres
-            DataTable tabelaTres = new DataTable();
-            DataRow itemLinhaTres = tabelaTres.NewRow();
-            tabelaTres.Columns.Add("Tipo-Contato");
-            tabelaTres.Rows.Add("Escolha o tipo de Contato");
-            tabelaTres.Rows.Add("E-mail Empresarial");
-            tabelaTres.Rows.Add("E-mail Pessoal");
-            tabelaTres.Rows.Add("Telefone Celular");
-            tabelaTres.Rows.Add("Telefone Residêncial");
-            tabelaTres.Rows.Add("Rede Social");
-            tipoContatoEmpresaComboBoxDois.DataSource = tabelaTres;
-            tipoContatoEmpresaComboBoxDois.DisplayMember = "Tipo-Contato";
-            #endregion
-            #region Tabela Contato Empresa Quatro
-            DataTable tabelaQuatro = new DataTable();
-            DataRow itemLinhaQuatro = tabelaQuatro.NewRow();
-            tabelaQuatro.Columns.Add("Tipo-Contato");
-            tabelaQuatro.Rows.Add("Escolha o tipo de Contato");
-            tabelaQuatro.Rows.Add("E-mail Empresarial");
-            tabelaQuatro.Rows.Add("E-mail Pessoal");
-            tabelaQuatro.Rows.Add("Telefone Celular");
-            tabelaQuatro.Rows.Add("Telefone Residêncial");
-            tabelaQuatro.Rows.Add("Rede Social");
-            tipoContatoEmpresaComboBoxTres.DataSource = tabelaQuatro;
-            tipoContatoEmpresaComboBoxTres.DisplayMember = "Tipo-Contato";
-            #endregion
-            #region Tabela Contato Empresa Cinco
-            DataTable tabelaCinco = new DataTable();
-            DataRow itemLinhaCinco = tabela.NewRow();
-            tabelaCinco.Columns.Add("Tipo-Contato");
-            tabelaCinco.Rows.Add("Escolha o tipo de Contato");
-            tabelaCinco.Rows.Add("E-mail Empresarial");
-            tabelaCinco.Rows.Add("E-mail Pessoal");
-            tabelaCinco.Rows.Add("Telefone Celular");
-            tabelaCinco.Rows.Add("Telefone Residêncial");
-            tabelaCinco.Rows.Add("Rede Social");
-            tipoContatoEmpresaComboBoxQuatro.DataSource = tabelaCinco;
-            tipoContatoEmpresaComboBoxQuatro.DisplayMember = "Tipo-Contato";
-            #endregion
+            situacaoCadastralComboBox.SelectedIndex = 0;
+            tipoContatoEmpresaComboBox.SelectedIndex = 0;
         }
 
 
@@ -104,6 +41,7 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
                 label19.Visible = true;
                 tipoContatoEmpresaComboBoxDois.Enabled = true;
                 tipoContatoEmpresaComboBoxDois.Visible = true;
+                tipoContatoEmpresaComboBoxDois.SelectedIndex = 0;
 
             }
             else if (i == 2)
@@ -114,6 +52,7 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
                 label21.Visible = true;
                 tipoContatoEmpresaComboBoxTres.Enabled = true;
                 tipoContatoEmpresaComboBoxTres.Visible = true;
+                tipoContatoEmpresaComboBoxTres.SelectedIndex = 0;
             }
             else if (i == 3)
             {
@@ -123,6 +62,7 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
                 label23.Visible = true;
                 tipoContatoEmpresaComboBoxQuatro.Enabled = true;
                 tipoContatoEmpresaComboBoxQuatro.Visible = true;
+                tipoContatoEmpresaComboBoxQuatro.SelectedIndex = 0;
             }
             else if (i == 4)
             {
@@ -132,6 +72,7 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
                 label25.Visible = true;
                 tipoContatoEmpresaComboBoxCinco.Enabled = true;
                 tipoContatoEmpresaComboBoxCinco.Visible = true;
+                tipoContatoEmpresaComboBoxCinco.SelectedIndex = 0;
             }
             else
             {
@@ -141,29 +82,97 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
 
         private void salvarInfoEmpresaButton_Click(object sender, EventArgs e)
         {
-            bdEmpresa.SetDadosEmpresa(nomeEmpresarialFantasiaTextBox.Text, cnaeTextBox.Text, cnpjTextBox.Text, situacaoCadastralComboBox.Text, naturezaJuridicaTextBox.Text, this.dataAberturaEmpresaDateTimePicker.Text, atividadesEconomicasTextBox.Text);
+            bool validacaoCadastroEmpresa = false;
+            bool validacaoCadastroEnderecoEmpresa = false;
+            bool validacaoCadastroContatoEmpresa = false;
+
+            #region Tratamento Campos 
+            if (nomeEmpresarialFantasiaTextBox.Text == null || cnaeTextBox.Text == null || naturezaJuridicaTextBox.Text == null || cnpjTextBox.Text == null || situacaoCadastralComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Por favor preencha os campos em branco");
+                return;
+            }
+            else if (enderecoTextBox.Text == null || numResidenciaTextBox.Text == null || cepTextBox.Text == null || bairroTextBox.Text == null || cidadeTextBox.Text == null)
+            {
+                MessageBox.Show("Por favor preencha os campos em branco");
+                return;
+            }
+            else if (tipoContatoEmpresaComboBox.SelectedIndex == 0 || contatoEmpresaTextBox.Text == null || tipoContatoEmpresaComboBoxDois.Enabled == true && tipoContatoEmpresaComboBoxDois.SelectedIndex == 0 || contatoEmpresaTextBoxDois.Enabled == true && contatoEmpresaTextBoxDois.Text == null || tipoContatoEmpresaComboBoxTres.Enabled == true && tipoContatoEmpresaComboBoxTres.SelectedIndex == 0 || contatoEmpresaTextBoxTres.Enabled == true && contatoEmpresaTextBoxTres.Text == null || tipoContatoEmpresaComboBoxQuatro.Enabled == true && tipoContatoEmpresaComboBoxQuatro.SelectedIndex == 0 || contatoEmpresaTextBoxQuatro.Enabled == true && contatoEmpresaTextBoxQuatro.Text == null || tipoContatoEmpresaComboBoxCinco.Enabled == true && tipoContatoEmpresaComboBoxCinco.SelectedIndex == 0 || contatoEmpresaTextBoxCinco.Enabled == true && contatoEmpresaTextBoxCinco.Text == null)
+            {
+                MessageBox.Show("Por favor preencha os campos em branco");
+                return;
+            }
+            #endregion
+
+            validacaoCadastroEmpresa = bdEmpresa.SetDadosEmpresa(nomeEmpresarialFantasiaTextBox.Text, cnaeTextBox.Text, cnpjTextBox.Text, situacaoCadastralComboBox.Text, naturezaJuridicaTextBox.Text, this.dataAberturaEmpresaDateTimePicker.Text, atividadesEconomicasTextBox.Text);
             bdEmpresa.GetInformacaoEmpresa();
             var idEmpresa = bdEmpresa.GetIdEmpresa(cnaeTextBox.Text, cnpjTextBox.Text);
-            bdEmpresa.SetDadosEmpresa(idEmpresa, enderecoTextBox.Text, numResidenciaTextBox.Text, bairroTextBox.Text, cepTextBox.Text, cidadeTextBox.Text);
+            validacaoCadastroEnderecoEmpresa = bdEmpresa.SetDadosEmpresa(idEmpresa, enderecoTextBox.Text, numResidenciaTextBox.Text, bairroTextBox.Text, cepTextBox.Text, cidadeTextBox.Text);
             #region Contatos  Empresa     
-            bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBox.Text, contatoEmpresaTextBox.Text);
+            validacaoCadastroContatoEmpresa = bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBox.Text, contatoEmpresaTextBox.Text);
             if (tipoContatoEmpresaComboBoxDois.Enabled == true && contatoEmpresaTextBoxDois.Enabled == true)
             {
-                bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBoxDois.Text, contatoEmpresaTextBoxDois.Text);
+                validacaoCadastroContatoEmpresa = bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBoxDois.Text, contatoEmpresaTextBoxDois.Text);
             }
             else if (tipoContatoEmpresaComboBoxTres.Enabled == true && contatoEmpresaTextBoxTres.Enabled == true)
             {
-                bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBoxTres.Text, contatoEmpresaTextBoxTres.Text);
+                validacaoCadastroContatoEmpresa = bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBoxTres.Text, contatoEmpresaTextBoxTres.Text);
             }
             else if (tipoContatoEmpresaComboBoxQuatro.Enabled == true && contatoEmpresaTextBoxQuatro.Enabled == true)
             {
-                bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBoxQuatro.Text, contatoEmpresaTextBoxQuatro.Text);
+                validacaoCadastroContatoEmpresa = bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBoxQuatro.Text, contatoEmpresaTextBoxQuatro.Text);
             }
             else if (tipoContatoEmpresaComboBoxCinco.Enabled == true && contatoEmpresaTextBoxCinco.Enabled == true)
             {
-                bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBoxCinco.Text, contatoEmpresaTextBoxCinco.Text);
+                validacaoCadastroContatoEmpresa = bdEmpresa.SetDadosEmpresa(idEmpresa, tipoContatoEmpresaComboBoxCinco.Text, contatoEmpresaTextBoxCinco.Text);
             }
             #endregion
+
+            if (validacaoCadastroEmpresa == true && validacaoCadastroEnderecoEmpresa == true && validacaoCadastroContatoEmpresa == true)
+            {
+                nomeEmpresarialFantasiaTextBox.Text = "";
+                cnaeTextBox.Text = "";
+                naturezaJuridicaTextBox.Text = "";
+                dataAberturaEmpresaDateTimePicker.Value = DateTime.Now;
+                cnpjTextBox.Text = "";
+                situacaoCadastralComboBox.SelectedIndex = 0;
+
+                enderecoTextBox.Text = "";
+                numResidenciaTextBox.Text = ""; 
+                cepTextBox.Text = "";
+                bairroTextBox.Text = "";
+                cidadeTextBox.Text = "";
+
+                label20.Visible = false;
+                contatoEmpresaTextBoxDois.Enabled = false;
+                contatoEmpresaTextBoxDois.Visible = false;
+                label19.Visible = false;
+                tipoContatoEmpresaComboBoxDois.Enabled = false;
+                tipoContatoEmpresaComboBoxDois.Visible = false;
+
+                label22.Visible = false;
+                contatoEmpresaTextBoxTres.Enabled = false;
+                contatoEmpresaTextBoxTres.Visible = false;
+                label21.Visible = false;
+                tipoContatoEmpresaComboBoxTres.Enabled = false;
+                tipoContatoEmpresaComboBoxTres.Visible = false;
+
+                label24.Visible = false;
+                contatoEmpresaTextBoxQuatro.Enabled = false;
+                contatoEmpresaTextBoxQuatro.Visible = false;
+                label23.Visible = false;
+                tipoContatoEmpresaComboBoxQuatro.Enabled = false;
+                tipoContatoEmpresaComboBoxQuatro.Visible = false;
+
+                label26.Visible = false;
+                contatoEmpresaTextBoxCinco.Enabled = false;
+                contatoEmpresaTextBoxCinco.Visible = false;
+                label25.Visible = false;
+                tipoContatoEmpresaComboBoxCinco.Enabled = false;
+                tipoContatoEmpresaComboBoxCinco.Visible = false;
+
+                MessageBox.Show("Dados Salvos com Sucesso");
+            }
         }
     }
 }

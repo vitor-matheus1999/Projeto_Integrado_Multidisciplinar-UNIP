@@ -91,7 +91,13 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 SqlDataAdapter dataAdapter = new SqlDataAdapter();
                 dataAdapter.SelectCommand = sqlCmd;
                 DataTable tabela = new DataTable();
+                tabela.Columns.Add("salario_Bruto", typeof(String));
+                tabela.Columns.Add("id_Salario", typeof(Int32));
                 dataAdapter.Fill(tabela);
+
+                DataRow itemLinha = tabela.NewRow();
+                itemLinha[0] = "Selecione o salário";
+                tabela.Rows.InsertAt(itemLinha, 0);
 
                 comboBoxSalario.DataSource = tabela;
                 comboBoxSalario.DisplayMember = "salario_Bruto";
@@ -103,11 +109,11 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
             finally
             {
-                conn.desconectar();
                 sqlCmd.Parameters.Clear();
+                conn.desconectar();
             }
         }
-        public void SetDadosSetor(int idEmpresa, int idSalario, string nomeSetor, string hierarquia, string funcaoSetor,string periodoTrabalho, string escalaTrabalho, string cargaHoraria)
+        public bool SetDadosSetor(int idEmpresa, int idSalario, string nomeSetor, string hierarquia, string funcaoSetor,string periodoTrabalho, string escalaTrabalho, string cargaHoraria)
         {
             try
             {
@@ -126,12 +132,14 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             catch (SqlException erro)
             {
                 MessageBox.Show(erro.Message);
+                return false;
             }
             finally
             {
                 conn.desconectar();
                 sqlCmd.Parameters.Clear();
             }
+            return true;
         }
     }
 }

@@ -172,6 +172,21 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
             bool dadosEnderecoFuncionario;
             bool dadosContatoFuncionario = false;
 
+            if(nomeTextBox.Text == null || cpfTextBox.Text == null || sexoComboBox.SelectedIndex == 0 || empresaFuncionarioComboBox.SelectedIndex == 0 || setorFuncionarioComboBox.SelectedIndex == 0 || nivelHierarquicoComboBox.SelectedIndex == 0 || dataNascimentoDateTimePicker.Value == DateTime.Now)
+            {
+                MessageBox.Show("Por favor preencha os registros em branco");
+                return;
+            }else if (enderecoTextBox.Text == null || numResidenciaTextBox.Text == null || cepTextBox.Text == null || bairroTextBox.Text == null || cidadeTextBox.Text == null)
+            {
+                MessageBox.Show("Por favor preencha os registros em branco");
+                return;
+            }
+            else if (tipoContatoComboBox.SelectedIndex == 0  || tipoContatoComboBoxDois.SelectedIndex == 0 && tipoContatoComboBoxDois.Enabled == true || tipoContatoComboBoxTres.SelectedIndex == 0 && tipoContatoComboBoxTres.Enabled == true || tipoContatoComboBoxQuatro.SelectedIndex == 0 && tipoContatoComboBoxQuatro.Enabled == true || tipoContatoComboBoxCinco.SelectedIndex == 0 && tipoContatoComboBoxCinco.Enabled == true || contatoTextBox.Text == null || contatoTextBoxDois.Text == null && contatoTextBoxDois.Enabled == true || contatoTextBoxTres.Text == null && contatoTextBoxTres.Enabled == true || contatoTextBoxQuatro.Text == null && contatoTextBoxQuatro.Enabled == true || contatoTextBoxCinco.Text == null && contatoTextBoxCinco.Enabled == true)
+            {
+                MessageBox.Show("Por favor preencha os registros em branco");
+                return;
+            }
+
             #region Genero Funcionario
             if (sexoComboBox.Text.Contains("Mulher Trans"))
             {
@@ -221,7 +236,8 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
             {
                 nomeTextBox.Clear();
                 cpfTextBox.Clear();
-                dataNascimentoDateTimePicker.
+                dataNascimentoDateTimePicker.Value = DateTime.Now;
+                dataAdmissaoDateTimePicker.Value = DateTime.Now;
                 sexoComboBox.SelectedIndex = 0;
                 empresaFuncionarioComboBox.SelectedIndex = 0;
                 setorFuncionarioComboBox.SelectedIndex = 0;

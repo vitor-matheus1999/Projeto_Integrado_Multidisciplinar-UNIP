@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 using System.Windows.Forms;
@@ -16,12 +17,14 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
         Empresa empresa = new Empresa();
         List<Empresa> listaEmpresas = new List<Empresa>();
 
+        string nomeEmpresa;
+
         public List<Empresa> GetInformacaoEmpresa()
         {
-            sqlCmd.CommandText = "SELECT id_Empresa,nome_Empresarial_Fantasia, CNAE,CNPJ,situacao_Cadastral,natureza_Juridica,data_Abertura,atividades_Economicas FROM TBempresa";
-            sqlCmd.Connection = conn.conectar();
             try
             {
+                sqlCmd.CommandText = "SELECT id_Empresa,nome_Empresarial_Fantasia, CNAE,CNPJ,situacao_Cadastral,natureza_Juridica,data_Abertura,atividades_Economicas FROM TBempresa";
+                sqlCmd.Connection = conn.conectar();
                 SqlDataReader dataReader = sqlCmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -61,6 +64,35 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 }
             }
             return idEmpresa;
+        }
+        public string GetNomeEmpresa(int idEmpresa) 
+        {
+            try
+            {
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.CommandText = "SELECT nome_Empresarial_Fantasia FROM TBempresa WHERE id_Empresa = @idEmpresa";
+                sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
+                sqlCmd.Connection = conn.conectar();
+
+                using (SqlDataReader dataReader = sqlCmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        nomeEmpresa = dataReader.GetString(dataReader.GetOrdinal("nome_Empresarial_Fantasia"));
+                    }
+                }
+             
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+            return nomeEmpresa;
         }
         public bool SetDadosEmpresa(string nomeEmpresarialFantasia, string CNAE, string CNPJ, string situacaoCadastral, string naturezaJuridica, string dataAbertura, string atividadesEconomicas)
         {
@@ -145,6 +177,34 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 conn.desconectar();
             }
             return true;
+        }
+        public void GetEmpresasComboBox(ComboBox comboBoxEmpresa)
+        {
+            try
+            {
+                sqlCmd.CommandText = "SELECT id_Empresa, nome_Empresarial_Fantasia FROM TBempresa";
+                sqlCmd.Connection = conn.conectar();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = sqlCmd;
+                DataTable tabela = new DataTable();
+                dataAdapter.Fill(tabela);
+
+                DataRow itemLinha = tabela.NewRow();
+                itemLinha[1] = "Selecione a empresa";
+                tabela.Rows.InsertAt(itemLinha, 0);
+
+                comboBoxEmpresa.DataSource = tabela;
+                comboBoxEmpresa.DisplayMember = "nome_Empresarial_Fantasia";
+                comboBoxEmpresa.ValueMember = "id_Empresa";
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                conn.desconectar();
+            }
         }
     }
 }

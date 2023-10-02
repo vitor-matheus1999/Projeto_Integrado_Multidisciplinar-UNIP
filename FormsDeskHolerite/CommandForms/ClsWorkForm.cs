@@ -23,15 +23,14 @@ namespace FormsDeskHolerite.CommandForms
             childForm.BringToFront();
             childForm.Show();
         }
-
-//        if (Application.OpenForms.OfType<FormCadastrarSocioAdministrador>().Count() == 1)
-//        {
-//            return;
-//        }
-//        else
-//        {
-//            formSociosAdms.Show();
-//        }
-//
+        //        if (Application.OpenForms.OfType<FormCadastrarSocioAdministrador>().Count() == 1)
+        //        {
+        //            return;
+        //        }
+        //        else
+        //        {
+        //            formSociosAdms.Show();
+        //        }
+        //
     }
 }

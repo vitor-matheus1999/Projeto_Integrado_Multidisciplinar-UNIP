@@ -1,4 +1,5 @@
 ﻿using PIM4___WebHolerite.Models.Banco_de_Dados;
+using PIM4___WebHolerite.Models.Negócios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,8 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
     public partial class FormCadastrarSetor : Form
     {
         ClsBancoDadosSetor bdSetor = new ClsBancoDadosSetor();
+        ClsBancoDadosEmpresa bdEmpresa = new ClsBancoDadosEmpresa();
+        ClsBancoDadosSalario bdSalario= new ClsBancoDadosSalario();
 
         public FormCadastrarSetor()
         {
@@ -26,7 +29,7 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
         }
         private void FormCadastrarSetor_Load(object sender, EventArgs e)
         {
-            bdSetor.GetEmpresasComboBox(empresaPertencenteSetorComboBox);
+            bdEmpresa.GetEmpresasComboBox(empresaPertencenteSetorComboBox);
             #region Tabela Hierarquia Funcionario
             DataTable tabelaHierarquia = new DataTable();
             DataRow itemLinhaHierarquia = tabelaHierarquia.NewRow();
@@ -65,7 +68,7 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
         }
         private void salarioSetorComboBox_EnabledChanged(object sender, EventArgs e)
         {
-            bdSetor.GetSalariosComboBox(salarioSetorComboBox, Convert.ToInt32(empresaPertencenteSetorComboBox.SelectedValue));
+            bdSalario.GetSalariosComboBox(salarioSetorComboBox, Convert.ToInt32(empresaPertencenteSetorComboBox.SelectedValue));
         }
         private void empresaPertencenteSetorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

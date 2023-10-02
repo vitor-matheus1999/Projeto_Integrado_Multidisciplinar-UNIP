@@ -15,12 +15,14 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
     public partial class FormCadastrarFuncionario : Form
     {
         ClsBancoDadosFuncionario bdFuncionario = new ClsBancoDadosFuncionario();
+        ClsBancoDadosEmpresa bdEmpresa= new ClsBancoDadosEmpresa();
+        ClsBancoDadosSetor bdSetor= new ClsBancoDadosSetor();
         Funcionario funcionario = new Funcionario();
         int i = 0;
         public FormCadastrarFuncionario()
         {
             InitializeComponent();
-            bdFuncionario.GetEmpresasComboBox(empresaFuncionarioComboBox);
+            bdEmpresa.GetEmpresasComboBox(empresaFuncionarioComboBox);
             sexoComboBox.SelectedIndex = 0;
             #region Tabela Contato Um
             DataTable tabela = new DataTable();
@@ -147,8 +149,7 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
         }
         private void setorFuncionarioComboBox_EnabledChanged(object sender, EventArgs e)
         {
-
-            bdFuncionario.GetSetoresComboBox(setorFuncionarioComboBox, Convert.ToInt32(empresaFuncionarioComboBox.SelectedValue) );
+            bdSetor.GetSetoresComboBox(setorFuncionarioComboBox, Convert.ToInt32(empresaFuncionarioComboBox.SelectedValue) );
         }
         private void setorFuncionarioComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -164,7 +165,7 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
         }
         private void nivelHierarquicoComboBox_EnabledChanged(object sender, EventArgs e)
         {
-            bdFuncionario.GetHierarquiaComboBox(nivelHierarquicoComboBox, setorFuncionarioComboBox.Text);
+            bdSetor.GetHierarquiaComboBox(nivelHierarquicoComboBox, setorFuncionarioComboBox.Text);
         }
         private void salvarInfoFuncionario_Click(object sender, EventArgs e)
         {

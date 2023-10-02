@@ -11,9 +11,10 @@ namespace PIM4___WebHolerite.Models.Negócios
     public class Funcionario
     {
         private int idFuncionario;
-        private string nomeFuncionario;
         private int idEmpresa;
         private int idSetor;
+        private int idEnderecoFuncionario;
+        private string nomeFuncionario;
         private string generoFuncionario;
         private DateTime dataNascimento;
         private DateTime dataAdmissao;
@@ -23,6 +24,12 @@ namespace PIM4___WebHolerite.Models.Negócios
         private string tipoContato;
         private string descricaoContato;
         private string senhaSistemaDesktop;
+        private string rua;
+        private string numeroMoradia;
+        private string bairro;
+        private string cepResidencia;
+        private string cidadeMoradia;
+        
 
         public Funcionario() { }
 
@@ -37,21 +44,37 @@ namespace PIM4___WebHolerite.Models.Negócios
             this.generoFuncionario = generoFuncionario;
             this.cpfFuncionario = cpfFuncionario;
         }
-
         public Funcionario(string emailEmpresarial, string senhaSistemaDesktop)
         {
             this.descricaoContato = emailEmpresarial;
             this.senhaSistemaDesktop = senhaSistemaDesktop;
         }
+        public Funcionario(int idFuncionario, string nomeFuncionario)
+        {
+            this.idFuncionario = idFuncionario;
+            this.nomeFuncionario = nomeFuncionario;
+        }
+        public Funcionario(int idEnderecoFuncionario, int idFuncionario, string rua, string numeroRua, string bairro, string cepResidencia, string cidadeMoradiaFuncionario)
+        {
+            this.idEnderecoFuncionario = idEnderecoFuncionario;
+            this.idFuncionario = idFuncionario;
+            this.rua = rua;
+            this.numeroMoradia = numeroRua;
+            this.bairro = bairro;
+            this.cepResidencia = cepResidencia;
+            this.cidadeMoradia = cidadeMoradiaFuncionario;
+        }
 
         public int GetIdFuncionario { get { return this.idFuncionario; } }
         public int SetIdFuncionario { set { this.idFuncionario = value; } }
-        public string GetNomeFuncionario { get { return this.nomeFuncionario; } }
-        public string SetNomeFuncionario { set { this.nomeFuncionario = value; } }
         public int GetIdSetor { get { return this.idSetor; } }
         public int SetIdSetor { set { this.idSetor = value; } }
         public int GetIdEmpresa { get { return this.idEmpresa; } }
         public int SetIdEmpresa { set { this.idEmpresa = value; } }
+        public string GetNomeFuncionario { get { return this.nomeFuncionario; } }
+        public string SetNomeFuncionario { set { this.nomeFuncionario = value; } }
+        public int GetIdEnderecoFuncionario { get { return this.idEnderecoFuncionario; } }
+        public int SetIdEnderecoFuncionario { set { this.idEnderecoFuncionario = value; } }
         public DateTime GetDataNascimento { get { return this.dataNascimento; } }
         public DateTime SetDataNascimento { set { this.dataNascimento = value; } }
         public DateTime GetDataAdmissao { get { return this.dataAdmissao; } }
@@ -70,6 +93,15 @@ namespace PIM4___WebHolerite.Models.Negócios
         public string SetDescricaoContato { set { this.descricaoContato = value; } }
         public string GetSenhaSistemaDesktop { get { return this.senhaSistemaDesktop; } }
         public string SetSenhaSistemaDesktop { set { this.senhaSistemaDesktop = value; } }
-
+        public string GetRua { get { return this.rua; } }
+        public string SetRua { set { this.rua = value; } }
+        public string GetNumeroMoradia { get { return this.numeroMoradia; } }
+        public string SetNumeroMoradia { set { this.numeroMoradia = value; } }
+        public string GetBairro { get { return this.bairro; } }
+        public string SetBairro { set { this.bairro = value; } }
+        public string GetCepResidencia { get { return this.cepResidencia; } }
+        public string SetCepResidencia { set { this.cepResidencia = value; } }
+        public string GetCidadeMoradiaFuncionario { get { return this.cidadeMoradia; } }
+        public string SetCidadeMoradiaFuncionario { set { this.cidadeMoradia = value; } }
     }
 }

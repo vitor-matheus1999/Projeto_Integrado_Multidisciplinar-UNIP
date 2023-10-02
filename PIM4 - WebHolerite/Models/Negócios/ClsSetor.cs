@@ -17,12 +17,12 @@ namespace PIM4___WebHolerite.Models.Negócios
         private string funcaoSetor;
         private string periodoTrabalho;
         private string escalaTrabalho;
-        private DateTime cargaHoraria;
-        private float salarioGanhoHora;
-        private float salaraioGanhoDia;
+        private TimeSpan cargaHoraria;
+        private decimal salarioGanhoHora;
+        private decimal salaraioGanhoDia;
 
         public Setor() { }
-        public Setor(int idSetor, int idEmpresa, int idSalario, string nomeSetor, string hierarquia, string funcaoSetor, string periodoTrabalho, string escalaTrabalho, DateTime cargaHoraria, float salarioGanhoHora, float salaraioGanhoDia)
+        public Setor(int idSetor, int idEmpresa, int idSalario, string nomeSetor, string hierarquia, string funcaoSetor, string periodoTrabalho, string escalaTrabalho, TimeSpan cargaHoraria, decimal salarioGanhoHora, decimal salaraioGanhoDia)
         {
             this.idSetor = idSetor;
             this.idEmpresa = idEmpresa;
@@ -53,11 +53,11 @@ namespace PIM4___WebHolerite.Models.Negócios
         public string SetPeriodoTrabalho { set { this.periodoTrabalho = value; } }
         public string GetEscalaTrabalho { get { return this.escalaTrabalho ; } }
         public string SetEscalaTrabalho { set { this.escalaTrabalho = value; } }
-        public DateTime GetCargaHoraria { get { return this.cargaHoraria ; } }
-        public DateTime SetCargaHoraria { set { this.cargaHoraria = value; } }
-        public float GetSalarioGanhoHora { get { return this.salarioGanhoHora ; } }
-        public float SetSalarioGanhoHora { set { this.salarioGanhoHora = value; } }
-        public float GetSalarioGanhoDia { get { return this.salaraioGanhoDia; } }
-        public float SetSalarioGanhoDia { set { this.salaraioGanhoDia = value; } }
+        public TimeSpan GetCargaHoraria { get { return this.cargaHoraria ; } }
+        public TimeSpan SetCargaHoraria { set { this.cargaHoraria = value; } }
+        public decimal GetSalarioGanhoHora { get { return this.salarioGanhoHora ; } }
+        public decimal SetSalarioGanhoHora { set { this.salarioGanhoHora = value; } }
+        public decimal GetSalarioGanhoDia { get { return this.salaraioGanhoDia; } }
+        public decimal SetSalarioGanhoDia { set { this.salaraioGanhoDia = value; } }
     }
 }

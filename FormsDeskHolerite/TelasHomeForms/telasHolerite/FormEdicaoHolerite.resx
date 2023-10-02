@@ -117,29 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="opcoes 10" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\opcoes 10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cifrao 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\cifrao 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tela cadastrar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\tela cadastrar.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setor 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\setor 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="tela cadastrar (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tela cadastrar (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="empresa 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\empresa 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fotoperfil 1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\fotoperfil 1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="opcoes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\opcoes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>

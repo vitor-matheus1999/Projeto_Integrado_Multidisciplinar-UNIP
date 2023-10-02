@@ -15,8 +15,9 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
     public partial class FormCadastrarSocioAdministrador : Form
     {
         ClsBancoDadosSocio sqlSocio = new ClsBancoDadosSocio();
+        ClsBancoDadosEmpresa sqlEmpresa = new ClsBancoDadosEmpresa();
+        ClsBancoDadosSetor sqlSetor = new ClsBancoDadosSetor();
         ClsBancoDadosFuncionario sqlAdm = new ClsBancoDadosFuncionario();
-        Funcionario funcionario = new Funcionario();
 
         public FormCadastrarSocioAdministrador()
         {
@@ -24,8 +25,8 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
             funcionarioAdmcomboBox.SelectedIndex = 0;
             tipoSocioComboBox.SelectedIndex = 0;
             tipoRegistroComboBox.SelectedIndex = 0;
-            sqlSocio.GetEmpresasComboBox(empresaSocioComboBox);
-            sqlAdm.GetEmpresasComboBox(empresaAdmComboBox);
+            sqlEmpresa.GetEmpresasComboBox(empresaSocioComboBox);
+            sqlEmpresa.GetEmpresasComboBox(empresaAdmComboBox);
         }
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -137,7 +138,7 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
             {
                 nomeCompletoFuncionarioAdmTextBox.Text = funcionarioAdmcomboBox.Text;
                 var idSetor =((DataRowView)funcionarioAdmcomboBox.SelectedItem).Row.Field<int>("id_Setor");
-                sqlAdm.GetFuncionariosSetorHierarquiaTextBox(setorFuncionarioAdmtextBox, nivelHierarquicoFuncionarioAdmTextBox, idSetor);
+                sqlSetor.GetFuncionariosSetorHierarquiaTextBox(setorFuncionarioAdmtextBox, nivelHierarquicoFuncionarioAdmTextBox, idSetor);
             }
         }
         private void salvarInfoSalarioButton_Click(object sender, EventArgs e)

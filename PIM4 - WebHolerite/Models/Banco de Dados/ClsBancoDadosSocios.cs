@@ -75,35 +75,5 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
             return true;
         }
-        public void GetEmpresasComboBox(ComboBox comboBoxEmpresa)
-        {
-            sqlCmd.CommandText = "SELECT id_Empresa, nome_Empresarial_Fantasia FROM TBempresa";
-
-            try
-            {
-                sqlCmd.Connection = conn.conectar();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = sqlCmd;
-                DataTable tabela = new DataTable();
-                dataAdapter.Fill(tabela);
-
-                DataRow itemLinha = tabela.NewRow();
-                itemLinha[1] = "Selecione a empresa";
-                tabela.Rows.InsertAt(itemLinha, 0);
-
-                comboBoxEmpresa.DataSource = tabela;
-                comboBoxEmpresa.DisplayMember = "nome_Empresarial_Fantasia";
-                comboBoxEmpresa.ValueMember = "id_Empresa";
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-            finally
-            {
-                conn.desconectar();
-            }
-        }
-       
     }
 }

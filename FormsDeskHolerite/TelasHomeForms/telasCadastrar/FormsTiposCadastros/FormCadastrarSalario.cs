@@ -16,12 +16,13 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
     public partial class FormCadastrarSalario : Form
     {
         ClsBancoDadosSalario bdSalario = new ClsBancoDadosSalario();
+        ClsBancoDadosEmpresa bdEmpresa= new ClsBancoDadosEmpresa();
         Salario salario = new Salario();
 
         public FormCadastrarSalario()
         {
             InitializeComponent();
-            bdSalario.GetEmpresasComboBox(empresaDistribuidoraSalaraioComboBox);
+            bdEmpresa.GetEmpresasComboBox(empresaDistribuidoraSalaraioComboBox);
             salarioBrutoTextBox.Text = "0";
             descontoFGTSComboBox.SelectedIndex = 0;
             descontoValeAlimentacaoComboBox.SelectedIndex = 0;
@@ -81,8 +82,8 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
 
         private void salvarInfoSalarioButton_Click(object sender, EventArgs e)
         {
-            double salarioBruto = 0;
-            float descontoINSS = 0;
+            decimal salarioBruto = 0;
+            decimal descontoINSS = 0;
 
             #region Tratamento Campos Salário
             if(salarioBrutoTextBox.Text == null || empresaDistribuidoraSalaraioComboBox.SelectedIndex == 0 || descontoValeAlimentacaoComboBox.SelectedIndex == 0 || descontoValeTransporteComboBox.SelectedIndex == 0)
@@ -93,27 +94,27 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
             if (descontoINSSTextBox.Text.Contains(","))
             {
                 descontoINSSTextBox.Text.Replace(',', '.');
-                descontoINSS = float.Parse(descontoINSSTextBox.Text.Remove(2));
+                descontoINSS = decimal.Parse(descontoINSSTextBox.Text.Remove(2));
             }
 
             for(var i = 0; i < descontoINSSTextBox.Text.Length; i++)
             {
                 if(descontoINSSTextBox.Text[i] == '%')
                 {
-                    descontoINSS = float.Parse(descontoINSSTextBox.Text.Remove(i));
+                    descontoINSS = decimal.Parse(descontoINSSTextBox.Text.Remove(i));
                 }
             }
       
             if (salarioBrutoTextBox.Text.Contains('.'))
             {
-                salarioBruto = double.Parse(salarioBrutoTextBox.Text.Replace('.', ','));
+                salarioBruto = decimal.Parse(salarioBrutoTextBox.Text.Replace('.', ','));
             }
 
            for(var i = 0; i < salarioBrutoTextBox.Text.Length; i++)
             {
                 if (salarioBrutoTextBox.Text[i] == ',' && salarioBrutoTextBox.Text.Contains(",00") || salarioBrutoTextBox.Text[i] == '.' && salarioBrutoTextBox.Text.Contains(".00"))
                 {
-                    salarioBruto = double.Parse (salarioBrutoTextBox.Text.Remove(i));
+                    salarioBruto = decimal.Parse (salarioBrutoTextBox.Text.Remove(i));
                 }
             }
             #endregion
@@ -121,10 +122,10 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
             var descontoValeTransporte = Int32.Parse(descontoValeTransporteComboBox.Text.Remove(1));        
             var descontoValeAlimentacao = Int32.Parse(descontoValeAlimentacaoComboBox.Text.Remove(1));
 
-            var valorDescontadoSalarioBrutoValeTransporte = (Math.Round (salarioBruto * descontoValeTransporte)) /100;
-            var valorDescontadoSalarioBrutoValeAlimentacao = (Math.Round (salarioBruto * descontoValeAlimentacao)) /100;
-            var valorDescontadoSalarioBrutoINSS = (Math.Round(salarioBruto * descontoINSS)) /100;
-            double valorDescontadoSalarioBrutoFGTS;
+            decimal valorDescontadoSalarioBrutoValeTransporte = (Math.Round(salarioBruto * descontoValeTransporte)) /100;
+            decimal valorDescontadoSalarioBrutoValeAlimentacao = (Math.Round (salarioBruto * descontoValeAlimentacao)) /100;
+            decimal valorDescontadoSalarioBrutoINSS = (Math.Round(salarioBruto * descontoINSS)) /100;
+            decimal valorDescontadoSalarioBrutoFGTS;
             if (descontoFGTSComboBox.Text.Contains("SIM"))
             {
                 valorDescontadoSalarioBrutoFGTS = (Math.Round(salarioBruto * 8))/100;

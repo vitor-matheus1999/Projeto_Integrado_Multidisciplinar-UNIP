@@ -127,6 +127,18 @@
     <Compile Include="TelasHomeForms\telasCadastrar\FormsTiposCadastros\FormCadastrarSocioAdministrador.Designer.cs">
       <DependentUpon>FormCadastrarSocioAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelasHomeForms\telasHolerite\FormEdicaoHolerite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasHolerite\FormEdicaoHolerite.Designer.cs">
+      <DependentUpon>FormEdicaoHolerite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasHolerite\FormFuncionarioHolerite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasHolerite\FormFuncionarioHolerite.Designer.cs">
+      <DependentUpon>FormFuncionarioHolerite.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelasHomeForms\telasHolerite\FormHolerite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +187,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelasHomeForms\telasCadastrar\FormsTiposCadastros\FormCadastrarSocioAdministrador.resx">
       <DependentUpon>FormCadastrarSocioAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasHolerite\FormEdicaoHolerite.resx">
+      <DependentUpon>FormEdicaoHolerite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasHolerite\FormFuncionarioHolerite.resx">
+      <DependentUpon>FormFuncionarioHolerite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasHolerite\FormHolerite.resx">
+      <DependentUpon>FormHolerite.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BDfolhaDePagamentoDataSet.xsc">
       <DependentUpon>BDfolhaDePagamentoDataSet.xsd</DependentUpon>
@@ -227,6 +248,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagens\fotoperfil 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\opcoes 10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\opcoes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

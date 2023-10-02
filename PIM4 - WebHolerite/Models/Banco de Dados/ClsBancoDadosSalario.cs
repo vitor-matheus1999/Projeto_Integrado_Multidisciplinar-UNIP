@@ -28,10 +28,10 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 {
                     salario.SetIdSalario = dataReader.GetInt32(dataReader.GetOrdinal("id_Salario"));
                     salario.SetIdEmpresa = dataReader.GetInt32(dataReader.GetOrdinal("id_Empresa"));
-                    salario.SetSalarioBruto = dataReader.GetDouble(dataReader.GetOrdinal("salario_Bruto"));
-                    salario.SetSalarioLiquido = dataReader.GetDouble(dataReader.GetOrdinal("salario_Liquido"));
-                    salario.SetDescontoFGTS = dataReader.GetFloat(dataReader.GetOrdinal("desconto_FGTS"));
-                    salario.SetDescontoINSS = dataReader.GetFloat(dataReader.GetOrdinal("desconto_INSS"));
+                    salario.SetSalarioBruto = dataReader.GetDecimal(dataReader.GetOrdinal("salario_Bruto"));
+                    salario.SetSalarioLiquido = dataReader.GetDecimal(dataReader.GetOrdinal("salario_Liquido"));
+                    salario.SetDescontoFGTS = dataReader.GetDecimal(dataReader.GetOrdinal("desconto_FGTS"));
+                    salario.SetDescontoINSS = dataReader.GetDecimal(dataReader.GetOrdinal("desconto_INSS"));
                     salario.SetDescontoValeTransporte = dataReader.GetFloat(dataReader.GetOrdinal("desconto_Vale_Transporte"));
                     salario.SetDescontoValeAlimentacao = dataReader.GetFloat(dataReader.GetOrdinal("desconto_Vale_Alimentacao"));
 
@@ -49,7 +49,7 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
             return listaSalarios;
         }
-        public bool SetDadosSalario( int idEmpresa, double salarioBruto, double salarioLiquido,string descontoFGTS, float descontoINSS, float descontoValeTransporte, float descontoValeAlimentacao)
+        public bool SetDadosSalario( int idEmpresa, decimal salarioBruto, decimal salarioLiquido,string descontoFGTS, decimal descontoINSS, float descontoValeTransporte, float descontoValeAlimentacao)
         {
             try
             {
@@ -78,25 +78,27 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
 
             return true;
         }
-        public void GetEmpresasComboBox(ComboBox comboBoxEmpresa)
+        public void GetSalariosComboBox(ComboBox comboBoxSalario, int idEmpresa)
         {
-            sqlCmd.CommandText = "SELECT id_Empresa, nome_Empresarial_Fantasia FROM TBempresa";
-
+            sqlCmd.CommandText = "SELECT id_Salario, salario_Bruto FROM TBsalario WHERE id_Empresa = @idEmpresa";
+            sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
             try
             {
                 sqlCmd.Connection = conn.conectar();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter();
                 dataAdapter.SelectCommand = sqlCmd;
                 DataTable tabela = new DataTable();
+                tabela.Columns.Add("salario_Bruto", typeof(String));
+                tabela.Columns.Add("id_Salario", typeof(Int32));
                 dataAdapter.Fill(tabela);
 
                 DataRow itemLinha = tabela.NewRow();
-                itemLinha[1] = "Selecione a empresa";
+                itemLinha[0] = "Selecione o salário";
                 tabela.Rows.InsertAt(itemLinha, 0);
 
-                comboBoxEmpresa.DataSource = tabela;
-                comboBoxEmpresa.DisplayMember = "nome_Empresarial_Fantasia";
-                comboBoxEmpresa.ValueMember = "id_Empresa";
+                comboBoxSalario.DataSource = tabela;
+                comboBoxSalario.DisplayMember = "salario_Bruto";
+                comboBoxSalario.ValueMember = "id_Salario";
             }
             catch (SqlException error)
             {
@@ -104,9 +106,42 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
             finally
             {
+                sqlCmd.Parameters.Clear();
                 conn.desconectar();
             }
         }
 
+        public Salario GetSalario(int idSalario)
+        {
+            try
+            {
+                sqlCmd.CommandText = "SELECT salario_Bruto, salario_Liquido FROM TBsalario WHERE id_Salario = @idSalario";
+                sqlCmd.Parameters.AddWithValue("@idSalario", idSalario);
+                sqlCmd.Connection = conn.conectar();
+
+                using (SqlDataReader dataReader = sqlCmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        salario.SetSalarioBruto = dataReader.GetDecimal(dataReader.GetOrdinal("salario_Bruto"));
+                        salario.SetSalarioLiquido = dataReader.GetDecimal(dataReader.GetOrdinal("salario_Liquido"));
+                     
+                        return new Salario(salarioBruto: salario.GetSalarioBruto, salarioLiquido:salario.GetSalarioLiquido);
+                    }
+                    dataReader.Close();
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+
+            return new Salario();
+        }
     }
 }

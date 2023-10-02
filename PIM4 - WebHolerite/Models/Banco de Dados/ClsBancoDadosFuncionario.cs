@@ -49,9 +49,103 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             {
                 conn.desconectar();
             }
-
-
             return listaFuncionarios;
+        }
+        public List<Funcionario> GetInformacaoFuncionario(int idEmpresa, int idSetor)
+        {
+            try
+            {
+                sqlCmd.CommandText = "SELECT id_Funcionario, nome_Funcionario FROM TBfuncionario WHERE id_Empresa = @idEmpresa AND id_Setor = @idSetor";
+                sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
+                sqlCmd.Parameters.AddWithValue("@idSetor", idSetor);
+                sqlCmd.Connection = conn.conectar();
+                SqlDataReader dataReader = sqlCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    funcionario.SetIdFuncionario = dataReader.GetInt32(dataReader.GetOrdinal("id_Funcionario"));
+                    funcionario.SetNomeFuncionario = dataReader.GetString(dataReader.GetOrdinal("nome_Funcionario"));
+                    
+                    listaFuncionarios.Add(new Funcionario(idFuncionario: funcionario.GetIdFuncionario, nomeFuncionario: funcionario.GetNomeFuncionario));
+                }
+                dataReader.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+            return listaFuncionarios;
+        }
+        public Funcionario GetInformacaoFuncionario(int idFuncionario)
+        {
+            try
+            {
+                sqlCmd.CommandText = "SELECT id_Funcionario,id_Empresa, id_Setor,nome_Funcionario,data_nascimento,data_admissao,sexo,cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras FROM TBfuncionario WHERE id_Funcionario = @idFuncionario";
+                sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                sqlCmd.Connection = conn.conectar();
+                SqlDataReader dataReader = sqlCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    funcionario.SetIdFuncionario = dataReader.GetInt32(dataReader.GetOrdinal("id_Funcionario"));
+                    funcionario.SetIdEmpresa = dataReader.GetInt32(dataReader.GetOrdinal("id_Empresa"));
+                    funcionario.SetIdSetor = dataReader.GetInt32(dataReader.GetOrdinal("id_Setor"));
+                    funcionario.SetNomeFuncionario = dataReader.GetString(dataReader.GetOrdinal("nome_Funcionario"));
+                    funcionario.SetDataNascimento = dataReader.GetDateTime(dataReader.GetOrdinal("data_nascimento"));
+                    funcionario.SetDataAdmissao = dataReader.GetDateTime(dataReader.GetOrdinal("data_admissao"));
+                    funcionario.SetGeneroFuncionario = dataReader.GetString(dataReader.GetOrdinal("sexo"));
+                    funcionario.SetCpfFuncionario = dataReader.GetString(dataReader.GetOrdinal("cpf_Funcionario"));
+
+                    return new Funcionario(idFuncionario: funcionario.GetIdFuncionario, idEmpresa: funcionario.GetIdEmpresa, idSetor: funcionario.GetIdSetor, nomeFuncionario: funcionario.GetNomeFuncionario, dataNascimento: funcionario.GetDataNascimento, dataAdmissao: funcionario.GetDataAdmissao, generoFuncionario: funcionario.GetGeneroFuncionario, cpfFuncionario: funcionario.GetCpfFuncionario);
+                }
+                dataReader.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+            return new Funcionario();
+        }
+        public Funcionario GetInformacaoFuncionarioEndereco(int idFuncionario)
+        {
+            try
+            {
+                sqlCmd.CommandText = "SELECT id_Endereco_Funcionario, id_Funcionario,rua,numero_moradia, bairro,cep_residencia,cidade FROM TBenderecoFuncionario WHERE id_Funcionario = @idFuncionario";
+                sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                sqlCmd.Connection = conn.conectar();
+                SqlDataReader dataReader = sqlCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    funcionario.SetIdEnderecoFuncionario = dataReader.GetInt32(dataReader.GetOrdinal("id_Endereco_Funcionario"));
+                    funcionario.SetIdFuncionario = dataReader.GetInt32(dataReader.GetOrdinal("id_Funcionario"));
+                    funcionario.SetRua = dataReader.GetString(dataReader.GetOrdinal("rua"));
+                    funcionario.SetNumeroMoradia = dataReader.GetString(dataReader.GetOrdinal("numero_moradia"));
+                    funcionario.SetBairro = dataReader.GetString(dataReader.GetOrdinal("bairro"));
+                    funcionario.SetCepResidencia = dataReader.GetString(dataReader.GetOrdinal("cep_residencia"));
+                    funcionario.SetCidadeMoradiaFuncionario = dataReader.GetString(dataReader.GetOrdinal("cidade"));
+
+                    return new Funcionario(idEnderecoFuncionario: funcionario.GetIdEnderecoFuncionario, idFuncionario: funcionario.GetIdFuncionario, rua: funcionario.GetRua, numeroRua: funcionario.GetNumeroMoradia, bairro: funcionario.GetBairro, cepResidencia: funcionario.GetCepResidencia, cidadeMoradiaFuncionario: funcionario.GetCidadeMoradiaFuncionario);
+                }
+                dataReader.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+            return new Funcionario();
         }
         public int GetIdFuncionario(int idEmpresa, int idSetor, string nomeFuncionario,  string cpfFuncionario)
         {
@@ -215,94 +309,6 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
             return false;
         }
-        public void GetEmpresasComboBox(ComboBox comboBoxEmpresa)
-        {       
-            try
-            {
-                sqlCmd.CommandText = "SELECT id_Empresa, nome_Empresarial_Fantasia FROM TBempresa";
-                sqlCmd.Connection = conn.conectar();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = sqlCmd;
-                DataTable tabela = new DataTable();
-                dataAdapter.Fill(tabela);
-
-                DataRow itemLinha = tabela.NewRow();
-                itemLinha[1] = "Selecione a empresa";
-                tabela.Rows.InsertAt(itemLinha, 0);
-
-                comboBoxEmpresa.DataSource = tabela;
-                comboBoxEmpresa.DisplayMember = "nome_Empresarial_Fantasia";
-                comboBoxEmpresa.ValueMember = "id_Empresa";
-            }
-            catch(SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-            finally
-            {
-                conn.desconectar();
-            }
-        }
-        public void GetSetoresComboBox(ComboBox comboBoxSetor, int idEmpresa)
-        {
-            try
-            {
-                sqlCmd.CommandText = "SELECT id_Setor, nome_Setor FROM TBsetor WHERE id_Empresa = @idEmpresa";
-                sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
-                sqlCmd.Connection = conn.conectar();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = sqlCmd;
-                DataTable tabela = new DataTable();
-                dataAdapter.Fill(tabela);
-
-                DataRow itemLinha = tabela.NewRow();
-                itemLinha[1] = "Selecione o Setor";
-                tabela.Rows.InsertAt(itemLinha, 0);
-
-                comboBoxSetor.DataSource = tabela;
-                comboBoxSetor.DisplayMember = "nome_Setor";
-                comboBoxSetor.ValueMember = "id_Setor";
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-            finally
-            {
-                sqlCmd.Parameters.Clear();
-                conn.desconectar();
-            }
-        }
-        public void GetHierarquiaComboBox(ComboBox comboBoxSetor, string nomeSetor)
-        {
-            try
-            {
-                sqlCmd.CommandText = "SELECT id_Setor, hierarquia FROM TBsetor WHERE nome_Setor = @nomeSetor";
-                sqlCmd.Parameters.AddWithValue("@nomeSetor",nomeSetor);
-                sqlCmd.Connection = conn.conectar();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = sqlCmd;
-                DataTable tabela = new DataTable();
-                dataAdapter.Fill(tabela);
-
-                DataRow itemLinha = tabela.NewRow();
-                itemLinha[1] = "Selecione o Nível Hierarquico";
-                tabela.Rows.InsertAt(itemLinha, 0);
-
-                comboBoxSetor.DataSource = tabela;
-                comboBoxSetor.DisplayMember = "hierarquia";
-                comboBoxSetor.ValueMember = "id_Setor";
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-            finally
-            {
-                sqlCmd.Parameters.Clear();
-                conn.desconectar();
-            }
-        }
         public void GetFuncionariosAdmEmpresaComboBox(ComboBox comboBoxFuncionariosEmpresa, int idEmpresa)
         {
             try
@@ -335,26 +341,46 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 sqlCmd.Parameters.Clear();
                 conn.desconectar();
             }
-        }
-        public void GetFuncionariosSetorHierarquiaTextBox(TextBox setorFuncionario, TextBox nivelHierarquico, int idSetor)
+        }      
+
+        public void SetHorasNaoTrabalhadas(int idFuncionario, string horasNaoTrabalhadas)
         {
             try
             {
-                sqlCmd.CommandText = "SELECT nome_Setor, hierarquia FROM TBsetor WHERE id_Setor = @idSetor";
-                sqlCmd.Parameters.AddWithValue("@idSetor", idSetor);
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.CommandText = "UPDATE TBfuncionario SET horas_Nao_Trabalhadas = @horasNaoTrabalhadas WHERE id_Funcionario = @idFuncionario";
+                sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                sqlCmd.Parameters.AddWithValue("@horasNaoTrabalhadas", horasNaoTrabalhadas);                
                 sqlCmd.Connection = conn.conectar();
-                using(SqlDataReader dataReader = sqlCmd.ExecuteReader())
-                {
-                    while (dataReader.Read())
-                    {
-                        setorFuncionario.Text = dataReader.GetString(dataReader.GetOrdinal("nome_Setor"));
-                        nivelHierarquico.Text = dataReader.GetString(dataReader.GetOrdinal("hierarquia"));
-                    }
-                }                          
+                sqlCmd.ExecuteNonQuery();
+
             }
-            catch (SqlException error)
+            catch (SqlException erro)
             {
-                MessageBox.Show(error.Message);
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+        }
+
+        public void SetHorasExtras(int idFuncionario, string horasExtras)
+        {
+            try
+            {
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.CommandText = "UPDATE TBfuncionario SET horas_Extras = @horasExtras WHERE id_Funcionario = idFuncionario";
+                sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                sqlCmd.Parameters.AddWithValue("@horasExtras", horasExtras);
+                sqlCmd.Connection = conn.conectar();
+                sqlCmd.ExecuteNonQuery();
+
+            }
+            catch (SqlException erro)
+            {
+                MessageBox.Show(erro.Message);
             }
             finally
             {

@@ -16,8 +16,24 @@ namespace PIM4___WebHolerite
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "WebHolerite", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "WebHolerite", action = "Login", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+               name: "Index",
+               url: "Index",
+               defaults: new { controller = "WebHolerite", action = "Index", id = UrlParameter.Optional }
+           );
+
+            routes.MapRoute(
+               name: "Login",
+               url: "Login",
+               defaults: new { controller = "WebHolerite", action = "Login", id = UrlParameter.Optional }
+           );
+            routes.MapRoute(
+              name: "VerificacaoLogin",
+              url: "VerificacaoLogin",
+              defaults: new { controller = "WebHolerite", action = "VerificacaoLogin", id = UrlParameter.Optional }
+          );
         }
     }
 }

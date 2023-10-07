@@ -133,7 +133,6 @@
             this.setorHoleriteComboBox.Name = "setorHoleriteComboBox";
             this.setorHoleriteComboBox.Size = new System.Drawing.Size(199, 33);
             this.setorHoleriteComboBox.TabIndex = 13;
-            this.setorHoleriteComboBox.SelectedIndexChanged += new System.EventHandler(this.setorHoleriteComboBox_SelectedIndexChanged);
             // 
             // empresaHoleriteComboBox
             // 

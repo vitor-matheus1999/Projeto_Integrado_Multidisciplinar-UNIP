@@ -9,11 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
 {
     public partial class FormCadastrarSetor : Form
     {
+        Setor setor = new Setor();
         ClsBancoDadosSetor bdSetor = new ClsBancoDadosSetor();
         ClsBancoDadosEmpresa bdEmpresa = new ClsBancoDadosEmpresa();
         ClsBancoDadosSalario bdSalario= new ClsBancoDadosSalario();
@@ -23,6 +25,7 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
             InitializeComponent();
             empresaPertencenteSetorComboBox.TabIndex = 0;
             salarioSetorComboBox.TabIndex = 0;
+            escalaTrabalhoComboBox.TabIndex = 0;
             nivelHirarquicoComboBox.TabIndex = 0;
             periodoTrabalhoComboBox.TabIndex = 0;
             cargaHorariaComboBox.TabIndex = 0;
@@ -81,58 +84,60 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
                 salarioSetorComboBox.Enabled = false;
                 salarioSetorComboBox.Enabled = true;
             }
-        }
-        private void escalaTrabalhoHorasCheckBox_Click(object sender, EventArgs e)
-        {
-            escalaTrabalhoDiasCheckBox.Checked = false;
-            escalaTrabalhoComboBox.Enabled = true;
-            #region Tabela Escala por Horas
-            DataTable tabelaEscala = new DataTable();
-            DataRow itemLinhaEscala = tabelaEscala.NewRow();
-            tabelaEscala.Columns.Add("Escala em Horas");
-            tabelaEscala.Rows.Add("Escolha a Escala em Horas");
-            tabelaEscala.Rows.Add("6:00");
-            tabelaEscala.Rows.Add("8:00");
-            tabelaEscala.Rows.Add("12:00");
-            escalaTrabalhoComboBox.DataSource = tabelaEscala;
-            escalaTrabalhoComboBox.DisplayMember = "Escala em Horas";
-            #endregion
-
-            if (escalaTrabalhoDiasCheckBox.Checked == false && escalaTrabalhoHorasCheckBox.Checked == false)
-            {
-                escalaTrabalhoComboBox.Enabled = false;
-            }
-
-        }
-        private void escalaTrabalhoDiasCheckBox_Click(object sender, EventArgs e)
-        {
-            escalaTrabalhoHorasCheckBox.Checked = false;
-            escalaTrabalhoComboBox.Enabled = true;
-            #region Tabela Escala por Dias
-            DataTable tabelaEscala = new DataTable();
-            DataRow itemLinhaEscala = tabelaEscala.NewRow();
-            tabelaEscala.Columns.Add("Escala em Dias");
-            tabelaEscala.Rows.Add("Escolha a Escala em Dias");
-            tabelaEscala.Rows.Add("5/2");
-            tabelaEscala.Rows.Add("6/1");
-            tabelaEscala.Rows.Add("7/1");
-            escalaTrabalhoComboBox.DataSource = tabelaEscala;
-            escalaTrabalhoComboBox.DisplayMember = "Escala em Dias";
-            #endregion
-            if(escalaTrabalhoDiasCheckBox.Checked == false && escalaTrabalhoHorasCheckBox.Checked == false)
-            {
-                escalaTrabalhoComboBox.Enabled = false;
-            }
-        }
+        }     
         private void salvarInfoSetorButton_Click(object sender, EventArgs e)
         {
-            if (empresaPertencenteSetorComboBox.SelectedIndex == 0 || nomeSetorTextBox.Text == null || salarioSetorComboBox.SelectedIndex == 0 || nivelHirarquicoComboBox.SelectedIndex == 0 || periodoTrabalhoComboBox.SelectedIndex == 0 || cargaHorariaComboBox.SelectedIndex == 0 || escalaTrabalhoHorasCheckBox.Checked == false && escalaTrabalhoDiasCheckBox.Checked == false || escalaTrabalhoComboBox.SelectedIndex == 0 || funcaoSetorTextBox.Text == null)
+            decimal totalSalarioGanhoUmaHora = 0;
+            decimal totalSalarioGanhoUmDia= 0;
+            int valorCargaHorariaTrabalho = 0;
+            int diasMesSemFinalSemana = 0;
+            int diasMesSemDomingo = 0;
+
+            if (empresaPertencenteSetorComboBox.SelectedIndex == 0 || nomeSetorTextBox.Text == null || salarioSetorComboBox.SelectedIndex == 0 || nivelHirarquicoComboBox.SelectedIndex == 0 || periodoTrabalhoComboBox.SelectedIndex == 0 || cargaHorariaComboBox.SelectedIndex == 0 || escalaTrabalhoComboBox.SelectedIndex == 0 || funcaoSetorTextBox.Text == null)
             {
                 MessageBox.Show("Por favor preencha os campos em branco");
                 return;
             }
 
-            var setSetor = bdSetor.SetDadosSetor(Int32.Parse(empresaPertencenteSetorComboBox.SelectedValue.ToString()), Int32.Parse(salarioSetorComboBox.SelectedValue.ToString()), nomeSetorTextBox.Text, nivelHirarquicoComboBox.Text, funcaoSetorTextBox.Text, periodoTrabalhoComboBox.Text, escalaTrabalhoComboBox.Text, cargaHorariaComboBox.Text);
+            for (var i = 0; i < cargaHorariaComboBox.Text.ToCharArray().Length; i++)
+            {
+                if ( Char.IsDigit(cargaHorariaComboBox.Text.ToList()[i]) == true)
+                {
+                    if(Int32.Parse(cargaHorariaComboBox.Text.ToList()[i].ToString()) > 0)
+                    {
+                        valorCargaHorariaTrabalho += Int32.Parse(cargaHorariaComboBox.Text.ToCharArray()[i].ToString());
+                    }
+                }
+            }
+
+            for (int i = 1; i <= DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month); i++)
+            {
+                DateTime thisDay = new DateTime(DateTime.Now.Year, DateTime.Now.Month, i);
+                if (thisDay.DayOfWeek != DayOfWeek.Sunday && thisDay.DayOfWeek != DayOfWeek.Saturday)
+                {
+                    diasMesSemFinalSemana += 1;
+                }
+                if (thisDay.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    diasMesSemDomingo += 1;
+                }
+            }
+
+            switch (escalaTrabalhoComboBox.Text)
+            {
+                case "5/2":
+                    var resultado5DiasTrabalho = (5 * valorCargaHorariaTrabalho) * diasMesSemFinalSemana;
+                    totalSalarioGanhoUmaHora = (decimal)System.Math.Round(decimal.Parse(salarioSetorComboBox.Text) / resultado5DiasTrabalho, 2);
+                    totalSalarioGanhoUmDia =  totalSalarioGanhoUmaHora * valorCargaHorariaTrabalho;
+                    break;
+                case "6/1":
+                    var resultado6DiasTrabalho = (6 * valorCargaHorariaTrabalho) * diasMesSemFinalSemana;
+                    totalSalarioGanhoUmaHora = (decimal)System.Math.Round(decimal.Parse(salarioSetorComboBox.Text) / resultado6DiasTrabalho, 2 );
+                    totalSalarioGanhoUmDia = decimal.Parse(salarioSetorComboBox.Text) * valorCargaHorariaTrabalho;
+                    break;
+            }
+
+            var setSetor = bdSetor.SetDadosSetor(Int32.Parse(empresaPertencenteSetorComboBox.SelectedValue.ToString()), Int32.Parse(salarioSetorComboBox.SelectedValue.ToString()), nomeSetorTextBox.Text, nivelHirarquicoComboBox.Text, funcaoSetorTextBox.Text, periodoTrabalhoComboBox.Text, escalaTrabalhoComboBox.Text, cargaHorariaComboBox.Text,Math.Round( totalSalarioGanhoUmaHora), Math.Round(totalSalarioGanhoUmDia));
 
             if(setSetor == true)
             {
@@ -142,8 +147,6 @@ namespace FormsDeskHolerite.TelasHomeForms.FormsCadastrar.FormsTiposCadastros
                 nivelHirarquicoComboBox.SelectedIndex = 0;
                 periodoTrabalhoComboBox.SelectedIndex = 0;
                 cargaHorariaComboBox.SelectedIndex = 0;
-                escalaTrabalhoHorasCheckBox.Checked = false;
-                escalaTrabalhoDiasCheckBox.Checked = false;
                 escalaTrabalhoComboBox.SelectedIndex = 0;
                 funcaoSetorTextBox.Clear();
                 MessageBox.Show("Dados salvos com Sucesso");

@@ -13,6 +13,7 @@ namespace PIM4___WebHolerite.Models.Negócios
         private int idFuncionario;
         private int idEmpresa;
         private int idSetor;
+        private int idContatoFuncionario;
         private int idEnderecoFuncionario;
         private string nomeFuncionario;
         private string generoFuncionario;
@@ -29,11 +30,11 @@ namespace PIM4___WebHolerite.Models.Negócios
         private string bairro;
         private string cepResidencia;
         private string cidadeMoradia;
+        private decimal salarioSeraAcrescentadoDevidoHorasExtras;
+        private bool holeriteFinalizado;
         
-
         public Funcionario() { }
-
-        public Funcionario(int idFuncionario, int idEmpresa, int idSetor, string nomeFuncionario, DateTime dataNascimento, DateTime dataAdmissao, string generoFuncionario, string cpfFuncionario)
+        public Funcionario(int idFuncionario, int idEmpresa, int idSetor, string nomeFuncionario, DateTime dataNascimento, DateTime dataAdmissao, string generoFuncionario, string cpfFuncionario, double horasNaoTrabalhadas, double horasExtras, decimal salarioSeraAcrescentadoDevidoHorasExtras, bool holeriteFinalizado)
         {
             this.idFuncionario = idFuncionario;
             this.idEmpresa = idEmpresa;
@@ -43,16 +44,21 @@ namespace PIM4___WebHolerite.Models.Negócios
             this.dataAdmissao = dataAdmissao;
             this.generoFuncionario = generoFuncionario;
             this.cpfFuncionario = cpfFuncionario;
+            this.horasNaoTrabalhadas = horasNaoTrabalhadas;
+            this.horasExtras = horasExtras;
+            this.salarioSeraAcrescentadoDevidoHorasExtras = salarioSeraAcrescentadoDevidoHorasExtras;
+            this.holeriteFinalizado = holeriteFinalizado;
         }
         public Funcionario(string emailEmpresarial, string senhaSistemaDesktop)
         {
             this.descricaoContato = emailEmpresarial;
             this.senhaSistemaDesktop = senhaSistemaDesktop;
         }
-        public Funcionario(int idFuncionario, string nomeFuncionario)
+        public Funcionario(int idFuncionario, string nomeFuncionario, bool holeriteFinalizado)
         {
             this.idFuncionario = idFuncionario;
             this.nomeFuncionario = nomeFuncionario;
+            this.holeriteFinalizado = holeriteFinalizado;
         }
         public Funcionario(int idEnderecoFuncionario, int idFuncionario, string rua, string numeroRua, string bairro, string cepResidencia, string cidadeMoradiaFuncionario)
         {
@@ -65,12 +71,22 @@ namespace PIM4___WebHolerite.Models.Negócios
             this.cidadeMoradia = cidadeMoradiaFuncionario;
         }
 
+        public Funcionario(int idContatoFuncionario, int idFuncionario, string tipoContatoFuncionario, string descricao) 
+        {
+            this.idContatoFuncionario = idContatoFuncionario;
+            this.idFuncionario = idFuncionario;
+            this.tipoContato = tipoContatoFuncionario;
+            this.descricaoContato = descricao;
+        }
+
         public int GetIdFuncionario { get { return this.idFuncionario; } }
         public int SetIdFuncionario { set { this.idFuncionario = value; } }
         public int GetIdSetor { get { return this.idSetor; } }
         public int SetIdSetor { set { this.idSetor = value; } }
         public int GetIdEmpresa { get { return this.idEmpresa; } }
         public int SetIdEmpresa { set { this.idEmpresa = value; } }
+        public int GetIdContatoFuncionario { get { return this.idContatoFuncionario; } }
+        public int SetIdContatoFuncionario { set { this.idContatoFuncionario = value; } }
         public string GetNomeFuncionario { get { return this.nomeFuncionario; } }
         public string SetNomeFuncionario { set { this.nomeFuncionario = value; } }
         public int GetIdEnderecoFuncionario { get { return this.idEnderecoFuncionario; } }
@@ -103,5 +119,9 @@ namespace PIM4___WebHolerite.Models.Negócios
         public string SetCepResidencia { set { this.cepResidencia = value; } }
         public string GetCidadeMoradiaFuncionario { get { return this.cidadeMoradia; } }
         public string SetCidadeMoradiaFuncionario { set { this.cidadeMoradia = value; } }
+        public decimal GetSalarioSeraAcrescentadoDevidoHorasExtras { get { return this.salarioSeraAcrescentadoDevidoHorasExtras; } }
+        public decimal SetSalarioSeraAcrescentadoDevidoHorasExtras { set { this.salarioSeraAcrescentadoDevidoHorasExtras = value; } }
+        public bool GetHoleriteFinalizado { get { return this.holeriteFinalizado; } }
+        public bool SetHoleriteFinalizado { set { this.holeriteFinalizado = value; } }
     }
 }

@@ -21,16 +21,14 @@ namespace FormsDeskHolerite.TelasHomeForms.telasHolerite
         ClsWorkForm ShowChildForm = new ClsWorkForm();
         FormEdicaoHolerite formEdicaoHolerite = new FormEdicaoHolerite();
         Funcionario funcionario = new Funcionario();
-       
+      
         int idFuncionario;
         string nomeFuncionario;
-
         public FormHolerite()
         {
             InitializeComponent();
             bdEmpresa.GetEmpresasComboBox(empresaHoleriteComboBox);
         }
-
         private void empresaHoleriteComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -42,29 +40,29 @@ namespace FormsDeskHolerite.TelasHomeForms.telasHolerite
             else
             {
                 setorHoleriteComboBox.Enabled = true;
-                bdSetor.GetSetoresComboBox(setorHoleriteComboBox, Int32.Parse(empresaHoleriteComboBox.SelectedIndex.ToString()));
+                bdSetor.GetSetoresComboBox(setorHoleriteComboBox, ((DataRowView)empresaHoleriteComboBox.SelectedItem).Row.Field<int>("id_Empresa"));
             }
         }
-
-        private void setorHoleriteComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         private void gerarHoleritesButton_Click(object sender, EventArgs e)
         {
-            TabPage tabPage = new TabPage("Edição Holerite         ");
-            holeriteTabControl.TabPages.Add(tabPage);
-            tabPage.AutoScroll = true;
-            ShowChildForm.openChildForm(new FormEdicaoHolerite(Int32.Parse(empresaHoleriteComboBox.SelectedIndex.ToString()), ((DataRowView)setorHoleriteComboBox.SelectedItem).Row.Field<int>("id_Setor"), empresaHoleriteComboBox.Text, setorHoleriteComboBox.Text), tabPage);
+            if (setorHoleriteComboBox.SelectedIndex == 0 || empresaHoleriteComboBox.SelectedIndex == 0)
+            {
+                MessageBox.Show("Empresa ou setor não escolhidos para criar Holerites");
+            }
+            else
+            {
+                TabPage tabPage = new TabPage("Edição Holerite " + setorHoleriteComboBox.Text + "               ");
+                holeriteTabControl.TabPages.Add(tabPage);
+                tabPage.AutoScroll = true;
+                ShowChildForm.openChildForm(new FormEdicaoHolerite(((DataRowView)empresaHoleriteComboBox.SelectedItem).Row.Field<int>("id_Empresa"), ((DataRowView)setorHoleriteComboBox.SelectedItem).Row.Field<int>("id_Setor"), empresaHoleriteComboBox.Text, setorHoleriteComboBox.Text), tabPage);
+            }
         }
-
         private void holeriteTabControl_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.Graphics.DrawString("x", e.Font, Brushes.Black, e.Bounds.Right - 15, e.Bounds.Top + 4);
             e.Graphics.DrawString(FormHolerite.holeriteTabControl.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 12, e.Bounds.Top + 4);
             e.DrawFocusRectangle();
         }
-
         private void holeriteTabControl_MouseDown(object sender, MouseEventArgs e)
         {
             for (int i = 0; i < FormHolerite.holeriteTabControl.TabPages.Count; i++)

@@ -23,7 +23,7 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
         {
             try
             {
-                sqlCmd.CommandText = "SELECT id_Funcionario,id_Empresa, id_Setor,nome_Funcionario,data_nascimento,data_admissao,sexo,cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras FROM TBfuncionario";
+                sqlCmd.CommandText = "SELECT id_Funcionario,id_Empresa, id_Setor,nome_Funcionario,data_nascimento,data_admissao,sexo,cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras,salario_Sera_Acrescentado_Devido_Horas_Extras,holerite_Finalizado FROM TBfuncionario";
                 sqlCmd.Connection = conn.conectar();
                 SqlDataReader dataReader = sqlCmd.ExecuteReader();
                 while (dataReader.Read())
@@ -36,8 +36,12 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                     funcionario.SetDataAdmissao = dataReader.GetDateTime(dataReader.GetOrdinal("data_admissao"));
                     funcionario.SetGeneroFuncionario = dataReader.GetString(dataReader.GetOrdinal("sexo"));
                     funcionario.SetCpfFuncionario = dataReader.GetString(dataReader.GetOrdinal("cpf_Funcionario"));
+                    funcionario.SetHorasNaoTrabalhadas = dataReader.GetDouble(dataReader.GetOrdinal("horas_Nao_Trabalhadas"));
+                    funcionario.SetHorasExtras = dataReader.GetDouble(dataReader.GetOrdinal("horas_Extras"));
+                    funcionario.SetSalarioSeraAcrescentadoDevidoHorasExtras = dataReader.GetDecimal(dataReader.GetOrdinal("salario_Sera_Acrescentado_Devido_Horas_Extras"));
+                    funcionario.SetHoleriteFinalizado = dataReader.GetBoolean(dataReader.GetOrdinal("holerite_Finalizado"));
 
-                    listaFuncionarios.Add(new Funcionario(idFuncionario: funcionario.GetIdFuncionario, idEmpresa: funcionario.GetIdEmpresa, idSetor: funcionario.GetIdSetor, nomeFuncionario: funcionario.GetNomeFuncionario, dataNascimento: funcionario.GetDataNascimento, dataAdmissao: funcionario.GetDataAdmissao, generoFuncionario: funcionario.GetGeneroFuncionario, cpfFuncionario: funcionario.GetCpfFuncionario));
+                    listaFuncionarios.Add(new Funcionario(idFuncionario: funcionario.GetIdFuncionario, idEmpresa: funcionario.GetIdEmpresa, idSetor: funcionario.GetIdSetor, nomeFuncionario: funcionario.GetNomeFuncionario, dataNascimento: funcionario.GetDataNascimento, dataAdmissao: funcionario.GetDataAdmissao, generoFuncionario: funcionario.GetGeneroFuncionario, cpfFuncionario: funcionario.GetCpfFuncionario,horasNaoTrabalhadas: funcionario.GetHorasNaoTrabalhadas, horasExtras:funcionario.GetHorasExtras, salarioSeraAcrescentadoDevidoHorasExtras: funcionario.GetSalarioSeraAcrescentadoDevidoHorasExtras, holeriteFinalizado:funcionario.GetHoleriteFinalizado));
                 }
                 dataReader.Close();
             }
@@ -55,7 +59,7 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
         {
             try
             {
-                sqlCmd.CommandText = "SELECT id_Funcionario, nome_Funcionario FROM TBfuncionario WHERE id_Empresa = @idEmpresa AND id_Setor = @idSetor";
+                sqlCmd.CommandText = "SELECT id_Funcionario, nome_Funcionario, holerite_Finalizado FROM TBfuncionario WHERE id_Empresa = @idEmpresa AND id_Setor = @idSetor";
                 sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
                 sqlCmd.Parameters.AddWithValue("@idSetor", idSetor);
                 sqlCmd.Connection = conn.conectar();
@@ -64,8 +68,10 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 {
                     funcionario.SetIdFuncionario = dataReader.GetInt32(dataReader.GetOrdinal("id_Funcionario"));
                     funcionario.SetNomeFuncionario = dataReader.GetString(dataReader.GetOrdinal("nome_Funcionario"));
-                    
-                    listaFuncionarios.Add(new Funcionario(idFuncionario: funcionario.GetIdFuncionario, nomeFuncionario: funcionario.GetNomeFuncionario));
+                    funcionario.SetNomeFuncionario = dataReader.GetString(dataReader.GetOrdinal("nome_Funcionario"));
+                    funcionario.SetHoleriteFinalizado = dataReader.GetBoolean(dataReader.GetOrdinal("holerite_Finalizado"));
+
+                    listaFuncionarios.Add(new Funcionario(idFuncionario: funcionario.GetIdFuncionario, nomeFuncionario: funcionario.GetNomeFuncionario, holeriteFinalizado:funcionario.GetHoleriteFinalizado));
                 }
                 dataReader.Close();
             }
@@ -80,11 +86,39 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
             return listaFuncionarios;
         }
+        public List<Funcionario> GetInformacaoFuncionarioContato()
+        {
+            try
+            {
+                sqlCmd.CommandText = "SELECT id_Contato_Funcionario,id_Funcionario,tipo_Contato_Funcionario,descricao FROM TBcontatoFuncionario";
+                sqlCmd.Connection = conn.conectar();
+                SqlDataReader dataReader = sqlCmd.ExecuteReader();
+                while (dataReader.Read())
+                {
+                    funcionario.SetIdContatoFuncionario= dataReader.GetInt32(dataReader.GetOrdinal("id_Contato_Funcionario"));
+                    funcionario.SetIdFuncionario = dataReader.GetInt32(dataReader.GetOrdinal("id_Funcionario"));
+                    funcionario.SetTipoContato = dataReader.GetString(dataReader.GetOrdinal("tipo_Contato_Funcionario"));
+                    funcionario.SetDescricaoContato = dataReader.GetString(dataReader.GetOrdinal("descricao"));            
+
+                    listaFuncionarios.Add(new Funcionario(idContatoFuncionario: funcionario.GetIdContatoFuncionario, idFuncionario: funcionario.GetIdFuncionario, tipoContatoFuncionario: funcionario.GetTipoContato, descricao: funcionario.GetDescricaoContato));
+                }
+                dataReader.Close();
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                conn.desconectar();
+            }
+            return listaFuncionarios;
+        }
         public Funcionario GetInformacaoFuncionario(int idFuncionario)
         {
             try
             {
-                sqlCmd.CommandText = "SELECT id_Funcionario,id_Empresa, id_Setor,nome_Funcionario,data_nascimento,data_admissao,sexo,cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras FROM TBfuncionario WHERE id_Funcionario = @idFuncionario";
+                sqlCmd.CommandText = "SELECT id_Funcionario,id_Empresa, id_Setor,nome_Funcionario,data_nascimento,data_admissao,sexo,cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras,salario_Sera_Acrescentado_Devido_Horas_Extras,holerite_Finalizado FROM TBfuncionario WHERE id_Funcionario = @idFuncionario";
                 sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
                 sqlCmd.Connection = conn.conectar();
                 SqlDataReader dataReader = sqlCmd.ExecuteReader();
@@ -98,8 +132,12 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                     funcionario.SetDataAdmissao = dataReader.GetDateTime(dataReader.GetOrdinal("data_admissao"));
                     funcionario.SetGeneroFuncionario = dataReader.GetString(dataReader.GetOrdinal("sexo"));
                     funcionario.SetCpfFuncionario = dataReader.GetString(dataReader.GetOrdinal("cpf_Funcionario"));
+                    funcionario.SetHorasNaoTrabalhadas = dataReader.GetDouble(dataReader.GetOrdinal("horas_Nao_Trabalhadas"));
+                    funcionario.SetHorasExtras = dataReader.GetDouble(dataReader.GetOrdinal("horas_Extras"));
+                    funcionario.SetSalarioSeraAcrescentadoDevidoHorasExtras = dataReader.GetDecimal(dataReader.GetOrdinal("salario_Sera_Acrescentado_Devido_Horas_Extras"));
+                    funcionario.SetHoleriteFinalizado = dataReader.GetBoolean(dataReader.GetOrdinal("holerite_Finalizado"));
 
-                    return new Funcionario(idFuncionario: funcionario.GetIdFuncionario, idEmpresa: funcionario.GetIdEmpresa, idSetor: funcionario.GetIdSetor, nomeFuncionario: funcionario.GetNomeFuncionario, dataNascimento: funcionario.GetDataNascimento, dataAdmissao: funcionario.GetDataAdmissao, generoFuncionario: funcionario.GetGeneroFuncionario, cpfFuncionario: funcionario.GetCpfFuncionario);
+                    return new Funcionario(idFuncionario: funcionario.GetIdFuncionario, idEmpresa: funcionario.GetIdEmpresa, idSetor: funcionario.GetIdSetor, nomeFuncionario: funcionario.GetNomeFuncionario, dataNascimento: funcionario.GetDataNascimento, dataAdmissao: funcionario.GetDataAdmissao, generoFuncionario: funcionario.GetGeneroFuncionario, cpfFuncionario: funcionario.GetCpfFuncionario, horasNaoTrabalhadas: funcionario.GetHorasNaoTrabalhadas, horasExtras:funcionario.GetHorasExtras,salarioSeraAcrescentadoDevidoHorasExtras:funcionario.GetSalarioSeraAcrescentadoDevidoHorasExtras, holeriteFinalizado: funcionario.GetHoleriteFinalizado) ;
                 }
                 dataReader.Close();
             }
@@ -160,12 +198,177 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
             }
             return idFuncionario;
         }
+        public int GetIdFuncionario(string emailFuncionario, List<Funcionario> listaContatoFuncionario)
+        {
+            var idFuncionario = 0;
+
+            foreach (Funcionario funcionario in listaContatoFuncionario)
+            {
+                if (funcionario.GetDescricaoContato == emailFuncionario )
+                {
+                    idFuncionario = funcionario.GetIdFuncionario;
+                }
+            }
+            return idFuncionario;
+        }
+        public bool GetLoginSenha(string login, string senha)
+        {
+            List<Funcionario> loginSenha = new List<Funcionario>();
+
+            try
+            {
+                sqlCmd.Connection = conn.conectar();
+                sqlCmd.CommandText = "SELECT contatoFunc.descricao, senhaFuncRh.senha FROM TBsenhaFuncionario AS senhaFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaFuncRh.id_funcionario = contatoFunc.id_Funcionario WHERE tipo_Contato_Funcionario LIKE '%Empresarial'";
+
+                sqlCmd.Parameters.AddWithValue("@login",login);
+                sqlCmd.Parameters.AddWithValue("@senha",senha);
+                SqlDataReader dataReader = sqlCmd.ExecuteReader();
+               
+
+                while (dataReader.Read())
+                {
+
+                    funcionario.SetDescricaoContato = dataReader.GetString(dataReader.GetOrdinal("descricao"));
+                    funcionario.SetSenhaSistemaDesktop = dataReader.GetString(dataReader.GetOrdinal("senha"));
+
+                    loginSenha.Add(new Funcionario(emailEmpresarial: funcionario.GetDescricaoContato, senhaSistemaDesktop: funcionario.GetSenhaSistemaDesktop));
+                }
+
+                foreach( Funcionario funcionarioLoginSenha in loginSenha)
+                {
+                    if (login.Contains(funcionarioLoginSenha.GetDescricaoContato) && senha.Contains(funcionarioLoginSenha.GetSenhaSistemaDesktop))
+                    {
+                        return true;
+                    }
+                }
+                sqlCmd.Parameters.Clear();
+                dataReader.Close();
+            }
+            catch (SqlException erro){ MessageBox.Show(erro.Message); }
+            finally 
+            {
+                
+                conn.desconectar(); 
+            }
+            return false;
+        }
+        public byte GetHoleriteFinalizado(int idFuncionario)
+        {
+            byte holeriteFinalizado = 0;
+            try
+            {
+                sqlCmd.CommandText = "SELECT holerite_Finalizado FROM TBfuncionario WHERE id_Funcionario = @idFuncionario";
+                sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                sqlCmd.Connection = conn.conectar();
+                using (SqlDataReader dataReader = sqlCmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        holeriteFinalizado = dataReader.GetByte(dataReader.GetOrdinal("holerite_Finalizado"));
+                    }
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+
+            return holeriteFinalizado;
+        }
+        public void GetFuncionariosAdmEmpresaComboBox(ComboBox comboBoxFuncionariosEmpresa, int idEmpresa)
+        {
+            try
+            {
+                sqlCmd.CommandText = "SELECT id_Funcionario, id_Setor, nome_Funcionario FROM TBfuncionario WHERE id_Empresa = @idEmpresa";
+                sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
+                sqlCmd.Connection = conn.conectar();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                dataAdapter.SelectCommand = sqlCmd;
+                DataTable tabela = new DataTable();
+                tabela.Columns.Add("id_Funcionario", typeof(Int32));
+                tabela.Columns.Add("id_Setor", typeof(Int32));
+                tabela.Columns.Add("nome_Funcionario", typeof(string));
+                dataAdapter.Fill(tabela);
+
+                DataRow itemLinha = tabela.NewRow();
+                itemLinha[2] = "Selecione o Funcionário";
+                tabela.Rows.InsertAt(itemLinha, 0);
+
+                comboBoxFuncionariosEmpresa.DataSource = tabela;
+                comboBoxFuncionariosEmpresa.DisplayMember = "nome_Funcionario";
+                comboBoxFuncionariosEmpresa.ValueMember = "id_Funcionario";
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+        }      
+        public double GetHorasExtras(int idFuncionario )
+        {
+            double horasExtras = 0;
+            try
+            {
+
+                sqlCmd.CommandText = "SELECT horas_Extras FROM TBfuncionario WHERE id_Funcionario = @idFuncionario";
+                sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                sqlCmd.Connection = conn.conectar();
+                using (SqlDataReader dataReader = sqlCmd.ExecuteReader())
+                {
+                    while (dataReader.Read())
+                    {
+                        horasExtras = dataReader.GetDouble(dataReader.GetOrdinal("horas_Extras"));
+                    }
+                }
+            }
+            catch (SqlException error)
+            {
+                MessageBox.Show(error.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            } 
+            return horasExtras;
+        }
+        public void SetHoleriteFinalizado(int idFuncionario, byte holeriteFinalizado)
+        {
+            try
+            {
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.CommandText = "UPDATE TBfuncionario SET holerite_Finalizado = @holeriteFinalizado WHERE id_Funcionario = @idFuncionario";
+                sqlCmd.Connection = conn.conectar();
+                sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                sqlCmd.Parameters.AddWithValue("@holeriteFinalizado", holeriteFinalizado);
+                sqlCmd.ExecuteNonQuery();
+
+            }
+            catch (SqlException erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+        }
         public bool SetDadosFuncionario(int idEmpresa, int idSetor, string nomeFuncionario, string dataNascimento, string dataAdmissao, string sexo, string cpfFuncionario)
         {           
             try
             {
                 sqlCmd.CommandType = CommandType.Text;
-                sqlCmd.CommandText = "INSERT INTO TBfuncionario (id_Empresa,id_Setor,data_nascimento,data_admissao,nome_Funcionario,sexo,cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras ) VALUES(@idEmpresa,@idSetor,@dataNascimento,@dataAdmissao,@nomeFuncionario, @sexo,@cpfFuncionario,0,0)";
+                sqlCmd.CommandText = "INSERT INTO TBfuncionario (id_Empresa,id_Setor,data_nascimento,data_admissao,nome_Funcionario,sexo,cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras,salario_Sera_Acrescentado_Devido_Horas_Extras, holerite_Finalizado) VALUES(@idEmpresa,@idSetor,@dataNascimento,@dataAdmissao,@nomeFuncionario, @sexo,@cpfFuncionario,0,0,0.00,0)";
                 sqlCmd.Connection = conn.conectar();
                 sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
                 sqlCmd.Parameters.AddWithValue("@idSetor", idSetor);
@@ -268,82 +471,7 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
 
             return true;
         }
-        public bool GetLoginSenha(string login, string senha)
-        {
-            List<Funcionario> loginSenha = new List<Funcionario>();
-
-            try
-            {
-                sqlCmd.Connection = conn.conectar();
-                sqlCmd.CommandText = "SELECT contatoFunc.descricao, senhaFuncRh.senha  FROM TBsenhaFuncionario AS senhaFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaFuncRh.id_funcionario = contatoFunc.id_Funcionario WHERE tipo_Contato_Funcionario LIKE '%Empresarial'";
-
-                sqlCmd.Parameters.AddWithValue("@login",login);
-                sqlCmd.Parameters.AddWithValue("@senha",senha);
-                SqlDataReader dataReader = sqlCmd.ExecuteReader();
-               
-
-                while (dataReader.Read())
-                {
-
-                    funcionario.SetDescricaoContato = dataReader.GetString(dataReader.GetOrdinal("descricao"));
-                    funcionario.SetSenhaSistemaDesktop = dataReader.GetString(dataReader.GetOrdinal("senha"));
-
-                    loginSenha.Add(new Funcionario(emailEmpresarial: funcionario.GetDescricaoContato, senhaSistemaDesktop: funcionario.GetSenhaSistemaDesktop));
-                }
-
-                foreach( Funcionario funcionarioLoginSenha in loginSenha)
-                {
-                    if (login.Contains(funcionarioLoginSenha.GetDescricaoContato) && senha.Contains(funcionarioLoginSenha.GetSenhaSistemaDesktop))
-                    {
-                        return true;
-                    }
-                }
-                sqlCmd.Parameters.Clear();
-                dataReader.Close();
-            }
-            catch (SqlException erro){ MessageBox.Show(erro.Message); }
-            finally 
-            {
-                
-                conn.desconectar(); 
-            }
-            return false;
-        }
-        public void GetFuncionariosAdmEmpresaComboBox(ComboBox comboBoxFuncionariosEmpresa, int idEmpresa)
-        {
-            try
-            {
-                sqlCmd.CommandText = "SELECT id_Funcionario, id_Setor, nome_Funcionario FROM TBfuncionario WHERE id_Empresa = @idEmpresa";
-                sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
-                sqlCmd.Connection = conn.conectar();
-                SqlDataAdapter dataAdapter = new SqlDataAdapter();
-                dataAdapter.SelectCommand = sqlCmd;
-                DataTable tabela = new DataTable();
-                tabela.Columns.Add("id_Funcionario", typeof(Int32));
-                tabela.Columns.Add("id_Setor", typeof(Int32));
-                tabela.Columns.Add("nome_Funcionario", typeof(string));
-                dataAdapter.Fill(tabela);
-
-                DataRow itemLinha = tabela.NewRow();
-                itemLinha[2] = "Selecione o Funcionário";
-                tabela.Rows.InsertAt(itemLinha, 0);
-
-                comboBoxFuncionariosEmpresa.DataSource = tabela;
-                comboBoxFuncionariosEmpresa.DisplayMember = "nome_Funcionario";
-                comboBoxFuncionariosEmpresa.ValueMember = "id_Funcionario";
-            }
-            catch (SqlException error)
-            {
-                MessageBox.Show(error.Message);
-            }
-            finally
-            {
-                sqlCmd.Parameters.Clear();
-                conn.desconectar();
-            }
-        }      
-
-        public void SetHorasNaoTrabalhadas(int idFuncionario, string horasNaoTrabalhadas)
+        public void SetHorasNaoTrabalhadas(int idFuncionario, float horasNaoTrabalhadas)
         {
             try
             {
@@ -353,7 +481,6 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 sqlCmd.Parameters.AddWithValue("@horasNaoTrabalhadas", horasNaoTrabalhadas);                
                 sqlCmd.Connection = conn.conectar();
                 sqlCmd.ExecuteNonQuery();
-
             }
             catch (SqlException erro)
             {
@@ -365,18 +492,16 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 conn.desconectar();
             }
         }
-
-        public void SetHorasExtras(int idFuncionario, string horasExtras)
+        public void SetHorasExtras(int idFuncionario, float horasExtras)
         {
             try
             {
                 sqlCmd.CommandType = CommandType.Text;
-                sqlCmd.CommandText = "UPDATE TBfuncionario SET horas_Extras = @horasExtras WHERE id_Funcionario = idFuncionario";
+                sqlCmd.CommandText = "UPDATE TBfuncionario SET horas_Extras = @horasExtras WHERE id_Funcionario = @idFuncionario";
                 sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
                 sqlCmd.Parameters.AddWithValue("@horasExtras", horasExtras);
                 sqlCmd.Connection = conn.conectar();
                 sqlCmd.ExecuteNonQuery();
-
             }
             catch (SqlException erro)
             {
@@ -387,6 +512,28 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 sqlCmd.Parameters.Clear();
                 conn.desconectar();
             }
+        }
+        public bool SetSalarioSeraAcrescentadoDevidoHorasExtras(int idFuncionario, double salarioSeraAcrescentadoDevidoHorasExtras)
+        {
+            try
+            {
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.CommandText = "UPDATE TBfuncionario SET salario_Sera_Acrescentado_Devido_Horas_Extras = @salarioSeraAcrescentadoDevidoHorasExtras WHERE id_Funcionario = @idFuncionario";
+                sqlCmd.Parameters.AddWithValue("@idFuncionario", idFuncionario);
+                sqlCmd.Parameters.AddWithValue("@salarioSeraAcrescentadoDevidoHorasExtras", salarioSeraAcrescentadoDevidoHorasExtras);
+                sqlCmd.Connection = conn.conectar();
+                sqlCmd.ExecuteNonQuery();
+            }
+            catch (SqlException erro)
+            {
+                MessageBox.Show(erro.Message);
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+            }
+            return true;
         }
     }
 }

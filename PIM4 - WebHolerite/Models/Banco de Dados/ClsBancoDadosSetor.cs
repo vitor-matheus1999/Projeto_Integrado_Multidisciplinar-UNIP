@@ -92,11 +92,11 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 return new Setor();
             }
         }
-        public bool SetDadosSetor(int idEmpresa, int idSalario, string nomeSetor, string hierarquia, string funcaoSetor,string periodoTrabalho, string escalaTrabalho, string cargaHoraria)
+        public bool SetDadosSetor(int idEmpresa, int idSalario, string nomeSetor, string hierarquia, string funcaoSetor,string periodoTrabalho, string escalaTrabalho, string cargaHoraria, decimal salarioGanhoHora, decimal salarioGanhoDia)
         {
             try
             {
-                sqlCmd.CommandText = " INSERT INTO TBsetor (id_Empresa,id_Salario,nome_Setor,hierarquia,funcao_setor,periodo_Trabalho,escala_Trabalho, carga_Horaria,salario_Ganho_Em_Horas,salario_Diario) VALUES (@idEmpresa,@idSalario, @nomeSetor,@hierarquia,@funcaoSetor,@periodoTrabalho,@escalaTrabalho, @cargaHoraria, 0.00,0.00)";
+                sqlCmd.CommandText = " INSERT INTO TBsetor (id_Empresa,id_Salario,nome_Setor,hierarquia,funcao_setor,periodo_Trabalho,escala_Trabalho, carga_Horaria,salario_Ganho_Em_Horas,salario_Diario) VALUES (@idEmpresa,@idSalario, @nomeSetor,@hierarquia,@funcaoSetor,@periodoTrabalho,@escalaTrabalho, @cargaHoraria, @salarioGanhoHora, @salarioGanhoDia)";
                 sqlCmd.Connection = conn.conectar();
                 sqlCmd.Parameters.AddWithValue("@idEmpresa", idEmpresa);
                 sqlCmd.Parameters.AddWithValue("@idSalario", idSalario);
@@ -106,6 +106,8 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 sqlCmd.Parameters.AddWithValue("@periodoTrabalho", periodoTrabalho);
                 sqlCmd.Parameters.AddWithValue("@escalaTrabalho", escalaTrabalho);
                 sqlCmd.Parameters.AddWithValue("@cargaHoraria", cargaHoraria);
+                sqlCmd.Parameters.AddWithValue("@salarioGanhoHora", salarioGanhoHora);
+                sqlCmd.Parameters.AddWithValue("@salarioGanhoDia", salarioGanhoDia);
                 sqlCmd.ExecuteNonQuery();
             }
             catch (SqlException erro)

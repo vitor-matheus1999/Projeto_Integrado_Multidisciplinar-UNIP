@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace FormsDeskHolerite.TelasHomeForms.telasHolerite
 {
@@ -80,15 +81,55 @@ namespace FormsDeskHolerite.TelasHomeForms.telasHolerite
             this.ActiveControl = null;
         }
 
-        private void FecharJanelaIconButton_Click(object sender, EventArgs e)
+        private void addHorasExtrasNaoTrabalhadasButton_Click(object sender, EventArgs e)
         {
+
+            var horasExtrasForms = float.Parse(horasExtrasTextBox.Text);
+        
+            if(bdFuncionario.GetHorasExtras(idFuncionario) == 0)
+            {
+
+                bdFuncionario.SetHorasNaoTrabalhadas(idFuncionario, float.Parse( horasNaoTrabalhadasTextBox.Text));
+                bdFuncionario.SetHorasExtras(idFuncionario, float.Parse(horasExtrasTextBox.Text));
+                salarioDevendoTextBox.Text = (float.Parse(salarioGanhoHorasTextBox.Text) * horasExtrasForms ).ToString();
+                MessageBox.Show("Horas Extras salvas com sucesso");
+            }
+
+            if (bdFuncionario.GetHorasExtras(idFuncionario) > 0)
+            {
+                MessageBox.Show("Parece que este funcionário contém horas extras pendentes, logo as horas extras adicionadas atualmentes se somarão com as anteriores", "AVISO");
+                var horasExtrasSalvasNoBancoDados = float.Parse(bdFuncionario.GetHorasExtras(idFuncionario).ToString());
+                var somaHorasExtras = horasExtrasForms + horasExtrasSalvasNoBancoDados;
+                bdFuncionario.SetHorasNaoTrabalhadas(idFuncionario, float.Parse(horasNaoTrabalhadasTextBox.Text));
+                bdFuncionario.SetHorasExtras(idFuncionario, somaHorasExtras);
+                salarioDevendoTextBox.Text = (float.Parse(salarioGanhoHorasTextBox.Text) * somaHorasExtras).ToString();
+                bdFuncionario.SetSalarioSeraAcrescentadoDevidoHorasExtras(idFuncionario, float.Parse(salarioDevendoTextBox.Text));
+            }
+            
 
         }
 
-        private void clsCircularBoxIcon1_Click(object sender, EventArgs e)
+        private void fecharHoleriteButton_Click(object sender, EventArgs e)
         {
-            bdFuncionario.SetHorasNaoTrabalhadas(idFuncionario, horasNaoTrabalhadasTextBox.Text);
-            bdFuncionario.SetHorasExtras(idFuncionario, horasExtrasTextBox.Text);
+            if(MessageBox.Show("Deseja fechar e zerar as horas extras desse funcionário ?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                bdFuncionario.SetHorasExtras(idFuncionario, 0);
+                MessageBox.Show("As horas extras do funcionário foram zeradas com sucesso");
+                FormHolerite.holeriteTabControl.TabPages.Remove(FormHolerite.holeriteTabControl.SelectedTab);
+                bdFuncionario.SetHoleriteFinalizado(idFuncionario, 1);
+            }
+            else
+            {
+                MessageBox.Show("O funcionário atualmente contém  " + bdFuncionario.GetHorasExtras(idFuncionario) + " horas extras salvas");
+                FormHolerite.holeriteTabControl.TabPages.Remove(FormHolerite.holeriteTabControl.SelectedTab);
+                bdFuncionario.SetHoleriteFinalizado(idFuncionario, 1);
+            }
+        }
+
+        private void salvarHoleriteButton_Click(object sender, EventArgs e)
+        {
+            FormHolerite.holeriteTabControl.TabPages.Remove(FormHolerite.holeriteTabControl.SelectedTab);
+            MessageBox.Show("Dados Salvos");
         }
     }
 }

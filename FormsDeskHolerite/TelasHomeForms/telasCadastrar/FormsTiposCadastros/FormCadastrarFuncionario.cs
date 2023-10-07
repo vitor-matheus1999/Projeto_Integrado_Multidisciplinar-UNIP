@@ -172,8 +172,9 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
             bool dadosPessoalFuncionario;
             bool dadosEnderecoFuncionario;
             bool dadosContatoFuncionario = false;
+            int idEmpresa = ((DataRowView)empresaFuncionarioComboBox.SelectedItem).Row.Field<int>("id_Empresa");
 
-            if(nomeTextBox.Text == null || cpfTextBox.Text == null || sexoComboBox.SelectedIndex == 0 || empresaFuncionarioComboBox.SelectedIndex == 0 || setorFuncionarioComboBox.SelectedIndex == 0 || nivelHierarquicoComboBox.SelectedIndex == 0 || dataNascimentoDateTimePicker.Value == DateTime.Now)
+            if (nomeTextBox.Text == null || cpfTextBox.Text == null || sexoComboBox.SelectedIndex == 0 || empresaFuncionarioComboBox.SelectedIndex == 0 || setorFuncionarioComboBox.SelectedIndex == 0 || nivelHierarquicoComboBox.SelectedIndex == 0 || dataNascimentoDateTimePicker.Value == DateTime.Now)
             {
                 MessageBox.Show("Por favor preencha os registros em branco");
                 return;
@@ -212,9 +213,9 @@ namespace FormsDeskHolerite.TelasHomeForms.telasCadastrar.FormsTiposCadastros
                 funcionario.SetGeneroFuncionario = "NE";
             }
             #endregion
-            dadosPessoalFuncionario = bdFuncionario.SetDadosFuncionario(Int32.Parse(empresaFuncionarioComboBox.SelectedValue.ToString()), Int32.Parse(nivelHierarquicoComboBox.SelectedValue.ToString()), nomeTextBox.Text, this.dataNascimentoDateTimePicker.Text, this.dataAdmissaoDateTimePicker.Text, funcionario.GetGeneroFuncionario, cpfTextBox.Text);
+            dadosPessoalFuncionario = bdFuncionario.SetDadosFuncionario(idEmpresa, Int32.Parse(nivelHierarquicoComboBox.SelectedValue.ToString()), nomeTextBox.Text, this.dataNascimentoDateTimePicker.Text, this.dataAdmissaoDateTimePicker.Text, funcionario.GetGeneroFuncionario, cpfTextBox.Text);
             bdFuncionario.GetInformacaoFuncionario();
-            var idFuncionario = bdFuncionario.GetIdFuncionario(Int32.Parse(empresaFuncionarioComboBox.SelectedValue.ToString()), Int32.Parse(setorFuncionarioComboBox.SelectedValue.ToString()), nomeTextBox.Text, cpfTextBox.Text);
+            var idFuncionario = bdFuncionario.GetIdFuncionario(idEmpresa, Int32.Parse(setorFuncionarioComboBox.SelectedValue.ToString()), nomeTextBox.Text, cpfTextBox.Text);
             dadosEnderecoFuncionario = bdFuncionario.SetDadosFuncionario(idFuncionario, enderecoTextBox.Text, numResidenciaTextBox.Text, bairroTextBox.Text, cepTextBox.Text, cidadeTextBox.Text);
             #region Contatos       
             dadosContatoFuncionario = bdFuncionario.SetDadosFuncionario(idFuncionario, tipoContatoComboBox.Text, contatoTextBox.Text);

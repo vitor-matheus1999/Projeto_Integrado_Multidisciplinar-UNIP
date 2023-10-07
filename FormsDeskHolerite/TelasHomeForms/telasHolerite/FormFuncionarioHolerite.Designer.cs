@@ -29,13 +29,26 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.salvarHoleriteButton = new FontAwesome.Sharp.IconButton();
+            this.fecharHoleriteButton = new FontAwesome.Sharp.IconButton();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
+            this.salarioDevendoTextBox = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.salarioLiquidoTextBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.salarioGanhoHorasTextBox = new System.Windows.Forms.TextBox();
+            this.salarioGanhoDiaTextBox = new System.Windows.Forms.TextBox();
+            this.salarioBrutoTextBox = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.addHorasExtrasNaoTrabalhadasButton = new FontAwesome.Sharp.IconButton();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.horasExtrasTextBox = new System.Windows.Forms.TextBox();
             this.horasNaoTrabalhadasTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -47,7 +60,6 @@
             this.periodoTrabalhoTextBox = new System.Windows.Forms.TextBox();
             this.setorFuncionarioTextBox = new System.Windows.Forms.TextBox();
             this.empresaContratanteTextBox = new System.Windows.Forms.TextBox();
-            this.salarioBrutoTextBox = new System.Windows.Forms.TextBox();
             this.cargaHorariaTextBox = new System.Windows.Forms.TextBox();
             this.nivelHierarquicoFuncionarioTextBox = new System.Windows.Forms.TextBox();
             this.dataAdmissaoTextBox = new System.Windows.Forms.TextBox();
@@ -70,27 +82,19 @@
             this.dataNascimentoTextBox = new System.Windows.Forms.TextBox();
             this.generoFuncionarioTextBox = new System.Windows.Forms.TextBox();
             this.nomeFuncionarioTextBox = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.salarioGanhoHorasTextBox = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.salarioGanhoDiaTextBox = new System.Windows.Forms.TextBox();
-            this.salarioLiquidoTextBox = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.clsCircularBoxIcon1 = new FormsDeskHolerite.Design.ClsCircularBoxIcon();
-            this.label23 = new System.Windows.Forms.Label();
-            this.salarioDevendoTextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.salvarHoleriteButton);
+            this.panel1.Controls.Add(this.fecharHoleriteButton);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
@@ -100,10 +104,164 @@
             this.panel1.Size = new System.Drawing.Size(599, 995);
             this.panel1.TabIndex = 0;
             // 
+            // salvarHoleriteButton
+            // 
+            this.salvarHoleriteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(212)))), ((int)(((byte)(194)))));
+            this.salvarHoleriteButton.FlatAppearance.BorderSize = 0;
+            this.salvarHoleriteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.salvarHoleriteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salvarHoleriteButton.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.salvarHoleriteButton.IconColor = System.Drawing.Color.LimeGreen;
+            this.salvarHoleriteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.salvarHoleriteButton.IconSize = 40;
+            this.salvarHoleriteButton.Location = new System.Drawing.Point(274, 926);
+            this.salvarHoleriteButton.Name = "salvarHoleriteButton";
+            this.salvarHoleriteButton.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.salvarHoleriteButton.Size = new System.Drawing.Size(132, 47);
+            this.salvarHoleriteButton.TabIndex = 38;
+            this.salvarHoleriteButton.Text = "Salvar";
+            this.salvarHoleriteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.salvarHoleriteButton.UseVisualStyleBackColor = false;
+            this.salvarHoleriteButton.Click += new System.EventHandler(this.salvarHoleriteButton_Click);
+            // 
+            // fecharHoleriteButton
+            // 
+            this.fecharHoleriteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(105)))), ((int)(((byte)(91)))));
+            this.fecharHoleriteButton.FlatAppearance.BorderSize = 0;
+            this.fecharHoleriteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fecharHoleriteButton.ForeColor = System.Drawing.Color.Black;
+            this.fecharHoleriteButton.IconChar = FontAwesome.Sharp.IconChar.FileCircleCheck;
+            this.fecharHoleriteButton.IconColor = System.Drawing.Color.White;
+            this.fecharHoleriteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.fecharHoleriteButton.IconSize = 40;
+            this.fecharHoleriteButton.Location = new System.Drawing.Point(421, 927);
+            this.fecharHoleriteButton.Name = "fecharHoleriteButton";
+            this.fecharHoleriteButton.Size = new System.Drawing.Size(132, 46);
+            this.fecharHoleriteButton.TabIndex = 37;
+            this.fecharHoleriteButton.Text = "Fechar Holerite";
+            this.fecharHoleriteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.fecharHoleriteButton.UseVisualStyleBackColor = false;
+            this.fecharHoleriteButton.Click += new System.EventHandler(this.fecharHoleriteButton_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.label23);
+            this.panel5.Controls.Add(this.salarioDevendoTextBox);
+            this.panel5.Controls.Add(this.label22);
+            this.panel5.Controls.Add(this.salarioLiquidoTextBox);
+            this.panel5.Controls.Add(this.label20);
+            this.panel5.Controls.Add(this.label21);
+            this.panel5.Controls.Add(this.salarioGanhoHorasTextBox);
+            this.panel5.Controls.Add(this.salarioGanhoDiaTextBox);
+            this.panel5.Controls.Add(this.salarioBrutoTextBox);
+            this.panel5.Controls.Add(this.label17);
+            this.panel5.Location = new System.Drawing.Point(45, 606);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(508, 173);
+            this.panel5.TabIndex = 36;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.ForeColor = System.Drawing.Color.Black;
+            this.label23.Location = new System.Drawing.Point(27, 122);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(203, 13);
+            this.label23.TabIndex = 37;
+            this.label23.Text = "Salário a ser recebido devido a hora extra";
+            // 
+            // salarioDevendoTextBox
+            // 
+            this.salarioDevendoTextBox.Location = new System.Drawing.Point(27, 138);
+            this.salarioDevendoTextBox.Name = "salarioDevendoTextBox";
+            this.salarioDevendoTextBox.ReadOnly = true;
+            this.salarioDevendoTextBox.Size = new System.Drawing.Size(198, 20);
+            this.salarioDevendoTextBox.TabIndex = 36;
+            this.salarioDevendoTextBox.Text = "0";
+            this.salarioDevendoTextBox.Click += new System.EventHandler(this.TextBox_Click);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(272, 19);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(78, 13);
+            this.label22.TabIndex = 35;
+            this.label22.Text = "Salário Líquido";
+            // 
+            // salarioLiquidoTextBox
+            // 
+            this.salarioLiquidoTextBox.Location = new System.Drawing.Point(272, 35);
+            this.salarioLiquidoTextBox.Name = "salarioLiquidoTextBox";
+            this.salarioLiquidoTextBox.ReadOnly = true;
+            this.salarioLiquidoTextBox.Size = new System.Drawing.Size(198, 20);
+            this.salarioLiquidoTextBox.TabIndex = 34;
+            this.salarioLiquidoTextBox.Click += new System.EventHandler(this.TextBox_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(25, 73);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(182, 13);
+            this.label20.TabIndex = 31;
+            this.label20.Text = "Salário Ganho em 1 Hora de trabalho";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(269, 73);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(173, 13);
+            this.label21.TabIndex = 33;
+            this.label21.Text = "Salário Ganho em 1 dia de trabalho";
+            // 
+            // salarioGanhoHorasTextBox
+            // 
+            this.salarioGanhoHorasTextBox.Location = new System.Drawing.Point(28, 89);
+            this.salarioGanhoHorasTextBox.Name = "salarioGanhoHorasTextBox";
+            this.salarioGanhoHorasTextBox.ReadOnly = true;
+            this.salarioGanhoHorasTextBox.Size = new System.Drawing.Size(198, 20);
+            this.salarioGanhoHorasTextBox.TabIndex = 30;
+            this.salarioGanhoHorasTextBox.Click += new System.EventHandler(this.TextBox_Click);
+            // 
+            // salarioGanhoDiaTextBox
+            // 
+            this.salarioGanhoDiaTextBox.Location = new System.Drawing.Point(272, 89);
+            this.salarioGanhoDiaTextBox.Name = "salarioGanhoDiaTextBox";
+            this.salarioGanhoDiaTextBox.ReadOnly = true;
+            this.salarioGanhoDiaTextBox.Size = new System.Drawing.Size(198, 20);
+            this.salarioGanhoDiaTextBox.TabIndex = 32;
+            this.salarioGanhoDiaTextBox.Text = "  ";
+            this.salarioGanhoDiaTextBox.Click += new System.EventHandler(this.TextBox_Click);
+            // 
+            // salarioBrutoTextBox
+            // 
+            this.salarioBrutoTextBox.Location = new System.Drawing.Point(28, 35);
+            this.salarioBrutoTextBox.Name = "salarioBrutoTextBox";
+            this.salarioBrutoTextBox.ReadOnly = true;
+            this.salarioBrutoTextBox.Size = new System.Drawing.Size(198, 20);
+            this.salarioBrutoTextBox.TabIndex = 3;
+            this.salarioBrutoTextBox.Click += new System.EventHandler(this.TextBox_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.Location = new System.Drawing.Point(25, 19);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(67, 13);
+            this.label17.TabIndex = 29;
+            this.label17.Text = "Salário Bruto";
+            // 
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.clsCircularBoxIcon1);
+            this.panel4.Controls.Add(this.addHorasExtrasNaoTrabalhadasButton);
             this.panel4.Controls.Add(this.label19);
             this.panel4.Controls.Add(this.label18);
             this.panel4.Controls.Add(this.horasExtrasTextBox);
@@ -112,6 +270,25 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(506, 106);
             this.panel4.TabIndex = 10;
+            // 
+            // addHorasExtrasNaoTrabalhadasButton
+            // 
+            this.addHorasExtrasNaoTrabalhadasButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(157)))), ((int)(((byte)(212)))), ((int)(((byte)(194)))));
+            this.addHorasExtrasNaoTrabalhadasButton.FlatAppearance.BorderSize = 0;
+            this.addHorasExtrasNaoTrabalhadasButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addHorasExtrasNaoTrabalhadasButton.ForeColor = System.Drawing.Color.Black;
+            this.addHorasExtrasNaoTrabalhadasButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.addHorasExtrasNaoTrabalhadasButton.IconColor = System.Drawing.Color.White;
+            this.addHorasExtrasNaoTrabalhadasButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.addHorasExtrasNaoTrabalhadasButton.IconSize = 25;
+            this.addHorasExtrasNaoTrabalhadasButton.Location = new System.Drawing.Point(381, 37);
+            this.addHorasExtrasNaoTrabalhadasButton.Name = "addHorasExtrasNaoTrabalhadasButton";
+            this.addHorasExtrasNaoTrabalhadasButton.Size = new System.Drawing.Size(84, 29);
+            this.addHorasExtrasNaoTrabalhadasButton.TabIndex = 26;
+            this.addHorasExtrasNaoTrabalhadasButton.Text = "Adicionar";
+            this.addHorasExtrasNaoTrabalhadasButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.addHorasExtrasNaoTrabalhadasButton.UseVisualStyleBackColor = false;
+            this.addHorasExtrasNaoTrabalhadasButton.Click += new System.EventHandler(this.addHorasExtrasNaoTrabalhadasButton_Click);
             // 
             // label19
             // 
@@ -171,16 +348,6 @@
             this.panel3.Size = new System.Drawing.Size(508, 225);
             this.panel3.TabIndex = 9;
             this.panel3.Click += new System.EventHandler(this.TextBox_Click);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.Color.Black;
-            this.label17.Location = new System.Drawing.Point(25, 19);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(67, 13);
-            this.label17.TabIndex = 29;
-            this.label17.Text = "Salário Bruto";
             // 
             // label16
             // 
@@ -292,15 +459,6 @@
             this.empresaContratanteTextBox.TabIndex = 4;
             this.empresaContratanteTextBox.Click += new System.EventHandler(this.TextBox_Click);
             // 
-            // salarioBrutoTextBox
-            // 
-            this.salarioBrutoTextBox.Location = new System.Drawing.Point(28, 35);
-            this.salarioBrutoTextBox.Name = "salarioBrutoTextBox";
-            this.salarioBrutoTextBox.ReadOnly = true;
-            this.salarioBrutoTextBox.Size = new System.Drawing.Size(198, 20);
-            this.salarioBrutoTextBox.TabIndex = 3;
-            this.salarioBrutoTextBox.Click += new System.EventHandler(this.TextBox_Click);
-            // 
             // cargaHorariaTextBox
             // 
             this.cargaHorariaTextBox.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -334,6 +492,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.CausesValidation = false;
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label7);
@@ -555,131 +714,24 @@
             this.nomeFuncionarioTextBox.TabIndex = 0;
             this.nomeFuncionarioTextBox.Click += new System.EventHandler(this.TextBox_Click);
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(25, 73);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(182, 13);
-            this.label20.TabIndex = 31;
-            this.label20.Text = "Salário Ganho em 1 Hora de trabalho";
-            // 
-            // salarioGanhoHorasTextBox
-            // 
-            this.salarioGanhoHorasTextBox.Location = new System.Drawing.Point(28, 89);
-            this.salarioGanhoHorasTextBox.Name = "salarioGanhoHorasTextBox";
-            this.salarioGanhoHorasTextBox.ReadOnly = true;
-            this.salarioGanhoHorasTextBox.Size = new System.Drawing.Size(198, 20);
-            this.salarioGanhoHorasTextBox.TabIndex = 30;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(269, 73);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(173, 13);
-            this.label21.TabIndex = 33;
-            this.label21.Text = "Salário Ganho em 1 dia de trabalho";
-            // 
-            // salarioGanhoDiaTextBox
-            // 
-            this.salarioGanhoDiaTextBox.Location = new System.Drawing.Point(272, 89);
-            this.salarioGanhoDiaTextBox.Name = "salarioGanhoDiaTextBox";
-            this.salarioGanhoDiaTextBox.ReadOnly = true;
-            this.salarioGanhoDiaTextBox.Size = new System.Drawing.Size(198, 20);
-            this.salarioGanhoDiaTextBox.TabIndex = 32;
-            this.salarioGanhoDiaTextBox.Text = "  ";
-            // 
-            // salarioLiquidoTextBox
-            // 
-            this.salarioLiquidoTextBox.Location = new System.Drawing.Point(272, 35);
-            this.salarioLiquidoTextBox.Name = "salarioLiquidoTextBox";
-            this.salarioLiquidoTextBox.ReadOnly = true;
-            this.salarioLiquidoTextBox.Size = new System.Drawing.Size(198, 20);
-            this.salarioLiquidoTextBox.TabIndex = 34;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(272, 19);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(78, 13);
-            this.label22.TabIndex = 35;
-            this.label22.Text = "Salário Líquido";
-            // 
-            // panel5
-            // 
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.label23);
-            this.panel5.Controls.Add(this.salarioDevendoTextBox);
-            this.panel5.Controls.Add(this.label22);
-            this.panel5.Controls.Add(this.salarioLiquidoTextBox);
-            this.panel5.Controls.Add(this.label20);
-            this.panel5.Controls.Add(this.label21);
-            this.panel5.Controls.Add(this.salarioGanhoHorasTextBox);
-            this.panel5.Controls.Add(this.salarioGanhoDiaTextBox);
-            this.panel5.Controls.Add(this.salarioBrutoTextBox);
-            this.panel5.Controls.Add(this.label17);
-            this.panel5.Location = new System.Drawing.Point(45, 606);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(508, 173);
-            this.panel5.TabIndex = 36;
-            // 
-            // clsCircularBoxIcon1
-            // 
-            this.clsCircularBoxIcon1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.clsCircularBoxIcon1.FlatAppearance.BorderSize = 0;
-            this.clsCircularBoxIcon1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clsCircularBoxIcon1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.clsCircularBoxIcon1.IconColor = System.Drawing.Color.Black;
-            this.clsCircularBoxIcon1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.clsCircularBoxIcon1.Location = new System.Drawing.Point(368, 46);
-            this.clsCircularBoxIcon1.Name = "clsCircularBoxIcon1";
-            this.clsCircularBoxIcon1.Size = new System.Drawing.Size(112, 47);
-            this.clsCircularBoxIcon1.TabIndex = 2;
-            this.clsCircularBoxIcon1.Text = "Salvar";
-            this.clsCircularBoxIcon1.UseVisualStyleBackColor = false;
-            this.clsCircularBoxIcon1.Click += new System.EventHandler(this.clsCircularBoxIcon1_Click);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ForeColor = System.Drawing.Color.Black;
-            this.label23.Location = new System.Drawing.Point(27, 122);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(203, 13);
-            this.label23.TabIndex = 37;
-            this.label23.Text = "Salário a ser recebido devido a hora extra";
-            // 
-            // salarioDevendoTextBox
-            // 
-            this.salarioDevendoTextBox.Location = new System.Drawing.Point(27, 138);
-            this.salarioDevendoTextBox.Name = "salarioDevendoTextBox";
-            this.salarioDevendoTextBox.ReadOnly = true;
-            this.salarioDevendoTextBox.Size = new System.Drawing.Size(198, 20);
-            this.salarioDevendoTextBox.TabIndex = 36;
-            // 
             // FormFuncionarioHolerite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(640, 1005);
+            this.ClientSize = new System.Drawing.Size(657, 749);
             this.Controls.Add(this.panel1);
             this.Name = "FormFuncionarioHolerite";
             this.Text = "FormFuncionarioHolerite";
             this.panel1.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -735,8 +787,10 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox salarioLiquidoTextBox;
-        private Design.ClsCircularBoxIcon clsCircularBoxIcon1;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox salarioDevendoTextBox;
+        private FontAwesome.Sharp.IconButton addHorasExtrasNaoTrabalhadasButton;
+        private FontAwesome.Sharp.IconButton fecharHoleriteButton;
+        private FontAwesome.Sharp.IconButton salvarHoleriteButton;
     }
 }

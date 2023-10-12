@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BDfolhaDePagamentoDataSet" targetNamespace="http://tempuri.org/BDfolhaDePagamentoDataSet.xsd" xmlns:mstns="http://tempuri.org/BDfolhaDePagamentoDataSet.xsd" xmlns="http://tempuri.org/BDfolhaDePagamentoDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BDfolhaDePagamentoConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BDfolhaDePagamentoConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.FormsDeskHolerite.Properties.Settings.GlobalReference.Default.BDfolhaDePagamentoConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TBsetorTableAdapter" GeneratorDataComponentClassName="TBsetorTableAdapter" Name="TBsetor" UserDataComponentName="TBsetorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BDfolhaDePagamentoConnectionString (Settings)" DbObjectName="BDfolhaDePagamento.dbo.TBsetor" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT funcao_setor FROM dbo.TBsetor</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="funcao_setor" DataSetColumn="funcao_setor" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BDfolhaDePagamentoDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="BDfolhaDePagamentoDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BDfolhaDePagamentoDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TBsetor" msprop:Generator_RowClassName="TBsetorRow" msprop:Generator_RowEvHandlerName="TBsetorRowChangeEventHandler" msprop:Generator_RowDeletedName="TBsetorRowDeleted" msprop:Generator_RowDeletingName="TBsetorRowDeleting" msprop:Generator_RowEvArgName="TBsetorRowChangeEvent" msprop:Generator_TablePropName="TBsetor" msprop:Generator_RowChangedName="TBsetorRowChanged" msprop:Generator_UserTableName="TBsetor" msprop:Generator_RowChangingName="TBsetorRowChanging" msprop:Generator_TableClassName="TBsetorDataTable" msprop:Generator_TableVarName="tableTBsetor">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="funcao_setor" msprop:Generator_UserColumnName="funcao_setor" msprop:Generator_ColumnPropNameInTable="funcao_setorColumn" msprop:Generator_ColumnPropNameInRow="funcao_setor" msprop:Generator_ColumnVarNameInTable="columnfuncao_setor">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

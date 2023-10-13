@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/style.css")
+    <title>ESQUECEU SENHA</title>
+</head>
+<body>
+    <div class="conteiner">
+
+        <!--parte esquerda da tela-->
+        <section id="left">
+            <h1>Esqueceu sua senha?</h1><br>
+            <h2>Dica:<br>Anote em algum lugar seguro sua senha , para nãoo esquecer novamente.</h2>
+        </section>
+
+        <!--parte direita da tela-->
+        <div class="card">
+            <section id="right">
+
+                <form id="form" method="post" onsubmit="">
+
+                    <h2>Alterar senha</h2><br>
+
+                    <input type="text" id="senha" name="senha" placeholder="NOVA SENHA">
+                    <input type="text" id="senha" name="confSenha" placeholder="CONFIRMAR SENHA">
+
+                    <br><button type="submit" id="btn">ENVIAR</button>
+                </form>
+
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>

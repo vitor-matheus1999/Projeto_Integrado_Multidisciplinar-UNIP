@@ -15,11 +15,18 @@ using FormsDeskHolerite.TelasHomeForms.telasBuscar;
 using FormsDeskHolerite.TelasHomeForms.telasHolerite;
 using FormsDeskHolerite.TelasHomeForms.telasRelatório;
 using FormsDeskHolerite.CommandForms;
+using FormsDeskHolerite;
+using PIM4___WebHolerite.Models.Banco_de_Dados;
+using PIM4___WebHolerite.Models.Negócios;
+
 
 namespace FormsDeskHolerite.TelasHomeForms
 {
     public partial class FormsHomeDeskHolerite : Form
     {
+        ClsBancoDadosFuncionario bdFuncionario = new ClsBancoDadosFuncionario();
+        Funcionario funcionario = new Funcionario();
+
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
         ClsWorkForm showChildForm = new ClsWorkForm();
@@ -27,6 +34,17 @@ namespace FormsDeskHolerite.TelasHomeForms
         public FormsHomeDeskHolerite()
         {
             InitializeComponent();
+        }
+
+        public FormsHomeDeskHolerite(string emailFuncionario)
+        {
+            InitializeComponent();
+
+            var idFuncionario = bdFuncionario.GetIdFuncionario(emailFuncionario);
+
+            funcionario = bdFuncionario.GetInformacaoFuncionario(idFuncionario);
+
+            nomeFuncionarioLabel.Text = funcionario.GetNomeFuncionario;
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -53,7 +71,7 @@ namespace FormsDeskHolerite.TelasHomeForms
             }
             base.WndProc(ref m);
         }
-
+        
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -64,8 +82,13 @@ namespace FormsDeskHolerite.TelasHomeForms
             if(this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
+                this.windowPanel.Size = new Size(1070,800);
             }
-            else { this.WindowState = FormWindowState.Normal; }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.windowPanel.Size = new Size(656, 433);
+            }
         }
 
         private void closeButton_Click(object sender, EventArgs e)
@@ -100,6 +123,12 @@ namespace FormsDeskHolerite.TelasHomeForms
 
         private void logOutButton_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("Deseja Sair ?", "AVIS0", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Visible = false;
+                new Login().Show();
+
+            }
         }
 
         private void windowPanel_Paint(object sender, PaintEventArgs e)

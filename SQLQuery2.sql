@@ -8,7 +8,7 @@ USE BDfolhaDePagamento
 SELECT * FROM TBcontatoFuncionario
 SELECT * FROM TBcontatoEmpresa
 SELECT * FROM TBenderecoEmpresa
-SELECT * FROM TBfuncionario
+SELECT funcionario_Arquivado FROM TBfuncionario
 SELECT * FROM TBempresa
 SELECT * FROM TBsalario
 SELECT * FROM TBsetor
@@ -22,7 +22,7 @@ SELECT * FROM TBenderecoEmpresa
 
 SELECT id_Funcionario FROM TBfuncionario WHERE id_Empresa = 1 AND id_Setor = 1 AND  nome_Funcionario = 'Antonio Conselheiro ' AND cpf_Funcionario = '45678912354'
 
-INSERT INTO TBfuncionario(id_Empresa,id_Setor, nome_Funcionario, data_nascimento, data_admissao, sexo , cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras) VALUES(1,1, 'Joao Damassa', '11-12-1984','11/10/2020','m', '12345678913', 0, 0 )
+INSERT INTO TBfuncionario(id_Empresa,id_Setor, nome_Funcionario, data_nascimento, data_admissao, sexo , cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras,salario_Sera_Acrescentado_Devido_Horas_Extras,holerite_Finalizado, funcionario_Arquivado) VALUES(1,1, 'Joao Damassa', '11-12-1984','11/10/2020','m', '12345678913',0, 0, 0, 0, 0 )
 SELECT id_Funcionario FROM TBfuncionario WHERE id_Empresa = 1 AND id_Setor = 1 AND  nome_Funcionario = 'Vivilan Assunção' AND cpf_Funcionario = '12345678913'
 INSERT INTO TBfuncionario(id_Empresa,id_Setor, nome_Funcionario, data_nascimento, data_admissao, sexo , cpf_Funcionario,horas_Nao_Trabalhadas,horas_Extras) VALUES(1,1, 'Dayane Andrade', '11/12/1999','11/10/2020','m', '12345678910', 0, 0 );
 
@@ -108,7 +108,10 @@ CREATE TABLE TBfuncionario
 	sexo VARCHAR(2) NOT NULL,
 	cpf_Funcionario VARCHAR(14) NOT NULL,
 	horas_Nao_Trabalhadas FLOAT,
-	horas_Extras FLOAT 
+	horas_Extras FLOAT,
+	salario_Sera_Acrescentado_Devido_Horas_Extras DECIMAL,
+	holerite_Finalizado BIT,
+	funcionario_Arquivado BIT,
 	CONSTRAINT fk_id_Funcionario_Empresa FOREIGN KEY (id_Empresa) REFERENCES TBempresa(id_Empresa),
 	CONSTRAINT fk_id_Funcionario_Setor FOREIGN KEY (id_Setor) REFERENCES TBsetor(id_Setor),
 );

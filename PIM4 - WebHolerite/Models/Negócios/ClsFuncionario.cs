@@ -32,9 +32,10 @@ namespace PIM4___WebHolerite.Models.Negócios
         private string cidadeMoradia;
         private decimal salarioSeraAcrescentadoDevidoHorasExtras;
         private bool holeriteFinalizado;
+        private bool funcionarioArquivado;
         
         public Funcionario() { }
-        public Funcionario(int idFuncionario, int idEmpresa, int idSetor, string nomeFuncionario, DateTime dataNascimento, DateTime dataAdmissao, string generoFuncionario, string cpfFuncionario, double horasNaoTrabalhadas, double horasExtras, decimal salarioSeraAcrescentadoDevidoHorasExtras, bool holeriteFinalizado)
+        public Funcionario(int idFuncionario, int idEmpresa, int idSetor, string nomeFuncionario, DateTime dataNascimento, DateTime dataAdmissao, string generoFuncionario, string cpfFuncionario, double horasNaoTrabalhadas, double horasExtras, decimal salarioSeraAcrescentadoDevidoHorasExtras, bool holeriteFinalizado, bool funcionarioArquivado)
         {
             this.idFuncionario = idFuncionario;
             this.idEmpresa = idEmpresa;
@@ -48,17 +49,19 @@ namespace PIM4___WebHolerite.Models.Negócios
             this.horasExtras = horasExtras;
             this.salarioSeraAcrescentadoDevidoHorasExtras = salarioSeraAcrescentadoDevidoHorasExtras;
             this.holeriteFinalizado = holeriteFinalizado;
+            this.funcionarioArquivado = funcionarioArquivado;
         }
         public Funcionario(string emailEmpresarial, string senhaSistemaDesktop)
         {
             this.descricaoContato = emailEmpresarial;
             this.senhaSistemaDesktop = senhaSistemaDesktop;
         }
-        public Funcionario(int idFuncionario, string nomeFuncionario, bool holeriteFinalizado)
+        public Funcionario(int idFuncionario, string nomeFuncionario, bool holeriteFinalizado, bool funcionarioArquivado)
         {
             this.idFuncionario = idFuncionario;
             this.nomeFuncionario = nomeFuncionario;
             this.holeriteFinalizado = holeriteFinalizado;
+            this.funcionarioArquivado = funcionarioArquivado;
         }
         public Funcionario(int idEnderecoFuncionario, int idFuncionario, string rua, string numeroRua, string bairro, string cepResidencia, string cidadeMoradiaFuncionario)
         {
@@ -123,5 +126,7 @@ namespace PIM4___WebHolerite.Models.Negócios
         public decimal SetSalarioSeraAcrescentadoDevidoHorasExtras { set { this.salarioSeraAcrescentadoDevidoHorasExtras = value; } }
         public bool GetHoleriteFinalizado { get { return this.holeriteFinalizado; } }
         public bool SetHoleriteFinalizado { set { this.holeriteFinalizado = value; } }
+        public bool GetFuncionarioArquivado { get {return this.funcionarioArquivado; } }
+        public bool SetFuncionarioArquivado { set { this.funcionarioArquivado = value; } }
     }
 }

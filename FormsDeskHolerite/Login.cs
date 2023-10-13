@@ -55,7 +55,7 @@ namespace FormsDeskHolerite
         {
             if(bdFuncionario.GetLoginSenha(textBoxLogin.Text, textBoxSenha.Text) == true)
             {
-                var homeDeskHolerite = new FormsHomeDeskHolerite();
+                var homeDeskHolerite = new FormsHomeDeskHolerite(textBoxLogin.Text);
                 homeDeskHolerite.Show();
                 this.Visible = false;
             }
@@ -97,7 +97,7 @@ namespace FormsDeskHolerite
             {
                 if (bdFuncionario.GetLoginSenha(textBoxLogin.Text, textBoxSenha.Text) == true)
                 {
-                    var homeDeskHolerite = new FormsHomeDeskHolerite();
+                    var homeDeskHolerite = new FormsHomeDeskHolerite(textBoxLogin.Text);
                     homeDeskHolerite.Show();
                     this.Visible = false;
                 }
@@ -113,7 +113,7 @@ namespace FormsDeskHolerite
             {
                 if (bdFuncionario.GetLoginSenha(textBoxLogin.Text, textBoxSenha.Text) == true)
                 {
-                    var homeDeskHolerite = new FormsHomeDeskHolerite();
+                    var homeDeskHolerite = new FormsHomeDeskHolerite(textBoxLogin.Text);
                     homeDeskHolerite.Show();
                     this.Visible = false;
                 }

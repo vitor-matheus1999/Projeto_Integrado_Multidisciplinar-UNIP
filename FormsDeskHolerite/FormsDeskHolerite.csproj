@@ -38,6 +38,10 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Luna" />
+    <Reference Include="Relatorio">
+      <HintPath>..\Nova pasta\Relatorio\Relatorio\bin\Debug\net7.0-windows\Relatorio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
@@ -78,6 +82,12 @@
     </Compile>
     <Compile Include="TelasHomeForms\telasArquivar\FormArquivar.Designer.cs">
       <DependentUpon>FormArquivar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasArquivar\FormEdicaoArquivamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasArquivar\FormEdicaoArquivamento.Designer.cs">
+      <DependentUpon>FormEdicaoArquivamento.cs</DependentUpon>
     </Compile>
     <Compile Include="TelasHomeForms\telasBuscar\FormBuscar.cs">
       <SubType>Form</SubType>
@@ -151,6 +161,24 @@
     <Compile Include="TelasHomeForms\telasRelatório\FormRelatorio.Designer.cs">
       <DependentUpon>FormRelatorio.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioFaltas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioFaltas.Designer.cs">
+      <DependentUpon>FormRelatorioFaltas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioHoras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioHoras.Designer.cs">
+      <DependentUpon>FormRelatorioHoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioHorasExtras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioHorasExtras.Designer.cs">
+      <DependentUpon>FormRelatorioHorasExtras.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +194,12 @@
     </Compile>
     <EmbeddedResource Include="TelasHomeForms\FormsHomeDeskHolerite.resx">
       <DependentUpon>FormsHomeDeskHolerite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasArquivar\FormArquivar.resx">
+      <DependentUpon>FormArquivar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasArquivar\FormEdicaoArquivamento.resx">
+      <DependentUpon>FormEdicaoArquivamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelasHomeForms\telasBuscar\FormBuscar.resx">
       <DependentUpon>FormBuscar.cs</DependentUpon>
@@ -196,6 +230,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelasHomeForms\telasHolerite\FormHolerite.resx">
       <DependentUpon>FormHolerite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasRelatório\FormRelatorio.resx">
+      <DependentUpon>FormRelatorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioFaltas.resx">
+      <DependentUpon>FormRelatorioFaltas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioHorasExtras.resx">
+      <DependentUpon>FormRelatorioHorasExtras.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="BDfolhaDePagamentoDataSet.xsc">
       <DependentUpon>BDfolhaDePagamentoDataSet.xsd</DependentUpon>

@@ -24,6 +24,22 @@ namespace PIM4___WebHolerite.Controllers
             return View();
         }
 
+        public ActionResult LoginWebHolerite()
+        {
+            ViewBag.Login = TempData["ConfirmacaoLogin"];
+            return View();
+        }
+        public ActionResult EsqueceuSenha()
+        {
+            ViewBag.ConfirmacaoEmail = TempData["NaoExisteEmail"];
+            ViewBag.EmailUsado = TempData["EmailUsado"];
+            return View();
+        }
+        public ActionResult EsqueceuSenhaConfirmacao()
+        {
+            return View();
+        }
+
         public ActionResult Login() 
         {
             ViewBag.Login = TempData["ConfirmacaoLogin"];
@@ -34,8 +50,7 @@ namespace PIM4___WebHolerite.Controllers
         public ActionResult VerificacaoLogin()
         {
             if (bdFuncionario.GetLoginSenha(Request["email"], Request["senha"]) == true)
-            {
-                
+            {            
                 int idFuncionario = bdFuncionario.GetIdFuncionario(Request["email"], bdFuncionario.GetInformacaoFuncionarioContato());
                 TempData["idFuncionario"] = idFuncionario;
                 return RedirectToAction("Index");
@@ -43,6 +58,23 @@ namespace PIM4___WebHolerite.Controllers
 
             TempData["ConfirmacaoLogin"] = false;
             return RedirectToAction("Login");
+        }
+
+        [HttpPost]
+        public ActionResult VerificacaoEmail()
+        {
+            if (bdFuncionario.GetConfirmacaoLogin(Request["email"]) == true)
+            {
+                TempData["EmailUsado"] = Request["email"];
+                TempData["ExisteEmail"] = true;
+            }
+            else
+            {
+                TempData["EmailUsado"] = Request["email"];
+                TempData["ExisteEmail"] = false;
+            }
+
+            return RedirectToAction("EsqueceuSenha");
         }
     }
 }

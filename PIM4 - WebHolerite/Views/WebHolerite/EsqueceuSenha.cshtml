@@ -1,0 +1,53 @@
+﻿@{
+    Layout = null;
+
+    string mensagem = null;
+
+    if (ViewBag.ConfirmacaoEmail == false)
+    {
+        mensagem = "E-mail utilizado não existe na base de dados";
+}
+    else 
+    {
+        mensagem = null;
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/Content/style.css")
+    <title>SOLICITAR ALTERAÇÃO DA SENHA</title>
+
+</head>
+<body>
+    <div class="conteiner">
+
+        <!--parte esquerda da tela-->
+        <section id="left">
+            <h1>Mensagem:</h1><br>
+            <h2>Enviaremos um link para seu email para ALTERAR sua senha.</h2>
+        </section>
+
+        <!--parte direita da tela-->
+        <div class="card">
+            <section id="right">
+                <form id="form" method="post" action="VerificacaoEmail">
+
+                    <h2>solicitar alteração da senha</h2><br>
+
+                    <input type="text" id="email" name="email" placeholder="EMAIL" value="@ViewBag.EmailUsado">
+                    <p style="color:red">@mensagem</p>
+
+                    <br><button type="submit" id="btn" >ENVIAR</button>
+                </form>
+
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -31,19 +31,22 @@ namespace FormsDeskHolerite.TelasHomeForms
         private void InitializeComponent()
         {
             this.tituloPanel = new System.Windows.Forms.Panel();
+            this.windowPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.nomeFuncionarioLabel = new System.Windows.Forms.Label();
+            this.logOutButton = new FontAwesome.Sharp.IconButton();
+            this.arquivarButton = new FontAwesome.Sharp.IconButton();
+            this.holeriteButton = new FontAwesome.Sharp.IconButton();
+            this.relatorioButton = new FontAwesome.Sharp.IconButton();
+            this.buscarButton = new FontAwesome.Sharp.IconButton();
+            this.cadastrarButton = new FontAwesome.Sharp.IconButton();
             this.maximizeButton = new FontAwesome.Sharp.IconButton();
             this.closeButton = new FontAwesome.Sharp.IconButton();
             this.minimizeButton = new FontAwesome.Sharp.IconButton();
-            this.windowPanel = new System.Windows.Forms.Panel();
-            this.cadastrarButton = new FontAwesome.Sharp.IconButton();
-            this.buscarButton = new FontAwesome.Sharp.IconButton();
-            this.relatorioButton = new FontAwesome.Sharp.IconButton();
-            this.holeriteButton = new FontAwesome.Sharp.IconButton();
-            this.arquivarButton = new FontAwesome.Sharp.IconButton();
-            this.logOutButton = new FontAwesome.Sharp.IconButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.tituloPanel.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tituloPanel
@@ -58,6 +61,175 @@ namespace FormsDeskHolerite.TelasHomeForms
             this.tituloPanel.Size = new System.Drawing.Size(863, 33);
             this.tituloPanel.TabIndex = 2;
             this.tituloPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tituloPanel_MouseDown);
+            // 
+            // windowPanel
+            // 
+            this.windowPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.windowPanel.BackColor = System.Drawing.Color.White;
+            this.windowPanel.ForeColor = System.Drawing.Color.Transparent;
+            this.windowPanel.Location = new System.Drawing.Point(204, 97);
+            this.windowPanel.Name = "windowPanel";
+            this.windowPanel.Size = new System.Drawing.Size(656, 433);
+            this.windowPanel.TabIndex = 3;
+            this.windowPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.windowPanel_Paint);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.logOutButton);
+            this.panel1.Controls.Add(this.arquivarButton);
+            this.panel1.Controls.Add(this.holeriteButton);
+            this.panel1.Controls.Add(this.relatorioButton);
+            this.panel1.Controls.Add(this.buscarButton);
+            this.panel1.Controls.Add(this.cadastrarButton);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 33);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(198, 509);
+            this.panel1.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.nomeFuncionarioLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(198, 152);
+            this.panel2.TabIndex = 6;
+            // 
+            // nomeFuncionarioLabel
+            // 
+            this.nomeFuncionarioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeFuncionarioLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.nomeFuncionarioLabel.Location = new System.Drawing.Point(12, 122);
+            this.nomeFuncionarioLabel.Name = "nomeFuncionarioLabel";
+            this.nomeFuncionarioLabel.Size = new System.Drawing.Size(168, 20);
+            this.nomeFuncionarioLabel.TabIndex = 0;
+            this.nomeFuncionarioLabel.Text = "label1";
+            // 
+            // logOutButton
+            // 
+            this.logOutButton.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.logOutButton.FlatAppearance.BorderSize = 0;
+            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logOutButton.ForeColor = System.Drawing.Color.DarkGray;
+            this.logOutButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
+            this.logOutButton.IconColor = System.Drawing.Color.DarkGray;
+            this.logOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.logOutButton.IconSize = 40;
+            this.logOutButton.Location = new System.Drawing.Point(0, 463);
+            this.logOutButton.Name = "logOutButton";
+            this.logOutButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.logOutButton.Size = new System.Drawing.Size(198, 46);
+            this.logOutButton.TabIndex = 5;
+            this.logOutButton.Text = "Sair";
+            this.logOutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.logOutButton.UseVisualStyleBackColor = true;
+            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
+            // 
+            // arquivarButton
+            // 
+            this.arquivarButton.FlatAppearance.BorderSize = 0;
+            this.arquivarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.arquivarButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.arquivarButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
+            this.arquivarButton.IconColor = System.Drawing.Color.DarkGray;
+            this.arquivarButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.arquivarButton.IconSize = 45;
+            this.arquivarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.arquivarButton.Location = new System.Drawing.Point(0, 371);
+            this.arquivarButton.Name = "arquivarButton";
+            this.arquivarButton.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.arquivarButton.Size = new System.Drawing.Size(198, 51);
+            this.arquivarButton.TabIndex = 4;
+            this.arquivarButton.Text = "   Arquivar";
+            this.arquivarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.arquivarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.arquivarButton.UseVisualStyleBackColor = true;
+            this.arquivarButton.Click += new System.EventHandler(this.arquivarDadosButton_Click);
+            // 
+            // holeriteButton
+            // 
+            this.holeriteButton.FlatAppearance.BorderSize = 0;
+            this.holeriteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.holeriteButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.holeriteButton.IconChar = FontAwesome.Sharp.IconChar.MoneyBillAlt;
+            this.holeriteButton.IconColor = System.Drawing.Color.DarkGray;
+            this.holeriteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.holeriteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.holeriteButton.Location = new System.Drawing.Point(0, 320);
+            this.holeriteButton.Name = "holeriteButton";
+            this.holeriteButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.holeriteButton.Size = new System.Drawing.Size(198, 53);
+            this.holeriteButton.TabIndex = 3;
+            this.holeriteButton.Text = "    Holerite";
+            this.holeriteButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.holeriteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.holeriteButton.UseVisualStyleBackColor = true;
+            this.holeriteButton.Click += new System.EventHandler(this.holeriteButton_Click);
+            // 
+            // relatorioButton
+            // 
+            this.relatorioButton.FlatAppearance.BorderSize = 0;
+            this.relatorioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.relatorioButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.relatorioButton.IconChar = FontAwesome.Sharp.IconChar.FileText;
+            this.relatorioButton.IconColor = System.Drawing.Color.DarkGray;
+            this.relatorioButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.relatorioButton.IconSize = 30;
+            this.relatorioButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.relatorioButton.Location = new System.Drawing.Point(0, 278);
+            this.relatorioButton.Name = "relatorioButton";
+            this.relatorioButton.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
+            this.relatorioButton.Size = new System.Drawing.Size(198, 45);
+            this.relatorioButton.TabIndex = 2;
+            this.relatorioButton.Text = "      Relatório";
+            this.relatorioButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.relatorioButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.relatorioButton.UseVisualStyleBackColor = true;
+            this.relatorioButton.Click += new System.EventHandler(this.relatorioButton_Click);
+            // 
+            // buscarButton
+            // 
+            this.buscarButton.FlatAppearance.BorderSize = 0;
+            this.buscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buscarButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.buscarButton.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.buscarButton.IconColor = System.Drawing.Color.DarkGray;
+            this.buscarButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.buscarButton.IconSize = 40;
+            this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buscarButton.Location = new System.Drawing.Point(0, 225);
+            this.buscarButton.Name = "buscarButton";
+            this.buscarButton.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.buscarButton.Size = new System.Drawing.Size(198, 45);
+            this.buscarButton.TabIndex = 1;
+            this.buscarButton.Text = "     Busca";
+            this.buscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buscarButton.UseVisualStyleBackColor = true;
+            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
+            // 
+            // cadastrarButton
+            // 
+            this.cadastrarButton.FlatAppearance.BorderSize = 0;
+            this.cadastrarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cadastrarButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.cadastrarButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
+            this.cadastrarButton.IconColor = System.Drawing.Color.DarkGray;
+            this.cadastrarButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cadastrarButton.IconSize = 35;
+            this.cadastrarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cadastrarButton.Location = new System.Drawing.Point(0, 177);
+            this.cadastrarButton.Name = "cadastrarButton";
+            this.cadastrarButton.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.cadastrarButton.Size = new System.Drawing.Size(198, 42);
+            this.cadastrarButton.TabIndex = 0;
+            this.cadastrarButton.Text = "     Cadastrar";
+            this.cadastrarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cadastrarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cadastrarButton.UseVisualStyleBackColor = true;
+            this.cadastrarButton.Click += new System.EventHandler(this.cadastrarButton_Click);
             // 
             // maximizeButton
             // 
@@ -115,154 +287,6 @@ namespace FormsDeskHolerite.TelasHomeForms
             this.minimizeButton.UseVisualStyleBackColor = false;
             this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
             // 
-            // windowPanel
-            // 
-            this.windowPanel.BackColor = System.Drawing.Color.White;
-            this.windowPanel.ForeColor = System.Drawing.Color.Transparent;
-            this.windowPanel.Location = new System.Drawing.Point(204, 97);
-            this.windowPanel.Name = "windowPanel";
-            this.windowPanel.Size = new System.Drawing.Size(656, 433);
-            this.windowPanel.TabIndex = 3;
-            this.windowPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.windowPanel_Paint);
-            // 
-            // cadastrarButton
-            // 
-            this.cadastrarButton.FlatAppearance.BorderSize = 0;
-            this.cadastrarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cadastrarButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.cadastrarButton.IconChar = FontAwesome.Sharp.IconChar.PlusCircle;
-            this.cadastrarButton.IconColor = System.Drawing.Color.DarkGray;
-            this.cadastrarButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.cadastrarButton.IconSize = 35;
-            this.cadastrarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cadastrarButton.Location = new System.Drawing.Point(0, 158);
-            this.cadastrarButton.Name = "cadastrarButton";
-            this.cadastrarButton.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.cadastrarButton.Size = new System.Drawing.Size(198, 42);
-            this.cadastrarButton.TabIndex = 0;
-            this.cadastrarButton.Text = "     Cadastrar";
-            this.cadastrarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cadastrarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cadastrarButton.UseVisualStyleBackColor = true;
-            this.cadastrarButton.Click += new System.EventHandler(this.cadastrarButton_Click);
-            // 
-            // buscarButton
-            // 
-            this.buscarButton.FlatAppearance.BorderSize = 0;
-            this.buscarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buscarButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.buscarButton.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.buscarButton.IconColor = System.Drawing.Color.DarkGray;
-            this.buscarButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.buscarButton.IconSize = 40;
-            this.buscarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buscarButton.Location = new System.Drawing.Point(0, 206);
-            this.buscarButton.Name = "buscarButton";
-            this.buscarButton.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.buscarButton.Size = new System.Drawing.Size(198, 45);
-            this.buscarButton.TabIndex = 1;
-            this.buscarButton.Text = "     Busca";
-            this.buscarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buscarButton.UseVisualStyleBackColor = true;
-            this.buscarButton.Click += new System.EventHandler(this.buscarButton_Click);
-            // 
-            // relatorioButton
-            // 
-            this.relatorioButton.FlatAppearance.BorderSize = 0;
-            this.relatorioButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.relatorioButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.relatorioButton.IconChar = FontAwesome.Sharp.IconChar.FileText;
-            this.relatorioButton.IconColor = System.Drawing.Color.DarkGray;
-            this.relatorioButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.relatorioButton.IconSize = 30;
-            this.relatorioButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.relatorioButton.Location = new System.Drawing.Point(0, 259);
-            this.relatorioButton.Name = "relatorioButton";
-            this.relatorioButton.Padding = new System.Windows.Forms.Padding(17, 0, 0, 0);
-            this.relatorioButton.Size = new System.Drawing.Size(198, 45);
-            this.relatorioButton.TabIndex = 2;
-            this.relatorioButton.Text = "      Relatório";
-            this.relatorioButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.relatorioButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.relatorioButton.UseVisualStyleBackColor = true;
-            this.relatorioButton.Click += new System.EventHandler(this.relatorioButton_Click);
-            // 
-            // holeriteButton
-            // 
-            this.holeriteButton.FlatAppearance.BorderSize = 0;
-            this.holeriteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.holeriteButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.holeriteButton.IconChar = FontAwesome.Sharp.IconChar.MoneyBillAlt;
-            this.holeriteButton.IconColor = System.Drawing.Color.DarkGray;
-            this.holeriteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.holeriteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.holeriteButton.Location = new System.Drawing.Point(0, 301);
-            this.holeriteButton.Name = "holeriteButton";
-            this.holeriteButton.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.holeriteButton.Size = new System.Drawing.Size(198, 53);
-            this.holeriteButton.TabIndex = 3;
-            this.holeriteButton.Text = "    Holerite";
-            this.holeriteButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.holeriteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.holeriteButton.UseVisualStyleBackColor = true;
-            this.holeriteButton.Click += new System.EventHandler(this.holeriteButton_Click);
-            // 
-            // arquivarButton
-            // 
-            this.arquivarButton.FlatAppearance.BorderSize = 0;
-            this.arquivarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.arquivarButton.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.arquivarButton.IconChar = FontAwesome.Sharp.IconChar.FolderOpen;
-            this.arquivarButton.IconColor = System.Drawing.Color.DarkGray;
-            this.arquivarButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.arquivarButton.IconSize = 45;
-            this.arquivarButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.arquivarButton.Location = new System.Drawing.Point(0, 352);
-            this.arquivarButton.Name = "arquivarButton";
-            this.arquivarButton.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.arquivarButton.Size = new System.Drawing.Size(198, 51);
-            this.arquivarButton.TabIndex = 4;
-            this.arquivarButton.Text = "   Arquivar";
-            this.arquivarButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.arquivarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.arquivarButton.UseVisualStyleBackColor = true;
-            this.arquivarButton.Click += new System.EventHandler(this.arquivarDadosButton_Click);
-            // 
-            // logOutButton
-            // 
-            this.logOutButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.logOutButton.FlatAppearance.BorderSize = 0;
-            this.logOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.logOutButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.logOutButton.IconChar = FontAwesome.Sharp.IconChar.SignOutAlt;
-            this.logOutButton.IconColor = System.Drawing.Color.DarkGray;
-            this.logOutButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.logOutButton.IconSize = 40;
-            this.logOutButton.Location = new System.Drawing.Point(0, 463);
-            this.logOutButton.Name = "logOutButton";
-            this.logOutButton.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.logOutButton.Size = new System.Drawing.Size(198, 46);
-            this.logOutButton.TabIndex = 5;
-            this.logOutButton.Text = "Sair";
-            this.logOutButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.logOutButton.UseVisualStyleBackColor = true;
-            this.logOutButton.Click += new System.EventHandler(this.logOutButton_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(52)))), ((int)(((byte)(99)))));
-            this.panel1.Controls.Add(this.logOutButton);
-            this.panel1.Controls.Add(this.arquivarButton);
-            this.panel1.Controls.Add(this.holeriteButton);
-            this.panel1.Controls.Add(this.relatorioButton);
-            this.panel1.Controls.Add(this.buscarButton);
-            this.panel1.Controls.Add(this.cadastrarButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 33);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(198, 509);
-            this.panel1.TabIndex = 4;
-            // 
             // FormsHomeDeskHolerite
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,6 +300,7 @@ namespace FormsDeskHolerite.TelasHomeForms
             this.Text = "Form1";
             this.tituloPanel.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -293,5 +318,7 @@ namespace FormsDeskHolerite.TelasHomeForms
         private FontAwesome.Sharp.IconButton arquivarButton;
         private FontAwesome.Sharp.IconButton logOutButton;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label nomeFuncionarioLabel;
     }
 }

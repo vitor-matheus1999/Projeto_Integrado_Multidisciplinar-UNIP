@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginWebHolerite</title>
+    @Styles.Render("~/Content/style.css")
+</head>
+<body>
+    <div class="conteiner">
+
+        <!--parte esquerda da tela-->
+        <section id="left">
+            <h1>SEJA<br>BEM-VINDO(A)!</h1><br>
+            <h2>Junte-se a nós e<br> encontre aquilo que<br> busca!</h2>
+        </section>
+
+        <!--parte direita da tela-->
+        <div class="card">
+            <section id="right">
+
+                <form id="form" method="post" action="VerificacaoLogin">
+
+                    <h2>Login</h2><br>
+
+                    <input type="text" id="email" name="email" placeholder="EMAIL">
+                    <input type="password" id="senha" name="senha" placeholder="SENHA">
+                    <a href="WebHolerite/EsqueceuSenha"> Esqueceu a senha?</a>
+
+                    <br><button type="submit" id="btn">ENTRAR</button>
+
+                    <br><a href="home.html">Termos de uso</a>
+
+                </form>
+
+            </section>
+        </div>
+    </div>
+</body>
+</html>

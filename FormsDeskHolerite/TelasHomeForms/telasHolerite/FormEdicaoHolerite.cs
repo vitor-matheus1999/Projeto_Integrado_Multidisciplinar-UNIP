@@ -43,47 +43,54 @@ namespace FormsDeskHolerite.TelasHomeForms.telasHolerite
             setorLabel.Text = nomeSetorEscolhido;
             foreach (Funcionario funcionario in bdFuncionario.GetInformacaoFuncionario(idEmpresaEscolhida, idSetorEscolhido))
             {   
-                if(funcionario.GetHoleriteFinalizado == true)
+                if(funcionario.GetFuncionarioArquivado == true)
                 {
-                    holeriteBackColor = Color.FromArgb(157, 212, 194);
-                    backColorButton = Color.FromArgb(157, 212, 194);
-                    labelColor = System.Drawing.Color.Black;
+                    return;
                 }
-
-                newPanel.Name = "holerite" + funcionario.GetNomeFuncionario;
-                newPanel.BackColor = holeriteBackColor;
-                newPanel.Size = new System.Drawing.Size(454, 45);
-                holeriteFlowLayoutPanel.Controls.Add(newPanel);
-
-                Label newLabel = new Label();
-                newLabel.Name = "label" + funcionario.GetNomeFuncionario;
-                newLabel.AutoSize = false;
-                newLabel.Size = new System.Drawing.Size(247, 19);
-                newLabel.ForeColor = labelColor;
-                newLabel.Text = funcionario.GetNomeFuncionario;
-                newLabel.Location = new System.Drawing.Point(50, 16);
-                newPanel.Controls.Add(newLabel);
-
-                Button newButton = new Button();
-                newButton.Name = "editarHoleriteButton";
-                newButton.Size = new System.Drawing.Size(44, 35);
-                newButton.Location = new System.Drawing.Point(349, 5);
-                newButton.Image = global::FormsDeskHolerite.Properties.Resources.opcoes_10;
-                newButton.FlatAppearance.BorderSize = 0;
-                newButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                newButton.BackColor = backColorButton;
-                newButton.Click += new System.EventHandler(editarHoleriteButton_Click);
-
-                 void editarHoleriteButton_Click(object sender, EventArgs e)
+                else
                 {
-                    TabPage tabPage = new TabPage("Holerite " + funcionario.GetNomeFuncionario + "               ");
-                    tabPage.AutoScroll = true;
-                    FormHolerite.holeriteTabControl.TabPages.Add(tabPage);
-                    ShowChildForm.openChildForm(new FormFuncionarioHolerite(funcionario.GetIdFuncionario),tabPage );
+                    if(funcionario.GetHoleriteFinalizado == true)
+                    {
+                        holeriteBackColor = Color.FromArgb(157, 212, 194);
+                        backColorButton = Color.FromArgb(157, 212, 194);
+                        labelColor = System.Drawing.Color.Black;
+                    }
+
+                    newPanel.Name = "holerite" + funcionario.GetNomeFuncionario;
+                    newPanel.BackColor = holeriteBackColor;
+                    newPanel.Size = new System.Drawing.Size(454, 45);
+                    holeriteFlowLayoutPanel.Controls.Add(newPanel);
+
+                    Label newLabel = new Label();
+                    newLabel.Name = "label" + funcionario.GetNomeFuncionario;
+                    newLabel.AutoSize = false;
+                    newLabel.Size = new System.Drawing.Size(247, 19);
+                    newLabel.ForeColor = labelColor;
+                    newLabel.Text = funcionario.GetNomeFuncionario;
+                    newLabel.Location = new System.Drawing.Point(50, 16);
+                    newPanel.Controls.Add(newLabel);
+
+                    Button newButton = new Button();
+                    newButton.Name = "editarHoleriteButton";
+                    newButton.Size = new System.Drawing.Size(44, 35);
+                    newButton.Location = new System.Drawing.Point(349, 5);
+                    newButton.Image = global::FormsDeskHolerite.Properties.Resources.opcoes_10;
+                    newButton.FlatAppearance.BorderSize = 0;
+                    newButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                    newButton.BackColor = backColorButton;
+                    newButton.Click += new System.EventHandler(editarHoleriteButton_Click);
+
+                     void editarHoleriteButton_Click(object sender, EventArgs e)
+                    {
+                        TabPage tabPage = new TabPage("Holerite " + funcionario.GetNomeFuncionario + "               ");
+                        tabPage.AutoScroll = true;
+                        FormHolerite.holeriteTabControl.TabPages.Add(tabPage);
+                        ShowChildForm.openChildForm(new FormFuncionarioHolerite(funcionario.GetIdFuncionario),tabPage );
+                    }
+
+
+                    newPanel.Controls.Add(newButton);
                 }
-
-
-                newPanel.Controls.Add(newButton);
             }
 
             if(bdFuncionario.GetInformacaoFuncionario(idEmpresaEscolhida, idSetorEscolhido).Count == 0)

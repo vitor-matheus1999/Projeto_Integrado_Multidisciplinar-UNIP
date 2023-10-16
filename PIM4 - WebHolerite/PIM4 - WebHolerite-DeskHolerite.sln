@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormsDeskHolerite", "..\For
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileHolerite", "..\MobileHolerite\MobileHolerite.csproj", "{5A17226D-7D04-4CB0-A1D5-893466BBAAEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Relatorio", "..\Nova pasta\Relatorio\Relatorio\Relatorio.csproj", "{333E2A20-DD45-4D5E-8E00-C7325B0B54E1}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,10 +29,6 @@ Global
 		{5A17226D-7D04-4CB0-A1D5-893466BBAAEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A17226D-7D04-4CB0-A1D5-893466BBAAEF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5A17226D-7D04-4CB0-A1D5-893466BBAAEF}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{333E2A20-DD45-4D5E-8E00-C7325B0B54E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{333E2A20-DD45-4D5E-8E00-C7325B0B54E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{333E2A20-DD45-4D5E-8E00-C7325B0B54E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{333E2A20-DD45-4D5E-8E00-C7325B0B54E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

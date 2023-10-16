@@ -240,43 +240,28 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
         }
         public bool GetLoginSenha(string login, string senha)
         {
-            List<Funcionario> loginSenha = new List<Funcionario>();
-
             try
             {
                 sqlCmd.Connection = conn.conectar();
-                sqlCmd.CommandText = "SELECT contatoFunc.descricao, senhaFuncRh.senha FROM TBsenhaFuncionario AS senhaFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaFuncRh.id_funcionario = contatoFunc.id_Funcionario WHERE tipo_Contato_Funcionario LIKE '%Empresarial'";
-
-                sqlCmd.Parameters.AddWithValue("@login",login);
-                sqlCmd.Parameters.AddWithValue("@senha",senha);
+                sqlCmd.CommandText = "SELECT contatoFunc.descricao, senhaLoginFuncRh.senha FROM TBsenhaLoginFuncionario AS senhaLoginFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaLoginFuncRh.id_Contato_Funcionario = contatoFunc.id_Contato_Funcionario";
                 SqlDataReader dataReader = sqlCmd.ExecuteReader();
-               
-
                 while (dataReader.Read())
                 {
-
                     funcionario.SetDescricaoContato = dataReader.GetString(dataReader.GetOrdinal("descricao"));
                     funcionario.SetSenhaSistemaDesktop = dataReader.GetString(dataReader.GetOrdinal("senha"));
 
-                    loginSenha.Add(new Funcionario(emailEmpresarial: funcionario.GetDescricaoContato, senhaSistemaDesktop: funcionario.GetSenhaSistemaDesktop));
+                    funcionario = new Funcionario(emailEmpresarial: funcionario.GetDescricaoContato, senhaSistemaDesktop: funcionario.GetSenhaSistemaDesktop);
                 }
-
-                foreach( Funcionario funcionarioLoginSenha in loginSenha)
+                if (login.Contains(funcionario.GetDescricaoContato) && senha.Contains(funcionario.GetSenhaSistemaDesktop))
                 {
-                    if (login.Contains(funcionarioLoginSenha.GetDescricaoContato) && senha.Contains(funcionarioLoginSenha.GetSenhaSistemaDesktop))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
-                sqlCmd.Parameters.Clear();
                 dataReader.Close();
             }
-            catch (SqlException erro){ MessageBox.Show(erro.Message); }
+            catch (SqlException erro)
+            { MessageBox.Show(erro.Message); }
             finally 
-            {
-                
-                conn.desconectar(); 
-            }
+            { conn.desconectar();}
             return false;
         }
         public bool GetConfirmacaoLogin(string email)
@@ -417,6 +402,32 @@ namespace PIM4___WebHolerite.Models.Banco_de_Dados
                 sqlCmd.Parameters.Clear();
                 conn.desconectar();
             }
+        }
+        public bool SetUpdateSenha(string senha, int idContatoFuncionario)
+        {
+            bool salvo = false;
+            try
+            {
+                sqlCmd.CommandType = CommandType.Text;
+                sqlCmd.CommandText = "UPDATE TBsenhaLoginFuncionario SET senha = @senha WHERE id_Contato_Funcionario = @idContatoFuncionario";
+                sqlCmd.Connection = conn.conectar();
+                sqlCmd.Parameters.AddWithValue("@idContatoFuncionario", idContatoFuncionario);
+                sqlCmd.Parameters.AddWithValue("@senha", senha);
+                sqlCmd.ExecuteNonQuery();
+
+            }
+            catch (SqlException erro)
+            {
+                MessageBox.Show(erro.Message);
+                salvo = false;
+            }
+            finally
+            {
+                sqlCmd.Parameters.Clear();
+                conn.desconectar();
+                salvo = true;
+            }
+            return salvo;
         }
         public void SetFuncionarioArquivado(int idFuncionario, bool funcionarioArquivado)
         {

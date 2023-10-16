@@ -16,14 +16,39 @@ namespace FormsDeskHolerite.TelasHomeForms.telasRelatório.Relatorios
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+
+            ButtonCalcularDesconto.Click += ButtonCalcularDesconto_Click;
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void ButtonCalcularDesconto_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            textBox1.Text = random.Next(40, 44) + " horas";
-            textBox2.Text = random.Next(1, 3) + " horas";
-            textBox3.Text = random.Next(1, 4).ToString();
+
+            string textoSalario = textBox1.Text.Replace("R$", "").Trim();
+
+
+            if (decimal.TryParse(textoSalario, out decimal salario))
+            {
+
+                if (int.TryParse(textBox2.Text, out int faltas))
+                {
+
+                    decimal valorPorDia = salario / 30;
+                    decimal desconto = valorPorDia * faltas;
+
+                    labelResultado.Visible = true;
+                    labelResultado.Text = "Desconto: -R$" + desconto.ToString("N2");
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, insira um número válido de faltas.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, insira um salário válido.");
+            }
         }
     }
 }
+

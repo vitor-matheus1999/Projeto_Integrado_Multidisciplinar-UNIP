@@ -23,7 +23,6 @@ namespace PIM4___WebHolerite
                url: "Index",
                defaults: new { controller = "WebHolerite", action = "Index", id = UrlParameter.Optional }
            );
-
             routes.MapRoute(
                name: "Login",
                url: "Login",

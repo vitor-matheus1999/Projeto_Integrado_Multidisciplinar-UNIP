@@ -84,3 +84,7 @@ C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\PIM4 - WebHolerite\obj\Debu
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\PIM4 - WebHolerite\obj\Debug\MVCWebHolerite.csproj.CopyComplete
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\PIM4 - WebHolerite\obj\Debug\PIM4 - WebHolerite.dll
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\PIM4 - WebHolerite\obj\Debug\PIM4 - WebHolerite.pdb
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\PIM4 - WebHolerite\bin\FluentEmail.Core.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\PIM4 - WebHolerite\bin\FluentEmail.Smtp.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\PIM4 - WebHolerite\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\PIM4 - WebHolerite\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml

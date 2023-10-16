@@ -95,6 +95,30 @@
     <Compile Include="TelasHomeForms\telasBuscar\FormBuscar.Designer.cs">
       <DependentUpon>FormBuscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaEmpresas.Designer.cs">
+      <DependentUpon>FormInformacoesBuscaEmpresas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaFuncionario.Designer.cs">
+      <DependentUpon>FormInformacoesBuscaFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaSalarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaSalarios.Designer.cs">
+      <DependentUpon>FormInformacoesBuscaSalarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaSetor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaSetor.Designer.cs">
+      <DependentUpon>FormInformacoesBuscaSetor.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelasHomeForms\telasCadastrar\FormCadastrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +228,18 @@
     <EmbeddedResource Include="TelasHomeForms\telasBuscar\FormBuscar.resx">
       <DependentUpon>FormBuscar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaEmpresas.resx">
+      <DependentUpon>FormInformacoesBuscaEmpresas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaFuncionario.resx">
+      <DependentUpon>FormInformacoesBuscaFuncionario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaSalarios.resx">
+      <DependentUpon>FormInformacoesBuscaSalarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasBuscar\FormInformacoesBuscaSetor.resx">
+      <DependentUpon>FormInformacoesBuscaSetor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelasHomeForms\telasCadastrar\FormCadastrar.resx">
       <DependentUpon>FormCadastrar.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioFaltas.resx">
       <DependentUpon>FormRelatorioFaltas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioHoras.resx">
+      <DependentUpon>FormRelatorioHoras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelasHomeForms\telasRelatório\Relatorios\FormRelatorioHorasExtras.resx">
       <DependentUpon>FormRelatorioHorasExtras.cs</DependentUpon>
@@ -297,6 +336,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagens\opcoes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\arquivar Funcionário.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

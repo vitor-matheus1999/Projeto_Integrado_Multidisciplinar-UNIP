@@ -17,6 +17,7 @@ namespace FormsDeskHolerite.TelasHomeForms.telasRelatório
         public FormRelatorio()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,23 +56,6 @@ namespace FormsDeskHolerite.TelasHomeForms.telasRelatório
             else
             {
                 MessageBox.Show("Digite um CPF/CNPJ válido primeiro.");
-            }
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            textBox1.Text = "Digite aqui seu CPF...";
-        }
-
-        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
-        {
-            if (domainUpDown1.SelectedItem.ToString() == "CPF")
-            {
-                textBox1.Text = "Digite seu CPF...";
-            }
-            else if (domainUpDown1.SelectedItem.ToString() == "CNPJ")
-            {
-                textBox1.Text = "Digite seu CNPJ...";
             }
         }
 

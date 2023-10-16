@@ -45,7 +45,13 @@ C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.pdb
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasArquivar.FormArquivar.resources
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasArquivar.FormEdicaoArquivamento.resources
-C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\Relatorio.dll
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\System.Drawing.Common.dll
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\bin\Debug\Relatorio.pdb
 C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasRelatório.FormRelatorio.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasRelatório.Relatorios.FormRelatorioFaltas.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasRelatório.Relatorios.FormRelatorioHorasExtras.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasRelatório.Relatorios.FormRelatorioHoras.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasBuscar.FormInformacoesBuscaEmpresas.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasBuscar.FormInformacoesBuscaFuncionario.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasBuscar.FormInformacoesBuscaSalarios.resources
+C:\Users\Comum\Desktop\faculdade\PIM QUARTO SEMESTRE\FormsDeskHolerite\obj\Debug\FormsDeskHolerite.TelasHomeForms.telasBuscar.FormInformacoesBuscaSetor.resources

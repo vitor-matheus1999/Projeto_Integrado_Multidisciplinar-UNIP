@@ -62,5 +62,10 @@ namespace FormsDeskHolerite.TelasHomeForms.telasRelatório.Relatorios
                 textBox2.Text = "N/A";
             }
         }
+
+        private void FormRelatorioHorasExtras_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

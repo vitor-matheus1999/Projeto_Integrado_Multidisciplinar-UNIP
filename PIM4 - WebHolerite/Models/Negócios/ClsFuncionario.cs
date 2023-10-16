@@ -33,7 +33,7 @@ namespace PIM4___WebHolerite.Models.Negócios
         private decimal salarioSeraAcrescentadoDevidoHorasExtras;
         private bool holeriteFinalizado;
         private bool funcionarioArquivado;
-        
+
         public Funcionario() { }
         public Funcionario(int idFuncionario, int idEmpresa, int idSetor, string nomeFuncionario, DateTime dataNascimento, DateTime dataAdmissao, string generoFuncionario, string cpfFuncionario, double horasNaoTrabalhadas, double horasExtras, decimal salarioSeraAcrescentadoDevidoHorasExtras, bool holeriteFinalizado, bool funcionarioArquivado)
         {
@@ -74,7 +74,7 @@ namespace PIM4___WebHolerite.Models.Negócios
             this.cidadeMoradia = cidadeMoradiaFuncionario;
         }
 
-        public Funcionario(int idContatoFuncionario, int idFuncionario, string tipoContatoFuncionario, string descricao) 
+        public Funcionario(int idContatoFuncionario, int idFuncionario, string tipoContatoFuncionario, string descricao)
         {
             this.idContatoFuncionario = idContatoFuncionario;
             this.idFuncionario = idFuncionario;

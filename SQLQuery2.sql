@@ -1,8 +1,8 @@
-CREATE TABLE TBsenhaFuncionario(
+CREATE TABLE TBsenhaLoginFuncionario(
 id_Senha_Funcionario INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
-id_Funcionario INT NOT NULL,
+id_Contato_Funcionario INT NOT NULL,
 senha VARCHAR(30) NOT NULL
-CONSTRAINT fkFuncionarioSenha_id_Funcionario FOREIGN KEY (id_Funcionario) REFERENCES TBfuncionario(id_Funcionario) 
+CONSTRAINT fkFuncionarioSenha_id_Funcionario FOREIGN KEY (id_Contato_Funcionario) REFERENCES TBfuncionario(id_Contato_Funcionario) 
 );
 USE BDfolhaDePagamento
 SELECT * FROM TBcontatoFuncionario
@@ -14,11 +14,19 @@ SELECT * FROM TBsalario
 SELECT * FROM TBsetor
 SELECT * FROM TBsocios
 SELECT * FROM TBadministradores
+SELECT * FROM TBsenhaLoginFuncionario
+
+UPDATE TBsenhaLoginFuncionario SET senha = 123 WHERE 
+
+SELECT contatoFunc.descricao, senhaLoginFuncRh.senha FROM TBsenhaLoginFuncionario AS senhaLoginFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaLoginFuncRh.id_Contato_Funcionario = contatoFunc.id_Contato_Funcionario
+
 
 SELECT * FROM TBenderecoFuncionario
 DELETE FROM TBempresa WHERE id_Empresa = 3;
 
 SELECT * FROM TBenderecoEmpresa
+
+INSERT INTO TBcontatoFuncionario(id_Funcionario,  tipo_Contato_Funcionario, descricao) VALUES(1,'Email Empresarial','vitormatheusob@gmail.com')
 
 SELECT id_Funcionario FROM TBfuncionario WHERE id_Empresa = 1 AND id_Setor = 1 AND  nome_Funcionario = 'Antonio Conselheiro ' AND cpf_Funcionario = '45678912354'
 

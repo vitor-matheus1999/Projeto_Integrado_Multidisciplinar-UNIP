@@ -1,5 +1,18 @@
 ﻿@{
     Layout = null;
+
+    string url = HttpContext.Current.Request.Url.AbsoluteUri;
+    string emailRedefinicaoSenha = url.Substring(url.IndexOf('0') + 1);
+
+    string mensagem1 = "Esqueceu sua senha?";
+    string mensagem2 = "Dica:";
+    string mensagem3 = "Anote em algum lugar seguro sua senha, para não esquecer novamente.";
+    if (ViewBag.SenhaAtualizada == true)
+    {
+        mensagem1 = "Mensagem";
+        mensagem2 = "";
+        mensagem3 = "Senha atualizada com sucesso";
+    }
 }
 
 <!DOCTYPE html>
@@ -15,20 +28,21 @@
 
         <!--parte esquerda da tela-->
         <section id="left">
-            <h1>Esqueceu sua senha?</h1><br>
-            <h2>Dica:<br>Anote em algum lugar seguro sua senha , para nãoo esquecer novamente.</h2>
+            <h1>@mensagem1</h1><br>
+            <h2>@mensagem2<br> @mensagem3 </h2>
         </section>
 
         <!--parte direita da tela-->
         <div class="card">
             <section id="right">
 
-                <form id="form" method="post" onsubmit="">
+                <form id="form" method="post" action="https://localhost:44311/WebHolerite/RedefinicaoSenha">
 
                     <h2>Alterar senha</h2><br>
 
                     <input type="text" id="senha" name="senha" placeholder="NOVA SENHA">
                     <input type="text" id="senha" name="confSenha" placeholder="CONFIRMAR SENHA">
+                    <input type="text" id="emailRedefinicaoSenha" name="emailRedefinicaoSenha" value=@emailRedefinicaoSenha style="display:none">
 
                     <br><button type="submit" id="btn">ENVIAR</button>
                 </form>

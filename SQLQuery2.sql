@@ -1,8 +1,10 @@
 CREATE TABLE TBsenhaLoginFuncionario(
 id_Senha_Funcionario INT IDENTITY(1,1) PRIMARY KEY NOT NULL,
+id_Funcionario INT NOT NULL,
 id_Contato_Funcionario INT NOT NULL,
 senha VARCHAR(30) NOT NULL
-CONSTRAINT fkFuncionarioSenha_id_Funcionario FOREIGN KEY (id_Contato_Funcionario) REFERENCES TBfuncionario(id_Contato_Funcionario) 
+CONSTRAINT fkFuncionarioSenha_id_Funcionario FOREIGN KEY (id_Funcionario) REFERENCES TBfuncionario(id_Funcionario),
+CONSTRAINT fkFuncionarioSenha_id_Contato_Funcionario FOREIGN KEY (id_Contato_Funcionario) REFERENCES TBcontatoFuncionario(id_Contato_Funcionario) 
 );
 USE BDfolhaDePagamento
 SELECT * FROM TBcontatoFuncionario
@@ -12,11 +14,17 @@ SELECT funcionario_Arquivado FROM TBfuncionario
 SELECT * FROM TBempresa
 SELECT * FROM TBsalario
 SELECT * FROM TBsetor
+SELECT * FROM TBfuncionario
 SELECT * FROM TBsocios
 SELECT * FROM TBadministradores
 SELECT * FROM TBsenhaLoginFuncionario
+SELECT * FROM TBempresa
 
-UPDATE TBsenhaLoginFuncionario SET senha = 123 WHERE 
+SELECT id_Contato_Funcionario,id_Funcionario,tipo_Contato_Funcionario,descricao FROM TBcontatoFuncionario WHERE id_Contato_Funcionario = 1 AND tipo_Contato_Funcionario LIKE '%Empresarial'
+
+SELECT id_Contato_Funcionario,id_Funcionario,tipo_Contato_Funcionario,descricao FROM TBcontatoFuncionario WHERE tipo_Contato_Funcionario LIKE '%Empresarial' AND id_Funcionario = 1
+
+UPDATE TBcontatoFuncionario SET tipo_Contato_Funcionario = 'Email Empresarial' WHERE id_Contato_Funcionario = 1
 
 SELECT contatoFunc.descricao, senhaLoginFuncRh.senha FROM TBsenhaLoginFuncionario AS senhaLoginFuncRh INNER JOIN TBcontatoFuncionario AS contatoFunc ON senhaLoginFuncRh.id_Contato_Funcionario = contatoFunc.id_Contato_Funcionario
 
@@ -36,14 +44,14 @@ INSERT INTO TBfuncionario(id_Empresa,id_Setor, nome_Funcionario, data_nascimento
 
 USE BDfolhaDePagamento
 
-DROP TABLE TBsenhaFuncionario;
+DROP TABLE TBsenhaLoginFuncionario;
 DROP TABLE TBcontatoFuncionario;
 DROP TABLE TBenderecoFuncionario;
 DROP TABLE TBadministradores;
 DROP TABLE TBfuncionario
 
 
-INSERT INTO TBsenhaFuncionario(id_Funcionario, senha) VALUES(1, '123')
+INSERT INTO TBsenhaLoginFuncionario(id_Funcionario,id_Contato_Funcionario, senha) VALUES(1, 1,'123')
 
 CREATE DATABASE BDfolhaDePagamento
 DROP DATABASE BDfolhaDePagamento

@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+    string url = "https://localhost:44311/WebHolerite/Index/" + ViewBag.IdFuncionario;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/historicoStyle.css")
+    <title>Histórico de Holerites</title>
+</head>
+<body>
+    <section class="home-head">
+        <div class="button home-head-pag_button">
+            <a href="@url">Pagina Inicial</a>
+            <button class="home-head-pag_arrow"><img src="../src/seta.png" alt=""></button>
+        </div>
+    </section>
+    <section class="home-body">
+        <div>
+            <h1>Histórico (folha de pagamento)</h1>
+        </div>
+        <div class="home-body-cont home-box">
+            <div class="home-body-cont_ref home-box-cont">
+                <h2 class="home-body-cont_titu">Mês Referente</h2>
+                <p>02/2023</p>
+                <p>03/2023</p>
+                <p>04/2023</p>
+                <p>05/2023</p>
+            </div>
+            <div class="home-box-cont home-body-cont_tipo">
+                <h2 class="home-body-cont_titu">Tipo</h2>
+                <p>Folha Mensal</p>
+                <p>Folha Mensal</p>
+                <p>Folha Mensal</p>
+                <p>Folha Mensal</p>
+            </div>
+            <div class="home-body-cont_visu home-box-cont">
+                <h2 class="home-body-cont_titu">Visualizar</h2>
+                <p>
+                    <button class="home-body-cont_button-img"><img src="@Url.Content("~/src/redirect.png")" alt=""></button>
+                </p>
+                <p>
+                    <button class="home-body-cont_button-img"><img src="@Url.Content("~/src/redirect.png")" alt=""></button>
+                </p>
+                <p>
+                    <button class="home-body-cont_button-img"><img src="@Url.Content("~/src/redirect.png")" alt=""></button>
+                </p>
+                <p>
+                    <button class="home-body-cont_button-img"><img src="@Url.Content("~/src/redirect.png")" alt=""></button>
+                </p>
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+
+    string url = "https://localhost:44311/WebHolerite/Index/" + ViewBag.IdFuncionario;
+    string urlInformacoesHolerite = "https://localhost:44311/WebHolerite/Empresa/" + ViewBag.IdFuncionario;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/folhaPagamentoStyle.css")
+    <title>Folha de Pagamento</title>
+</head>
+<body>
+    <section class="home-head">
+        <div class="button home-head-pag_button">
+            <a href="@Url.Content(url)">Pagina Inicial</a>
+            <button class="home-head-pag_arrow"><img src="@Url.Content("~/src/seta.png")" alt=""></button>
+        </div>
+    </section>
+    <section class="home-body">
+        <div class="home-body-title">
+            <h1>Folha de Pagamento</h1>
+        </div>
+        <div class="home-box home-body-cont">
+            <h2>Julho/2023</h2>
+            <a href="@urlInformacoesHolerite">Visualizar</a>
+            <button class="button home-body-cont_button"></button>
+            <button class="home-body-cont_button-img"><img src="@Url.Content("~/src/redirect.png")" alt="redirect"></button>
+        </div>
+    </section>
+</body>
+</html>

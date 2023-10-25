@@ -1,0 +1,103 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/empresaStyle.css")
+    <title>Holerite</title>
+</head>
+<body>
+    <section class="dados-empresa">
+        <h2>Dados da Empresa: </h2>
+        <div class="dados-empresa-cont">
+            <h3>@ViewBag.nomeEmpresarialFantasia</h3>
+            <div class="dados-empresa-cont_info">
+                <div class="dados-empresa-cont_info-titu">
+                    <p>Endereço:</p>
+                    <p>CNPJ:</p>
+                    <p>CPF:</p>
+                    <p>Matrícula:</p>
+                </div>
+                <div class="dados-empresa-cont_info-dados">
+                    <p>@ViewBag.bairro</p>
+                    <p>@ViewBag.CNPJ</p>
+                    <p>@ViewBag.cpfFuncionario</p>
+                    <p>@ViewBag.idFuncionario</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="dados-folha">
+        <h2>Informações da Folha:</h2>
+        <div class="dados-folha-tab">
+            <div class="dados-folha-tab-inf">
+                <div class="folha-info dados-folha-tab_info">
+                    <div class="dados-folha-tab_info-tit">
+                        <p>Período: </p>
+                        <p>Pagamento: </p>
+                    </div>
+                    <div class="dados-folha-tab_info-dados folha-info-dados">
+                        <p>@ViewBag.periodoTrabalho</p>
+                        <p>dia 30</p>
+                    </div>
+                </div>
+                <h3>Proventos</h3>
+                    <div class="folha-info dados-folha-tab_prov">
+                        <div class="dados-folha-tab_prov-tit">
+                            <p>Salário-Base:</p>
+                            <p>Feriado 100%: </p>
+                            <p>Horas Extras: </p>
+                        </div>
+                        <div class="dados-folha-tab_prov-dados folha-info-dados">
+                            <p>@ViewBag.salarioBruto</p>
+                            <p>@ViewBag.horasNaoTrabalhadas</p>
+                            <p>@ViewBag.horasExtras</p>
+                        </div>
+                    </div>
+                    <h3>Descontos</h3>
+                    <div class="folha-info dados-folha-tab_desc">
+                        <div class="dados-folha-tab_desc-tit">
+                            <p>INSS:</p>
+                            <p>Vale Transporte:</p>
+                            <p>Vale Alimentação:</p>
+                            <p>Adiantamento compensação:</p>
+                        </div>
+                        <div class="dados-folha-tab_desc-dados folha-info-dados">
+                            <p>@ViewBag.descontoINSS</p>
+                            <p>@ViewBag.descontoValeTransporte</p>
+                            <p>@ViewBag.descontoValeAlimentacao</p>
+                            <p>@ViewBag.horasExtras</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="dados-folha-tab-tot">
+                <div class="dados-folha-tab-tot_inf">
+                    <h3>Total</h3>
+                    <div class="dados-folha-tab-tot_info">
+                        <div class="dados-folha-tab-tot_titu">
+                            <p>Salário Bruto:</p>
+                            <p>Descontos: </p>
+                            <p>Salário Líquido:</p>
+                        </div>
+                        <div class="dados-folha-tab-tot_dados folha-info-dados">
+                            <p>@ViewBag.salarioBruto</p>
+                            <p>@ViewBag.horasNaoTrabalhadas</p>
+                            <p>@ViewBag.salarioLiquido</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dados-folha-tab-tot_val">
+                    <h3>Valor total recebido:</h3>
+                    <div class="folha-info-dados">
+                        <p>@ViewBag.salarioLiquido</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

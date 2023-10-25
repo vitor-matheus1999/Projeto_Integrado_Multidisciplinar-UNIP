@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+
+    string url = "https://localhost:44311/WebHolerite/Index/" + ViewBag.IdFuncionario;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoginWebHolerite</title>
+    @Styles.Render("~/Content/perfilStyle.css")
+    <title>Perfil</title>
+</head>
+<body>
+    <section class="home-head">
+        <div class="button home-head-pag_button">
+            <a href="@Url.Content(url)">Página Inicial</a>
+            <button class="home-head-pag_arrow"><img src="@Url.Content("~/src/seta.png")" alt=""></button>
+        </div>
+        <div class="home-head-perfil">
+            <img src="@Url.Content("~/src/perfil.png")" alt="perfil" class="home-head-perfil_img">
+            <div class="home-head-perfil_info">
+                <h1 class="home-head-usuario">@ViewBag.nomeFuncionario</h1>
+                <h2 class="home-head-id">@ViewBag.idFuncionario</h2>
+            </div>
+        </div>
+    </section>
+    <section class="home-body">
+        <div class="home-body-cont">
+            <div class="home-body-cont_titulo">
+                <p>Cargo</p>
+                <p>Área</p>
+                <p>Admissão</p>
+                <p>E-mail</p>
+                <p>Contato</p>
+                <p>Endereço</p>
+            </div>
+            <div class="home-body-cont_tex">
+                <p>@ViewBag.funcao_Setor</p>
+                <p>@ViewBag.nome_Setor</p>
+                <p>@ViewBag.dataAdmissao</p>
+                <p>@ViewBag.emailFuncionario</p>
+                <p>@ViewBag.descricao</p>
+                <p>@ViewBag.bairro</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

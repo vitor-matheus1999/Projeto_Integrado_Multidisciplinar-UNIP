@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PimOficial</string>
+    <string name="cpf">CPF:</string>
+    <string name="email">EMAIL:</string>
+    <string name="nome">NOME:</string>
+    <string name="pis">PIS</string>
+    <string name="longadouro">LONGADOURO</string>
+    <string name="dados_pessoais">DADOS PESSOAIS</string>
+    <string name="textview">TextView</string>
+    <string name="rg">RG:</string>
+</resources>

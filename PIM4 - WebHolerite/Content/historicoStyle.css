@@ -1,0 +1,139 @@
+﻿body {
+    background-color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 40%;
+    margin: auto;
+}
+
+/* PADR�O */
+
+.home-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top:100px;
+}
+
+.button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #7c639c;
+    border-radius: 0.5rem;
+    border: none;
+}
+
+.button a {
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+.button button {
+    background-color: white;
+    border: 1px solid #7c639c;
+    border-radius: 0.5rem;
+    padding: 0px;
+}
+
+/* CABECALHO */
+.home-head {
+    display: flex;
+    justify-content: flex-end;
+    margin: 1rem;
+}
+
+.home-head-pag_button {
+    width: 13rem;
+    height: 2rem;
+}
+
+.home-head-pag_button a {
+    margin-left: 1rem;
+}
+
+.home-head-pag_arrow {
+    width: 2rem;
+    height: 2rem;
+}
+
+.home-head-pag_arrow img {
+    width: 90%;
+    margin-top: 0.094rem;
+}
+
+/* CORPO */
+
+.home-box {
+    background-color: #dedce0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 30rem;
+    height: 15rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.home-body-cont_visu {
+    text-align: center;
+}
+
+.home-body-cont_button {
+    width: 8rem;
+    height: 2rem;
+}
+
+.home-body-cont_button-img {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: white;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.home-body-cont_button-img img {
+    width: 100%;
+}
+
+.home-body-cont_titu {
+    background-color: #7c639c;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    width: 8rem;
+    height: 2rem;
+    text-align: center;
+}
+
+.home-body-cont_ref {
+    border-right: 1px solid #7c639c;
+}
+
+.home-body-cont_ref p {
+    border-bottom: 1px solid #7c639c;
+    line-height: 1.2rem;
+    padding: 0.1rem;
+}
+
+.home-body-cont_tipo p {
+    border-bottom: 1px solid #7c639c;
+    line-height: 1.2rem;
+    padding: 0.1rem;
+}
+
+.home-body-cont_visu {
+    border-left: 1px solid #7c639c;
+}
+
+    .home-body-cont_visu p {
+        border-bottom: 1px solid #7c639c;
+    }
+
+.home-box-cont {
+    padding: 1rem;
+}
